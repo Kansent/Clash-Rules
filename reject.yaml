@@ -1,0 +1,41 @@
+payload:
+  - DOMAIN-SUFFIX,reyun.com
+  - DOMAIN-SUFFIX,xdrig.com
+  - DOMAIN-KEYWORD,umeng
+  - DOMAIN-KEYWORD,umengcloud
+  - DOMAIN-SUFFIX,caoyue.com.cn
+  - DOMAIN-SUFFIX,app-measurement.com
+  - DOMAIN-SUFFIX,duxiaoman.com
+
+  #微信小程序
+  - DOMAIN-SUFFIX,ad.xiaotucc.com
+
+  #美团
+  - DOMAIN-SUFFIX,cmpassport.com
+  - DOMAIN-SUFFIX,httpdns.meituan.com
+
+  #Lofter
+  - DOMAIN-SUFFIX,ad.mh.163.com
+  - DOMAIN-SUFFIX,netease.im
+  - DOMAIN-SUFFIX,bytedance.com
+  - DOMAIN-SUFFIX,ad.lofter.com
+
+  #名人朋友圈
+  - DOMAIN-SUFFIX,mobads.baidu.com
+  - DOMAIN-SUFFIX,sdk.e.qq.com
+  - DOMAIN-SUFFIX,mobads-logs.baidu.com
+  - DOMAIN-SUFFIX,open.e.kuaishou.com
+  - DOMAIN-SUFFIX,g-api.kwai.com
+  - DOMAIN-SUFFIX,bugly.qq.com
+  - DOMAIN-SUFFIX,open.e.kuaishou.cn
+  - DOMAIN-SUFFIX,open.kuaishouzt.com
+  - DOMAIN-SUFFIX,open.kwaizt.com
+  - DOMAIN-SUFFIX,coeusssyp.com
+  - DOMAIN-SUFFIX,ugdtimg.com
+  - DOMAIN-SUFFIX,gdtimg.com
+  - DOMAIN-SUFFIX,funshion.com
+  - DOMAIN-SUFFIX,bcelive.com
+  - DOMAIN-SUFFIX,ad-scope.com.cn
+  - DOMAIN-SUFFIX,sdk.beizi.biz
+  - DOMAIN-SUFFIX,cpatrk.net
+
