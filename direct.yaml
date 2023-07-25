@@ -61,3 +61,29 @@ payload:
   - DOMAIN-SUFFIX,stdtime.gov.hk
   - DOMAIN-SUFFIX,time.apple.com
   - DOMAIN-SUFFIX,pool.ntp.org
+
+  #Hoyoverse
+  - DOMAIN-SUFFIX,sdk.hoyoverse.com
+  - DOMAIN-SUFFIX,fastcdn.hoyoverse.com
+  - DOMAIN-SUFFIX,sdk-os-static.hoyoverse.com
+  - DOMAIN-SUFFIX,hkrpg-launcher-static.hoyoverse.com
+  - DOMAIN-SUFFIX,hkrpg-launcher.hoyoverse.com
+  - DOMAIN-SUFFIX,hkrpg-sdk-os-static.hoyoverse.com
+  - DOMAIN-SUFFIX,hkrpg-sdk-os.hoyoverse.com
+  - DOMAIN-SUFFIX,sg-public-data-api.hoyoverse.com
+  - DOMAIN-SUFFIX,starrails.com
+  - DOMAIN-SUFFIX,minor-api-os.hoyoverse.com
+  - DOMAIN-SUFFIX,prod-official-asia-dp01.starrails.com
+  - DOMAIN-SUFFIX,abtest-api-data-sg.hoyoverse.com
+  - DOMAIN-SUFFIX,sg-hkrpg-api.hoyoverse.com
+  - DOMAIN-SUFFIX,sg-beta-api.hoyoverse.com
+  - DOMAIN-SUFFIX,yuanshen.com
+  - DOMAIN-SUFFIX,sg-public-api.hoyoverse.com
+  - DOMAIN-SUFFIX,sg-hk4e-api.hoyoverse.com
+  - DOMAIN-SUFFIX,hk4e-launcher-static.hoyoverse.com
+  - DOMAIN-SUFFIX,hk4e-sdk-os-static.hoyoverse.com
+  - DOMAIN-SUFFIX,api-account-os.hoyoverse.com
+  - DOMAIN-SUFFIX,hk4e-sdk-os.hoyoverse.com
+  - DOMAIN-SUFFIX,mihoyo.com
+  - IP-CIDR,47.242.0.0/16,no-resolve
+  - IP-CIDR,170.33.0.0/16,no-resolve

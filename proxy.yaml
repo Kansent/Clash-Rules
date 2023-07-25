@@ -1,4 +1,5 @@
 payload:
+  #Hoyoverse
   - DOMAIN-SUFFIX,globaldp-prod-os01.starrails.com
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hoyoverse.com
