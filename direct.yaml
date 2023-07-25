@@ -1,6 +1,7 @@
 payload:
-  - DOMAIN-SUFFIX,appmifile.com           #小米
-  - DOMAIN-SUFFIX,split.io
+  - DOMAIN-SUFFIX,appmifile.com           #小米国际版
+  - DOMAIN-SUFFIX,buy.mi.com              #小米国际版
+  #- DOMAIN-SUFFIX,split.io
   - DOMAIN-SUFFIX,huggingface.co          #AI绘画模型
   - DOMAIN-SUFFIX,cloudflarestorage.com   #cloudflare
   - DOMAIN-SUFFIX,images.weserv.nl        #图片反代
