@@ -1,26 +1,4 @@
 payload:
-  #小米国际版
-  - DOMAIN-SUFFIX,appmifile.com
-  - DOMAIN-SUFFIX,buy.mi.com
-  - DOMAIN-SUFFIX,alsgp0.fds.api.xiaomi.com
-
-  #腾讯
-  - DOMAIN-SUFFIX,wetvinfo.com              #腾讯视频海外版
-  - DOMAIN-SUFFIX,wetv.vip                  #腾讯视频海外版
-  - IP-CIDR,211.152.148.0/24,no-resolve     #腾讯视频海外版
-  - IP-CIDR,203.205.192.0/18,no-resolve     #腾讯视频海外版
-  - DOMAIN-SUFFIX,tencent-cloud.net
-
-  #一加
-  - DOMAIN-SUFFIX,oxygenos.oneplus.net
-  - DOMAIN-SUFFIX,h2os.com
-  - IP-CIDR,13.225.93.0/24,no-resolve
-  - IP-CIDR,23.223.198.209/32,no-resolve
-
-  #Apple
-  - DOMAIN-SUFFIX,push.apple.com            #Push
-  - DOMAIN-SUFFIX,xp.apple.com,DIRECT       #Update
-  - DOMAIN-SUFFIX,guzzoni.apple.com         #Siri
   - DOMAIN-SUFFIX,mapi.xiaotucc.com         #小兔充充
   - DOMAIN-SUFFIX,huggingface.co            #AI绘画模型
   - DOMAIN-SUFFIX,cloudflarestorage.com     #cloudflare
@@ -37,7 +15,37 @@ payload:
   - DOMAIN-SUFFIX,cc.fantia.jp              #fantia媒体
   - DOMAIN-SUFFIX,maj-soul.com              #雀魂
   - DOMAIN-SUFFIX,download.teamviewer.com   #Teamviewer
-  - DOMAIN-SUFFIX,95516.com                 #中国银联
+  - DOMAIN-SUFFIX,95516.com                 #中国银联  
+
+  #小米国际版
+  - DOMAIN-SUFFIX,appmifile.com
+  - DOMAIN-SUFFIX,buy.mi.com
+  - DOMAIN-SUFFIX,alsgp0.fds.api.xiaomi.com
+
+  #腾讯
+  - DOMAIN-SUFFIX,wetvinfo.com              #腾讯视频海外版
+  - DOMAIN-SUFFIX,wetv.vip                  #腾讯视频海外版
+  - IP-CIDR,211.152.148.0/24,no-resolve     #腾讯视频海外版
+  - IP-CIDR,203.205.192.0/18,no-resolve     #腾讯视频海外版
+  - DOMAIN-SUFFIX,tencent-cloud.net
+  - DOMAIN-SUFFIX,qq.com
+
+  #哔哩哔哩
+  - DOMAIN-SUFFIX,bilibili.com
+  - DOMAIN-SUFFIX,biliapi.net
+  - DOMAIN-SUFFIX,bilivideo.com
+  - DOMAIN-SUFFIX,biligame.com
+
+  #一加
+  - DOMAIN-SUFFIX,oxygenos.oneplus.net
+  - DOMAIN-SUFFIX,h2os.com
+  - IP-CIDR,13.225.93.0/24,no-resolve
+  - IP-CIDR,23.223.198.209/32,no-resolve
+
+  #Apple
+  - DOMAIN-SUFFIX,push.apple.com            #Push
+  - DOMAIN-SUFFIX,xp.apple.com              #Update
+  - DOMAIN-SUFFIX,guzzoni.apple.com         #Siri
 
   #Nexon
   - DOMAIN-SUFFIX,nexoncdn.co.kr
@@ -50,4 +58,3 @@ payload:
   - DOMAIN-SUFFIX,stdtime.gov.hk
   - DOMAIN-SUFFIX,time.apple.com
   - DOMAIN-SUFFIX,pool.ntp.org
-
