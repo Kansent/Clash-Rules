@@ -4,11 +4,12 @@ payload:
   - DOMAIN-SUFFIX,buy.mi.com
   - DOMAIN-SUFFIX,alsgp0.fds.api.xiaomi.com
 
-  #腾讯视频海外版
-  - DOMAIN-SUFFIX,wetvinfo.com
-  - DOMAIN-SUFFIX,wetv.vip
-  - IP-CIDR,211.152.148.0/24,no-resolve
-  - IP-CIDR,203.205.192.0/18,no-resolve
+  #腾讯
+  - DOMAIN-SUFFIX,wetvinfo.com              #腾讯视频海外版
+  - DOMAIN-SUFFIX,wetv.vip                  #腾讯视频海外版
+  - IP-CIDR,211.152.148.0/24,no-resolve     #腾讯视频海外版
+  - IP-CIDR,203.205.192.0/18,no-resolve     #腾讯视频海外版
+  - DOMAIN-SUFFIX,tencent-cloud.net
 
   #一加
   - DOMAIN-SUFFIX,oxygenos.oneplus.net
@@ -20,7 +21,7 @@ payload:
   - DOMAIN-SUFFIX,push.apple.com            #Push
   - DOMAIN-SUFFIX,xp.apple.com,DIRECT       #Update
   - DOMAIN-SUFFIX,guzzoni.apple.com         #Siri
-
+  - DOMAIN-SUFFIX,mapi.xiaotucc.com         #小兔充充
   - DOMAIN-SUFFIX,huggingface.co            #AI绘画模型
   - DOMAIN-SUFFIX,cloudflarestorage.com     #cloudflare
   - DOMAIN-SUFFIX,images.weserv.nl          #图片反代
