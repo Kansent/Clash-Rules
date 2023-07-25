@@ -2,3 +2,5 @@ payload:
   - DOMAIN-SUFFIX,globaldp-prod-os01.starrails.com
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hoyoverse.com
+  - IP-CIDR,170.33.13.121/32,no-resolve
+  
