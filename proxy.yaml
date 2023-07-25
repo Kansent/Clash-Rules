@@ -3,9 +3,16 @@ payload:
   - DOMAIN-SUFFIX,iframe.ly                             #CDN
   - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,recaptcha.net
-  - DOMAIN-SUFFIX,googleapis.cn                         #Google
   - DOMAIN-SUFFIX,nexon.com
   
+  #Google
+  - DOMAIN-SUFFIX,google.com
+  - DOMAIN-SUFFIX,googleapis.com
+  - DOMAIN-SUFFIX,youtube.com
+  - DOMAIN-SUFFIX,googleapis.cn
+  - DOMAIN-SUFFIX,youtu.be
+  - DOMAIN-SUFFIX,ytimg.com
+
   #Github
   - DOMAIN-SUFFIX,github.com
   - DOMAIN-SUFFIX,githubusercontent.com
