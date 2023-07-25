@@ -19,6 +19,12 @@ payload:
   - DOMAIN-SUFFIX,chinaz.com                #站长之家
   - DOMAIN-SUFFIX,kemono.su
   - DOMAIN-SUFFIX,kemono.party
+  - DOMAIN-SUFFIX,graueneko.xyz             #明日方舟工具箱
+  - DOMAIN-SUFFIX,aconvert.com
+  - DOMAIN-SUFFIX,wetransfer.com
+  - DOMAIN-SUFFIX,crazygames.com
+  - DOMAIN-SUFFIX,snapdrop.net
+
 
   #小米国际版
   - DOMAIN-SUFFIX,appmifile.com

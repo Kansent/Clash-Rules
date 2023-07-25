@@ -1,7 +1,11 @@
 payload:
   - DOMAIN-SUFFIX,bing.com
   - DOMAIN-SUFFIX,iframe.ly                             #CDN
-
+  - DOMAIN-SUFFIX,openai.com
+  - DOMAIN-SUFFIX,recaptcha.net
+  - DOMAIN-SUFFIX,googleapis.cn                         #Google
+  - DOMAIN-SUFFIX,nexon.com
+  
   #Github
   - DOMAIN-SUFFIX,github.com
   - DOMAIN-SUFFIX,githubusercontent.com
@@ -27,3 +31,6 @@ payload:
   - DOMAIN-SUFFIX,hoyoverse.com
   - IP-CIDR,170.33.13.121/32,no-resolve
   
+  #多邻国
+  - DOMAIN-SUFFIX,api2.duolingo.cn
+  - IP-CIDR,139.196.36.248/32,no-resolve
