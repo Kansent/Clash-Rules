@@ -3,16 +3,20 @@ payload:
   - DOMAIN-SUFFIX,xdrig.com
   - DOMAIN-KEYWORD,umeng
   - DOMAIN-KEYWORD,umengcloud
+  - DOMAIN-SUFFIX,shujupie.com              #友盟
   - DOMAIN-SUFFIX,caoyue.com.cn
   - DOMAIN-SUFFIX,app-measurement.com
   - DOMAIN-SUFFIX,duxiaoman.com
+  - DOMAIN-SUFFIX,360.cn
+  - DOMAIN-SUFFIX,360.com
 
   #微信小程序
-  - DOMAIN-SUFFIX,ad.xiaotucc.com
+  - DOMAIN-SUFFIX,ad.xiaotucc.com           #小兔充充
+  - DOMAIN-SUFFIX,duiba.com.cn              #兑吧
 
   #美团
   - DOMAIN-SUFFIX,cmpassport.com
-  - DOMAIN-SUFFIX,httpdns.meituan.com
+  - DOMAIN-SUFFIX,httpdns.meituan.com       #私有DNS
 
   #Lofter
   - DOMAIN-SUFFIX,ad.mh.163.com
