@@ -16,7 +16,7 @@ payload:
   - DOMAIN-SUFFIX,maj-soul.com              #雀魂
   - DOMAIN-SUFFIX,download.teamviewer.com   #Teamviewer
   - DOMAIN-SUFFIX,95516.com                 #中国银联
-  - DOMAIN-SUFFIX,chinaz.com
+  - DOMAIN-SUFFIX,chinaz.com                #站长之家
 
   #小米国际版
   - DOMAIN-SUFFIX,appmifile.com
