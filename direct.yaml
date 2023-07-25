@@ -1,25 +1,25 @@
 payload:
-  - DOMAIN-SUFFIX,appmifile.com           #小米国际版
-  - DOMAIN-SUFFIX,buy.mi.com              #小米国际版
-  #- DOMAIN-SUFFIX,split.io
-  - DOMAIN-SUFFIX,huggingface.co          #AI绘画模型
-  - DOMAIN-SUFFIX,cloudflarestorage.com   #cloudflare
-  - DOMAIN-SUFFIX,images.weserv.nl        #图片反代
-  - DOMAIN-SUFFIX,gitv.tv                 #iqiyi
-  - DOMAIN-SUFFIX,download.nvidia.com     #Nvidia
-  - DOMAIN-SUFFIX,letitfly.me             #MAT规则论坛
-  - DOMAIN-SUFFIX,loli.net                #图床
-  - DOMAIN-SUFFIX,wetvinfo.com            #腾讯视频海外版
-  - DOMAIN-SUFFIX,wetv.vip                #腾讯视频海外版
-  - DOMAIN-SUFFIX,download.epicgames.com  #EPIC下载
-  - DOMAIN-SUFFIX,flyert.com              #飞客论坛
-  - DOMAIN-SUFFIX,2poi.jp                 #2poi
-  - DOMAIN-SUFFIX,cdn.ea.com              #EA下载
-  - DOMAIN-SUFFIX,media.steampowered.com  #steam下载
-  - DOMAIN-SUFFIX,cc.fantia.jp            #fantia媒体
-  - DOMAIN-SUFFIX,oxygenos.oneplus.net    #一加系统
-  - DOMAIN-SUFFIX,h2os.com                #一加系统
-  - DOMAIN-SUFFIX,maj-soul.com            #雀魂
+  - DOMAIN-SUFFIX,appmifile.com             #小米国际版
+  - DOMAIN-SUFFIX,buy.mi.com                #小米国际版
+  - DOMAIN-SUFFIX,alsgp0.fds.api.xiaomi.com #小米国际版
+  - DOMAIN-SUFFIX,huggingface.co            #AI绘画模型
+  - DOMAIN-SUFFIX,cloudflarestorage.com     #cloudflare
+  - DOMAIN-SUFFIX,images.weserv.nl          #图片反代
+  - DOMAIN-SUFFIX,gitv.tv                   #iqiyi
+  - DOMAIN-SUFFIX,download.nvidia.com       #Nvidia
+  - DOMAIN-SUFFIX,letitfly.me               #MAT规则论坛
+  - DOMAIN-SUFFIX,loli.net                  #图床
+  - DOMAIN-SUFFIX,wetvinfo.com              #腾讯视频海外版
+  - DOMAIN-SUFFIX,wetv.vip                  #腾讯视频海外版
+  - DOMAIN-SUFFIX,download.epicgames.com    #EPIC下载
+  - DOMAIN-SUFFIX,flyert.com                #飞客论坛
+  - DOMAIN-SUFFIX,2poi.jp                   #2poi
+  - DOMAIN-SUFFIX,cdn.ea.com                #EA下载
+  - DOMAIN-SUFFIX,media.steampowered.com    #steam下载
+  - DOMAIN-SUFFIX,cc.fantia.jp              #fantia媒体
+  - DOMAIN-SUFFIX,oxygenos.oneplus.net      #一加系统
+  - DOMAIN-SUFFIX,h2os.com                  #一加系统
+  - DOMAIN-SUFFIX,maj-soul.com              #雀魂
 
   #ntp
   - DOMAIN-SUFFIX,time.is
