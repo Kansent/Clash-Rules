@@ -1,4 +1,20 @@
 payload:
+  - DOMAIN-SUFFIX,bing.com
+  - DOMAIN-SUFFIX,iframe.ly                             #CDN
+
+  #Twitter
+  - DOMAIN-SUFFIX,twitter.com
+  - DOMAIN-SUFFIX,twimg.com
+
+  #Facebook
+  - DOMAIN-SUFFIX,facebook.com
+  - DOMAIN-SUFFIX,fbcdn.net
+
+  #Pixiv
+  - DOMAIN-SUFFIX,pixiv.net
+  - DOMAIN-SUFFIX,pximg.net
+  - DOMAIN-SUFFIX,fanbox.cc
+
   #Hoyoverse
   - DOMAIN-SUFFIX,globaldp-prod-os01.starrails.com
   - DOMAIN-SUFFIX,hoyolab.com
