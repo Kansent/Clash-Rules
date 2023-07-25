@@ -15,7 +15,8 @@ payload:
   - DOMAIN-SUFFIX,cc.fantia.jp              #fantia媒体
   - DOMAIN-SUFFIX,maj-soul.com              #雀魂
   - DOMAIN-SUFFIX,download.teamviewer.com   #Teamviewer
-  - DOMAIN-SUFFIX,95516.com                 #中国银联  
+  - DOMAIN-SUFFIX,95516.com                 #中国银联
+  - DOMAIN-SUFFIX,chinaz.com
 
   #小米国际版
   - DOMAIN-SUFFIX,appmifile.com
