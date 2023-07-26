@@ -25,11 +25,15 @@ payload:
   - DOMAIN-SUFFIX,crazygames.com
   - DOMAIN-SUFFIX,snapdrop.net
 
+  #iqiyi
+  - DOMAIN-SUFFIX,iq.com
+
 
   #小米国际版
   - DOMAIN-SUFFIX,appmifile.com
   - DOMAIN-SUFFIX,buy.mi.com
   - DOMAIN-SUFFIX,alsgp0.fds.api.xiaomi.com
+  - DOMAIN-SUFFIX,tv.global.mi.com
 
   #腾讯
   - DOMAIN-SUFFIX,wetvinfo.com              #腾讯视频海外版
