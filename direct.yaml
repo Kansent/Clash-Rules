@@ -28,7 +28,8 @@ payload:
   #iqiyi
   - DOMAIN-SUFFIX,iq.com
 
-
+  - DOMAIN-SUFFIX,ulivetv.net
+  
   #小米国际版
   - DOMAIN-SUFFIX,appmifile.com
   - DOMAIN-SUFFIX,buy.mi.com
