@@ -98,3 +98,8 @@ payload:
   - DOMAIN-SUFFIX,mihoyo.com
   - IP-CIDR,47.242.0.0/16,no-resolve
   - IP-CIDR,170.33.0.0/16,no-resolve
+  - DOMAIN-SUFFIX,sg-hk4e-api-static.hoyoverse.com
+  - DOMAIN-SUFFIX,hk4e-sdk-os-s.hoyoverse.com
+  - IP-CIDR,47.74.32.0/19,no-resolve
+  - DOMAIN-SUFFIX,dispatch-hk4e-global-os-asia.hoyoverse.com
+  
