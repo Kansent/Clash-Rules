@@ -25,6 +25,12 @@ payload:
   - DOMAIN-SUFFIX,crazygames.com
   - DOMAIN-SUFFIX,snapdrop.net
   - DOMAIN-SUFFIX,geetest.com
+  - DOMAIN-SUFFIX,darkreader.org
+
+  #SSL
+  - DOMAIN-SUFFIX,abetterinternet.org
+  - DOMAIN-SUFFIX,lencr.org
+  - DOMAIN-SUFFIX,ocsp.pki.goog
 
   #iqiyi
   - DOMAIN-SUFFIX,iq.com
