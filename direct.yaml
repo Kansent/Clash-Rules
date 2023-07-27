@@ -27,6 +27,7 @@ payload:
   - DOMAIN-SUFFIX,geetest.com
   - DOMAIN-SUFFIX,darkreader.org
   - DOMAIN-SUFFIX,52pojie.cn
+  - DOMAIN-SUFFIX,tvhuoxing.com
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
