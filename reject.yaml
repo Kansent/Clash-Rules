@@ -13,7 +13,7 @@ payload:
 
   #银河奇异果
   - DOMAIN-SUFFIX,msg.ptqy.gitv.tv
-  - DOMAIN-SUFFIX,puma-api.ptqy.gitv.tv
+  #- DOMAIN-SUFFIX,puma-api.ptqy.gitv.tv
   #- DOMAIN-SUFFIX,itv.ptqy.gitv.tv
 
   #腾讯视频
