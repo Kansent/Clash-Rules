@@ -10,6 +10,15 @@ payload:
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
 
+  #腾讯视频
+  - DOMAIN,btrace.qq.com
+  - DOMAIN,mtrace.qq.com
+  - DOMAIN,vqq.admaster.com.cn
+  - DOMAIN-SUFFIX,atianqi.com
+  - DOMAIN,tencent-dtv.m.cn.miaozhen.com
+  - DOMAIN,news-l.play.ott.video.qq.com
+  - DOMAIN,omgmta.play.ott.video.qq.com
+
   #微信小程序
   - DOMAIN-SUFFIX,ad.xiaotucc.com           #小兔充充
   - DOMAIN-SUFFIX,duiba.com.cn              #兑吧
