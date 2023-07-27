@@ -34,6 +34,7 @@ payload:
   - IP-CIDR,59.32.0.0/13,no-resolve
   - DOMAIN-SUFFIX,ptqy.gitv.tv
 
+
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
   - DOMAIN-SUFFIX,lencr.org
@@ -42,6 +43,7 @@ payload:
   #iqiyi
   - DOMAIN-SUFFIX,iq.com
   - DOMAIN-SUFFIX,ulivetv.net
+  - DOMAIN-SUFFIX,iqiyi.com
   
   #小米国际版
   - DOMAIN-SUFFIX,appmifile.com
