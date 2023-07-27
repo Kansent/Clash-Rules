@@ -4,6 +4,7 @@ payload:
   - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,recaptcha.net
   - DOMAIN-SUFFIX,nexon.com
+  - DOMAIN-SUFFIX,t.me
   
   #Google
   - DOMAIN-SUFFIX,google.com

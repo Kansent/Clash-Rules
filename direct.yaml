@@ -26,6 +26,7 @@ payload:
   - DOMAIN-SUFFIX,snapdrop.net
   - DOMAIN-SUFFIX,geetest.com
   - DOMAIN-SUFFIX,darkreader.org
+  - DOMAIN-SUFFIX,52pojie.cn
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
