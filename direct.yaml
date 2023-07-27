@@ -126,6 +126,7 @@ payload:
   - DOMAIN-SUFFIX,api-account-os.hoyoverse.com
   - DOMAIN-SUFFIX,hk4e-sdk-os.hoyoverse.com
   - DOMAIN-SUFFIX,mihoyo.com
+  - DOMAIN-SUFFIX,hoyoverse.com
   - IP-CIDR,47.242.0.0/16,no-resolve
   - IP-CIDR,170.33.0.0/16,no-resolve
   - DOMAIN-SUFFIX,sg-hk4e-api-static.hoyoverse.com
