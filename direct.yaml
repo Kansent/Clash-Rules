@@ -58,6 +58,7 @@ payload:
   - IP-CIDR,203.205.192.0/18,no-resolve     #腾讯视频海外版
   - DOMAIN-SUFFIX,tencent-cloud.net
   - DOMAIN-SUFFIX,qq.com
+  - DOMAIN-SUFFIX,wechat.com
 
   #哔哩哔哩
   - DOMAIN-SUFFIX,bilibili.com
