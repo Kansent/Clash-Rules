@@ -9,7 +9,7 @@ payload:
   - DOMAIN-SUFFIX,duxiaoman.com
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
-  - DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net
+  - DOMAIN-SUFFIX,bloodhound.spotify.com
 
   #银河奇异果
   #- DOMAIN-SUFFIX,msg.ptqy.gitv.tv
