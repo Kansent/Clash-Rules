@@ -29,6 +29,7 @@ payload:
   - DOMAIN-SUFFIX,52pojie.cn
   - DOMAIN-SUFFIX,tvhuoxing.com
   - DOMAIN,cdn3.bluestacks.com
+  - DOMAIN-SUFFIX,akamaized.net
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
