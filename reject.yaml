@@ -10,6 +10,9 @@ payload:
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
 
+  #银河奇异果
+  - DOMAIN-SUFFIX,msg.ptqy.gitv.tv
+
   #腾讯视频
   - DOMAIN,btrace.qq.com
   - DOMAIN,mtrace.qq.com
