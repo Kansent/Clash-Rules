@@ -30,10 +30,6 @@ payload:
   - DOMAIN,cdn3.bluestacks.com
   - DOMAIN-SUFFIX,akamaized.net
 
-  - IP-CIDR,116.211.192.0/20,no-resolve
-  - IP-CIDR,59.32.0.0/13,no-resolve
-  - DOMAIN-SUFFIX,ptqy.gitv.tv
-
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
@@ -44,6 +40,9 @@ payload:
   - DOMAIN-SUFFIX,iq.com
   - DOMAIN-SUFFIX,ulivetv.net
   - DOMAIN-SUFFIX,iqiyi.com
+  - IP-CIDR,116.211.192.0/20,no-resolve
+  - IP-CIDR,59.32.0.0/13,no-resolve
+  - DOMAIN-SUFFIX,ptqy.gitv.tv
   
   #小米国际版
   - DOMAIN-SUFFIX,appmifile.com
@@ -71,6 +70,7 @@ payload:
   - DOMAIN-SUFFIX,h2os.com
   - IP-CIDR,13.225.93.0/24,no-resolve
   - IP-CIDR,23.223.198.209/32,no-resolve
+  - DOMAIN-SUFFIX,1plus.io
 
   #Apple
   - DOMAIN-SUFFIX,push.apple.com            #Push

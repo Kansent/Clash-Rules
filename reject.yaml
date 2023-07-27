@@ -12,6 +12,10 @@ payload:
   - DOMAIN-SUFFIX,bloodhound.spotify.com
   - DOMAIN,api-partner.spotify.com
 
+  #私有DNS
+  - DOMAIN,dns.jd.com
+  - DOMAIN,httpdns.meituan.com
+
   #银河奇异果
   - DOMAIN-SUFFIX,pb.bi.gitv.tv
   - DOMAIN-SUFFIX,t7z.cupid.ptqy.gitv.tv
@@ -49,8 +53,7 @@ payload:
 
   #美团
   - DOMAIN-SUFFIX,cmpassport.com
-  - DOMAIN-SUFFIX,httpdns.meituan.com       #私有DNS
-
+  
   #Lofter
   - DOMAIN-SUFFIX,ad.mh.163.com
   - DOMAIN-SUFFIX,netease.im
