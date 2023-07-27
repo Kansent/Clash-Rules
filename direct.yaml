@@ -3,7 +3,6 @@ payload:
   - DOMAIN-SUFFIX,huggingface.co            #AI绘画模型
   - DOMAIN-SUFFIX,cloudflarestorage.com     #cloudflare
   - DOMAIN-SUFFIX,images.weserv.nl          #图片反代
-  - DOMAIN-SUFFIX,gitv.tv                   #iqiyi
   - DOMAIN-SUFFIX,download.nvidia.com       #Nvidia
   - DOMAIN-SUFFIX,letitfly.me               #MAT规则论坛
   - DOMAIN-SUFFIX,loli.net                  #图床
@@ -32,6 +31,7 @@ payload:
   - DOMAIN-SUFFIX,akamaized.net
 
   - IP-CIDR,59.32.0.0/13,no-resolve
+  - DOMAIN-SUFFIX,ptqy.gitv.tv
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
