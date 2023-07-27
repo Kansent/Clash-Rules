@@ -12,7 +12,7 @@ payload:
   - DOMAIN-SUFFIX,audio-ak-spotify-com.akamaized.net
 
   #银河奇异果
-  - DOMAIN-SUFFIX,msg.ptqy.gitv.tv
+  #- DOMAIN-SUFFIX,msg.ptqy.gitv.tv
   #- DOMAIN-SUFFIX,puma-api.ptqy.gitv.tv
   #- DOMAIN-SUFFIX,itv.ptqy.gitv.tv
 
