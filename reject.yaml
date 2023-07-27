@@ -61,23 +61,7 @@ payload:
   - DOMAIN-SUFFIX,ad.lofter.com
 
   #名人朋友圈
-  - DOMAIN-SUFFIX,mobads.baidu.com
-  - DOMAIN-SUFFIX,sdk.e.qq.com
-  - DOMAIN-SUFFIX,mobads-logs.baidu.com
-  - DOMAIN-SUFFIX,open.e.kuaishou.com
-  - DOMAIN-SUFFIX,g-api.kwai.com
-  - DOMAIN-SUFFIX,bugly.qq.com
-  - DOMAIN-SUFFIX,open.e.kuaishou.cn
-  - DOMAIN-SUFFIX,open.kuaishouzt.com
-  - DOMAIN-SUFFIX,open.kwaizt.com
-  - DOMAIN-SUFFIX,coeusssyp.com
-  - DOMAIN-SUFFIX,ugdtimg.com
-  - DOMAIN-SUFFIX,gdtimg.com
-  - DOMAIN-SUFFIX,funshion.com
-  - DOMAIN-SUFFIX,bcelive.com
-  - DOMAIN-SUFFIX,ad-scope.com.cn
-  - DOMAIN-SUFFIX,sdk.beizi.biz
-  - DOMAIN-SUFFIX,cpatrk.net
+
 
   #Hoyoverse
   - DOMAIN-SUFFIX,log-upload-os.mihoyo.com
