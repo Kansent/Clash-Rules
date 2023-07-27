@@ -30,7 +30,7 @@ payload:
   - DOMAIN,cdn3.bluestacks.com
   - DOMAIN-SUFFIX,akamaized.net
 
-	- IP-CIDR,116.211.192.0/20,no-resolve
+  - IP-CIDR,116.211.192.0/20,no-resolve
   - IP-CIDR,59.32.0.0/13,no-resolve
   - DOMAIN-SUFFIX,ptqy.gitv.tv
 
