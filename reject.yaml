@@ -14,11 +14,7 @@ payload:
 
   #银河奇异果
   - DOMAIN-SUFFIX,pb.bi.gitv.tv
-  - DOMAIN-SUFFIX,store.ptqy.gitv.tv
   - DOMAIN-SUFFIX,t7z.cupid.ptqy.gitv.tv
-  - DOMAIN-SUFFIX,nl-rcd.ptqy.gitv.tv
-  - DOMAIN-SUFFIX,mixer.cupid.ptqy.gitv.tv
-  - DOMAIN,homeai.ptqy.gitv.tv
 
   #iqiyi
   - DOMAIN-SUFFIX,a.ckm.iqiyi.com
@@ -43,7 +39,6 @@ payload:
   - DOMAIN,btrace.qq.com
   - DOMAIN,mtrace.qq.com
   - DOMAIN,vqq.admaster.com.cn
-  - DOMAIN-SUFFIX,atianqi.com
   - DOMAIN,tencent-dtv.m.cn.miaozhen.com
   - DOMAIN,news-l.play.ott.video.qq.com
   - DOMAIN,omgmta.play.ott.video.qq.com
