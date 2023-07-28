@@ -31,6 +31,7 @@ payload:
   - DOMAIN-SUFFIX,akamaized.net
 
   - DOMAIN-SUFFIX,ap.spotify.com
+  - DOMAIN-SUFFIX,scdn.co
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
