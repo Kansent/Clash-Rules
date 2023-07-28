@@ -31,6 +31,7 @@ payload:
   - DOMAIN-SUFFIX,akamaized.net             #CDN
   - DOMAIN-SUFFIX,githubassets.com
   - DOMAIN-SUFFIX,kylc.com
+  - DOMAIN-SUFFIX,jsdelivr.net
 
   #Spotify
   - DOMAIN-SUFFIX,ap.spotify.com
@@ -50,7 +51,6 @@ payload:
   - DOMAIN,gae2-dealer.spotify.com
   - DOMAIN,mobile-ap.spotify.com
 
-  
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
   - DOMAIN-SUFFIX,lencr.org
@@ -109,6 +109,7 @@ payload:
   - DOMAIN-SUFFIX,stdtime.gov.hk
   - DOMAIN-SUFFIX,time.apple.com
   - DOMAIN-SUFFIX,pool.ntp.org
+  - DOMAIN-SUFFIX,ntp.msn.com
 
   #Microsoft
   - DOMAIN-SUFFIX,data.microsoft.com

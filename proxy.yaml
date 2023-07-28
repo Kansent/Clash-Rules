@@ -32,6 +32,7 @@ payload:
   #Github
   - DOMAIN-SUFFIX,github.com
   - DOMAIN-SUFFIX,githubusercontent.com
+  - DOMAIN-SUFFIX,gitlab.io
 
   #Twitter
   - DOMAIN-SUFFIX,twitter.com
