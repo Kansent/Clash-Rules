@@ -100,7 +100,8 @@ payload:
   - DOMAIN-SUFFIX,live.com
   - DOMAIN-SUFFIX,officeclient.microsoft.com    #OFFICE
   - DOMAIN-SUFFIX,update.microsoft.com
-  - DOMAIN-SUFFIX,cdn.office.net                #OFFICE
+  - DOMAIN-SUFFIX,office.net                #OFFICE
+  - DOMAIN-SUFFIX,office.com
   - DOMAIN-SUFFIX,mp.microsoft.com
   - DOMAIN-SUFFIX,msftconnecttest.com
   - DOMAIN-SUFFIX,msftncsi.com
@@ -108,6 +109,9 @@ payload:
   - DOMAIN-SUFFIX,dds.microsoft.com
   - DOMAIN-SUFFIX,azureedge.net                 #微软CDN
   - DOMAIN-SUFFIX,msedge.net
+  - DOMAIN-SUFFIX,msecnd.net                    #Edgecast
+  - DOMAIN-SUFFIX,windows.com
+
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com
