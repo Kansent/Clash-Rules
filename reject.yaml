@@ -12,6 +12,8 @@ payload:
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,sentry.dev
 
+  - DOMAIN-SUFFIX,bloodhound.spotify.com
+
   #私有DNS
   - DOMAIN,dns.jd.com
   - DOMAIN,httpdns.meituan.com
