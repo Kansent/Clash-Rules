@@ -35,7 +35,7 @@ payload:
   - DOMAIN-SUFFIX,ap.spotify.com
   - DOMAIN-SUFFIX,scdn.co
   - DOMAIN,guc3-spclient.spotify.com
-  - DOMAIN,spclient.wg.spotify.com
+  #- DOMAIN,spclient.wg.spotify.com
   - DOMAIN,dealer.spotify.com
   - DOMAIN,guc3-dealer.spotify.com
   - DOMAIN,ap-guc3.spotify.com
@@ -121,7 +121,6 @@ payload:
   - DOMAIN-SUFFIX,msecnd.net                    #Edgecast
   - DOMAIN-SUFFIX,windows.com
   - DOMAIN-SUFFIX,onedrive.com
-
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com
