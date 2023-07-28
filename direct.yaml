@@ -38,12 +38,14 @@ payload:
   - DOMAIN-SUFFIX,scdn.co
   - DOMAIN,guc3-spclient.spotify.com
   #- DOMAIN,spclient.wg.spotify.com       #地区检测
-  - DOMAIN,dealer.spotify.com
-  - DOMAIN,guc3-dealer.spotify.com
-  - DOMAIN,ap-guc3.spotify.com
-  - DOMAIN,apresolve.spotify.com
-  - DOMAIN,clienttoken.spotify.com
 
+  - DOMAIN,clienttoken.spotify.com
+  - DOMAIN,ap-gae2.spotify.com
+  - DOMAIN,api-partner.spotify.com
+  - DOMAIN-SUFFIX,spotifycdn.com
+  - DOMAIN,gae2-spclient.spotify.com
+  - DOMAIN,gae2-dealer.spotify.com
+  - DOMAIN,mobile-ap.spotify.com
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
