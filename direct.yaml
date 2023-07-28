@@ -33,7 +33,20 @@ payload:
   - DOMAIN-SUFFIX,kylc.com
   - DOMAIN-SUFFIX,jsdelivr.net
 
- 
+  #Spotify
+  - DOMAIN-SUFFIX,ap.spotify.com
+  - DOMAIN-SUFFIX,scdn.co
+  #- DOMAIN,spclient.wg.spotify.com       #地区检测
+  - DOMAIN,dealer.spotify.com
+  - DOMAIN,guc3-dealer.spotify.com
+  - DOMAIN,ap-guc3.spotify.com
+  - DOMAIN,apresolve.spotify.com
+  - DOMAIN,clienttoken.spotify.com
+  - DOMAIN,ap-gae2.spotify.com
+  - DOMAIN,api-partner.spotify.com
+  - DOMAIN-SUFFIX,spotifycdn.com
+  - DOMAIN,gae2-dealer.spotify.com
+  - DOMAIN,mobile-ap.spotify.com
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
