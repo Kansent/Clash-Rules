@@ -29,6 +29,7 @@ payload:
   - DOMAIN-SUFFIX,tvhuoxing.com
   - DOMAIN,cdn3.bluestacks.com
   - DOMAIN-SUFFIX,akamaized.net
+  - DOMAIN-SUFFIX,githubassets.com
 
   #Spotify
   - DOMAIN-SUFFIX,ap.spotify.com
@@ -37,7 +38,8 @@ payload:
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
   - DOMAIN-SUFFIX,lencr.org
-  - DOMAIN-SUFFIX,ocsp.pki.goog
+  - DOMAIN,ocsp.pki.goog
+  - DOMAIN,ocsp.digicert.com
 
   #iqiyi
   - DOMAIN-SUFFIX,iq.com
@@ -105,6 +107,7 @@ payload:
   - DOMAIN-SUFFIX,windowsupdate.com             #Windows Update
   - DOMAIN-SUFFIX,dds.microsoft.com
   - DOMAIN-SUFFIX,azureedge.net                 #微软CDN
+  - DOMAIN-SUFFIX,msedge.net
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com
