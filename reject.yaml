@@ -10,6 +10,8 @@ payload:
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
 
+  - DOMAIN,api-partner.spotify.com
+
   #私有DNS
   - DOMAIN,dns.jd.com
   - DOMAIN,httpdns.meituan.com
