@@ -9,6 +9,12 @@ payload:
   - DOMAIN-SUFFIX,spotify.com
   - DOMAIN-SUFFIX,dnslytics.com
   - DOMAIN-SUFFIX,cloudflare.com
+  - DOMAIN-SUFFIX,linkedin.com
+
+  #Discord  
+  - DOMAIN-SUFFIX,discord.com
+  - DOMAIN-SUFFIX,discordapp.com
+  - DOMAIN-SUFFIX,discord.media
 
   #Google
   - DOMAIN-SUFFIX,google.com
