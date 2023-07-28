@@ -9,7 +9,7 @@ payload:
   - DOMAIN-SUFFIX,duxiaoman.com
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
-  - DOMAIN,bloodhound.spotify.com
+  #- DOMAIN,bloodhound.spotify.com
   - DOMAIN,api-partner.spotify.com
 
   #私有DNS
