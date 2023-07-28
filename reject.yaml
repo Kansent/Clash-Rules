@@ -9,7 +9,7 @@ payload:
   - DOMAIN-SUFFIX,duxiaoman.com
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
-  - DOMAIN-SUFFIX,bloodhound.spotify.com
+  - DOMAIN,bloodhound.spotify.com
   - DOMAIN,api-partner.spotify.com
 
   #私有DNS
@@ -17,7 +17,7 @@ payload:
   - DOMAIN,httpdns.meituan.com
 
   #银河奇异果
-  - DOMAIN-SUFFIX,pb.bi.gitv.tv
+  - DOMAIN,pb.bi.gitv.tv
   - DOMAIN-SUFFIX,t7z.cupid.ptqy.gitv.tv
 
   #iqiyi
@@ -51,9 +51,6 @@ payload:
   - DOMAIN-SUFFIX,ad.xiaotucc.com           #小兔充充
   - DOMAIN-SUFFIX,duiba.com.cn              #兑吧
 
-  #美团
-  - DOMAIN-SUFFIX,cmpassport.com
-  
   #Lofter
   - DOMAIN-SUFFIX,ad.mh.163.com
   - DOMAIN-SUFFIX,netease.im
