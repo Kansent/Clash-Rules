@@ -126,6 +126,8 @@ payload:
   - DOMAIN-SUFFIX,msecnd.net                    #Edgecast
   - DOMAIN-SUFFIX,windows.com
   - DOMAIN-SUFFIX,onedrive.com
+  - DOMAIN-SUFFIX,azurefd.net
+  - DOMAIN-SUFFIX,exp-tas.com
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com

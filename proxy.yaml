@@ -7,7 +7,8 @@ payload:
   - DOMAIN-SUFFIX,t.me
   - DOMAIN-SUFFIX,whatsapp.net
   - DOMAIN-SUFFIX,spotify.com
-
+  - DOMAIN-SUFFIX,dnslytics.com
+  - DOMAIN-SUFFIX,cloudflare.com
 
   #Google
   - DOMAIN-SUFFIX,google.com
@@ -19,6 +20,7 @@ payload:
   - DOMAIN-SUFFIX,ytimg.com
   - DOMAIN-SUFFIX,dns.google
   - DOMAIN-SUFFIX,gmail.com
+  - DOMAIN-SUFFIX,ggpht.com
 
   #Github
   - DOMAIN-SUFFIX,github.com
