@@ -11,8 +11,8 @@ payload:
   - DOMAIN-SUFFIX,360.com
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,sentry.dev
-
   - DOMAIN-SUFFIX,bloodhound.spotify.com
+  - DOMAIN,dus.tv.global.mi.com
 
   #私有DNS
   - DOMAIN,dns.jd.com
