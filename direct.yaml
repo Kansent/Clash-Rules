@@ -30,6 +30,7 @@ payload:
   - DOMAIN,cdn3.bluestacks.com
   - DOMAIN-SUFFIX,akamaized.net             #CDN
   - DOMAIN-SUFFIX,githubassets.com
+  - DOMAIN-SUFFIX,kylc.com
 
   #Spotify
   - DOMAIN-SUFFIX,ap.spotify.com
@@ -43,12 +44,12 @@ payload:
   - DOMAIN,clienttoken.spotify.com
   - DOMAIN,ap-gae2.spotify.com
   - DOMAIN,apresolve.spotify.com
-  - DOMAIN,api-partner.spotify.com
+  #- DOMAIN,api-partner.spotify.com
   - DOMAIN-SUFFIX,spotifycdn.com
   - DOMAIN,gae2-spclient.spotify.com
   - DOMAIN,gae2-dealer.spotify.com
   - DOMAIN,mobile-ap.spotify.com
-  - DOMAIN-SUFFIX,kylc.com
+
   
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
