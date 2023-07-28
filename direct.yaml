@@ -35,8 +35,8 @@ payload:
   - DOMAIN-SUFFIX,ap.spotify.com
   - DOMAIN-SUFFIX,scdn.co
   - DOMAIN,guc3-spclient.spotify.com
-  #- DOMAIN,spclient.wg.spotify.com
-  - DOMAIN,dealer.spotify.com
+  - DOMAIN,spclient.wg.spotify.com
+  #- DOMAIN,dealer.spotify.com
   - DOMAIN,guc3-dealer.spotify.com
   - DOMAIN,ap-guc3.spotify.com
   - DOMAIN,apresolve.spotify.com
