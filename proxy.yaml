@@ -5,11 +5,14 @@ payload:
   - DOMAIN-SUFFIX,recaptcha.net
   - DOMAIN-SUFFIX,nexon.com
   - DOMAIN-SUFFIX,t.me
-  
+  - DOMAIN-SUFFIX,whatsapp.net
+
+
   #Google
   - DOMAIN-SUFFIX,google.com
   - DOMAIN-SUFFIX,googleapis.com
   - DOMAIN-SUFFIX,youtube.com
+  - DOMAIN-SUFFIX,googlevideo.com
   - DOMAIN-SUFFIX,googleapis.cn
   - DOMAIN-SUFFIX,youtu.be
   - DOMAIN-SUFFIX,ytimg.com

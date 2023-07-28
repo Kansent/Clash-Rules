@@ -30,6 +30,7 @@ payload:
   - DOMAIN,cdn3.bluestacks.com
   - DOMAIN-SUFFIX,akamaized.net
 
+  #Spotify
   - DOMAIN-SUFFIX,ap.spotify.com
   - DOMAIN-SUFFIX,scdn.co
 
