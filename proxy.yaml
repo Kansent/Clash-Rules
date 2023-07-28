@@ -6,6 +6,7 @@ payload:
   - DOMAIN-SUFFIX,nexon.com
   - DOMAIN-SUFFIX,t.me
   - DOMAIN-SUFFIX,whatsapp.net
+  - DOMAIN-SUFFIX,spotify.com
 
 
   #Google
