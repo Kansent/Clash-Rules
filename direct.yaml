@@ -39,6 +39,7 @@ payload:
   - DOMAIN,dealer.spotify.com
   - DOMAIN,guc3-dealer.spotify.com
   - DOMAIN,ap-guc3.spotify.com
+  - DOMAIN,apresolve.spotify.com
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org

@@ -9,6 +9,8 @@ payload:
   - DOMAIN-SUFFIX,duxiaoman.com
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
+  - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN-SUFFIX,sentry.dev
 
   - DOMAIN,api-partner.spotify.com
 
