@@ -48,6 +48,7 @@ payload:
   - DOMAIN,gae2-spclient.spotify.com
   - DOMAIN,gae2-dealer.spotify.com
   - DOMAIN,mobile-ap.spotify.com
+  - DOMAIN-SUFFIX,kylc.com
   
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org

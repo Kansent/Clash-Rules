@@ -15,6 +15,7 @@ payload:
   - DOMAIN-SUFFIX,discord.com
   - DOMAIN-SUFFIX,discordapp.com
   - DOMAIN-SUFFIX,discord.media
+  - DOMAIN-SUFFIX,discord.gg
 
   #Google
   - DOMAIN-SUFFIX,google.com
