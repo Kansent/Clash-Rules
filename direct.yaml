@@ -44,6 +44,9 @@ payload:
   - DOMAIN,ap-gae2.spotify.com
   - DOMAIN,apresolve.spotify.com
   - DOMAIN,api-partner.spotify.com
+  - DOMAIN,concerts.spotifycdn.com
+  - DOMAIN,gae2-spclient.spotify.com
+  - DOMAIN,gae2-dealer.spotify.com
   
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org

@@ -12,8 +12,6 @@ payload:
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,sentry.dev
 
-  
-
   #私有DNS
   - DOMAIN,dns.jd.com
   - DOMAIN,httpdns.meituan.com
