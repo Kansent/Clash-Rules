@@ -17,6 +17,7 @@ payload:
 
   #Microsoft
   - DOMAIN-SUFFIX,oneclient.sfx.ms
+  - DOMAIN-SUFFIX,onedrive.live.com
 
   #Discord  
   - DOMAIN-SUFFIX,discord.com
