@@ -52,6 +52,7 @@ payload:
   - DOMAIN-SUFFIX,fbcdn.net
   - DOMAIN-SUFFIX,fbsbx.com
   - DOMAIN-SUFFIX,instagram.com
+  - DOMAIN-SUFFIX,cdninstagram.com
 
   #Pixiv
   - DOMAIN-SUFFIX,pixiv.net
