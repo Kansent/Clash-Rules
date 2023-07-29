@@ -14,6 +14,7 @@ payload:
   - DOMAIN-SUFFIX,bloodhound.spotify.com
   #- DOMAIN,us.tv.global.mi.com
   - DOMAIN-SUFFIX,fengkongcloud.com
+  - DOMAIN,ads-img-al.xhscdn.com
 
   #私有DNS
   - DOMAIN,dns.jd.com
