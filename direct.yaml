@@ -34,6 +34,9 @@ payload:
   - DOMAIN-SUFFIX,jsdelivr.net
   - DOMAIN-SUFFIX,schemastore.org
 
+  #Travel
+  - DOMAIN-SUFFIX,openrice.com            #HK
+
   #字节跳动
   - DOMAIN-SUFFIX,xiaohongshu.com
   - DOMAIN-SUFFIX,xhscdn.com
