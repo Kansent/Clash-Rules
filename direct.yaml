@@ -34,6 +34,10 @@ payload:
   - DOMAIN-SUFFIX,jsdelivr.net
   - DOMAIN-SUFFIX,schemastore.org
 
+  #字节跳动
+  - DOMAIN-SUFFIX,xiaohongshu.com
+  - DOMAIN-SUFFIX,xhscdn.com
+
   #Spotify
   - DOMAIN-SUFFIX,ap.spotify.com
   - DOMAIN-SUFFIX,scdn.co

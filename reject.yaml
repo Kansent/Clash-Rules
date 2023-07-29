@@ -13,6 +13,7 @@ payload:
   - DOMAIN-SUFFIX,sentry.dev
   - DOMAIN-SUFFIX,bloodhound.spotify.com
   #- DOMAIN,us.tv.global.mi.com
+  - DOMAIN-SUFFIX,fengkongcloud.com
 
   #私有DNS
   - DOMAIN,dns.jd.com
