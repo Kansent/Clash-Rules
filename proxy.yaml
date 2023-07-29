@@ -11,11 +11,15 @@ payload:
   - DOMAIN-SUFFIX,cloudflare.com
   - DOMAIN-SUFFIX,linkedin.com
 
+  #Microsoft
+  - DOMAIN-SUFFIX,oneclient.sfx.ms
+
   #Discord  
   - DOMAIN-SUFFIX,discord.com
   - DOMAIN-SUFFIX,discordapp.com
   - DOMAIN-SUFFIX,discord.media
   - DOMAIN-SUFFIX,discord.gg
+  - DOMAIN-SUFFIX,discordapp.net
 
   #Google
   - DOMAIN-SUFFIX,google.com
@@ -28,6 +32,7 @@ payload:
   - DOMAIN-SUFFIX,dns.google
   - DOMAIN-SUFFIX,gmail.com
   - DOMAIN-SUFFIX,ggpht.com
+  - DOMAIN-SUFFIX,googleusercontent.com
 
   #Github
   - DOMAIN-SUFFIX,github.com
@@ -41,6 +46,8 @@ payload:
   #Facebook
   - DOMAIN-SUFFIX,facebook.com
   - DOMAIN-SUFFIX,fbcdn.net
+  - DOMAIN-SUFFIX,fbsbx.com
+  - DOMAIN-SUFFIX,instagram.com
 
   #Pixiv
   - DOMAIN-SUFFIX,pixiv.net

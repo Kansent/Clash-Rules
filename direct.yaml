@@ -32,6 +32,7 @@ payload:
   - DOMAIN-SUFFIX,githubassets.com
   - DOMAIN-SUFFIX,kylc.com
   - DOMAIN-SUFFIX,jsdelivr.net
+  - DOMAIN-SUFFIX,schemastore.org
 
   #Spotify
   - DOMAIN-SUFFIX,ap.spotify.com
@@ -128,6 +129,7 @@ payload:
   - DOMAIN-SUFFIX,onedrive.com
   - DOMAIN-SUFFIX,azurefd.net
   - DOMAIN-SUFFIX,exp-tas.com
+  - DOMAIN-SUFFIX,office365.com
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com
