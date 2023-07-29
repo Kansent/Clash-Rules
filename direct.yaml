@@ -33,9 +33,13 @@ payload:
   - DOMAIN-SUFFIX,kylc.com
   - DOMAIN-SUFFIX,jsdelivr.net
   - DOMAIN-SUFFIX,schemastore.org
+  - DOMAIN-SUFFIX,expo.dev
+  - DOMAIN-SUFFIX,exp.host
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com            #HK
+  - DOMAIN-SUFFIX,acghk.cc
+  - DOMAIN-SUFFIX,ani-com.hk
 
   #字节跳动
   - DOMAIN-SUFFIX,xiaohongshu.com
