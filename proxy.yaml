@@ -11,6 +11,10 @@ payload:
   - DOMAIN-SUFFIX,cloudflare.com
   - DOMAIN-SUFFIX,linkedin.com
 
+  #Pinterest
+  - DOMAIN-SUFFIX,pinterest.com
+  - DOMAIN-SUFFIX,pinimg.com
+
   #Microsoft
   - DOMAIN-SUFFIX,oneclient.sfx.ms
 
