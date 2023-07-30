@@ -36,6 +36,7 @@ payload:
   - DOMAIN-SUFFIX,exp.host
   - DOMAIN-SUFFIX,vercel.app
   - DOMAIN-SUFFIX,aliyun.com
+  - DOMAIN-SUFFIX,miui.com
 
   #购物
   - DOMAIN-SUFFIX,360buyimg.com
@@ -132,7 +133,7 @@ payload:
   - DOMAIN-SUFFIX,live.com
   - DOMAIN-SUFFIX,officeclient.microsoft.com    #OFFICE
   - DOMAIN-SUFFIX,update.microsoft.com
-  - DOMAIN-SUFFIX,office.net                #OFFICE
+  - DOMAIN-SUFFIX,office.net                    #OFFICE
   - DOMAIN-SUFFIX,office.com
   - DOMAIN-SUFFIX,mp.microsoft.com
   - DOMAIN-SUFFIX,msftconnecttest.com
@@ -150,6 +151,7 @@ payload:
   - DOMAIN-SUFFIX,teams.microsoft.com
   - DOMAIN-SUFFIX,microsoftonline.com
   - DOMAIN-SUFFIX,msauth.net
+  - DOMAIN-SUFFIX,azureedge.us
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com
@@ -181,3 +183,4 @@ payload:
   - DOMAIN-SUFFIX,hk4e-sdk-os-s.hoyoverse.com
   - IP-CIDR,47.74.32.0/19,no-resolve
   - DOMAIN-SUFFIX,dispatch-hk4e-global-os-asia.hoyoverse.com
+  - IP-CIDR,8.209.224.0/19,no-resolve
