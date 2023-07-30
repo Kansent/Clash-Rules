@@ -28,13 +28,18 @@ payload:
   - DOMAIN-SUFFIX,52pojie.cn
   - DOMAIN-SUFFIX,tvhuoxing.com
   - DOMAIN,cdn3.bluestacks.com
-  - DOMAIN-SUFFIX,akamaized.net             #CDN
   - DOMAIN-SUFFIX,githubassets.com
   - DOMAIN-SUFFIX,kylc.com
-  - DOMAIN-SUFFIX,jsdelivr.net
   - DOMAIN-SUFFIX,schemastore.org
   - DOMAIN-SUFFIX,expo.dev
+  - DOMAIN-SUFFIX,upset.dev
   - DOMAIN-SUFFIX,exp.host
+  - DOMAIN-SUFFIX,vercel.app
+
+  #CDN
+  - DOMAIN-SUFFIX,akamaized.net
+  - DOMAIN-SUFFIX,statically.io
+  - DOMAIN-SUFFIX,jsdelivr.net
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com            #HK
@@ -46,25 +51,15 @@ payload:
   - DOMAIN-SUFFIX,xhscdn.com
 
   #Spotify
-  - DOMAIN-SUFFIX,ap.spotify.com
   - DOMAIN-SUFFIX,scdn.co
-  #- DOMAIN,spclient.wg.spotify.com       #地区检测
-  - DOMAIN,dealer.spotify.com
-  - DOMAIN,guc3-dealer.spotify.com
-  - DOMAIN,ap-guc3.spotify.com
-  - DOMAIN,apresolve.spotify.com
-  - DOMAIN,clienttoken.spotify.com
-  - DOMAIN,ap-gae2.spotify.com
-  - DOMAIN,api-partner.spotify.com
   - DOMAIN-SUFFIX,spotifycdn.com
-  - DOMAIN,gae2-dealer.spotify.com
-  - DOMAIN,mobile-ap.spotify.com
 
   #SSL
   - DOMAIN-SUFFIX,abetterinternet.org
   - DOMAIN-SUFFIX,lencr.org
   - DOMAIN,ocsp.pki.goog
   - DOMAIN,ocsp.digicert.com
+  - DOMAIN-SUFFIX,comodoca.com
 
   #iqiyi
   - DOMAIN-SUFFIX,iq.com
@@ -141,6 +136,9 @@ payload:
   - DOMAIN-SUFFIX,azurefd.net
   - DOMAIN-SUFFIX,exp-tas.com
   - DOMAIN-SUFFIX,office365.com
+  - DOMAIN-SUFFIX,teams.microsoft.com
+  - DOMAIN-SUFFIX,microsoftonline.com
+  - DOMAIN-SUFFIX,msauth.net
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com
