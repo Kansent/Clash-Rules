@@ -40,6 +40,11 @@ payload:
   - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,178.com
 
+  #HK Finance
+  - DOMAIN-SUFFIX,tapngo.com.hk         #Tap&go
+  - DOMAIN,tapngo.queue-it.net
+  - DOMAIN-SUFFIX,za.group              #ZA Bank
+
   #购物
   - DOMAIN-SUFFIX,360buyimg.com
   - DOMAIN-SUFFIX,jd.com
@@ -57,6 +62,7 @@ payload:
   - DOMAIN-SUFFIX,statically.io
   - DOMAIN-SUFFIX,jsdelivr.net
   - DOMAIN-SUFFIX,alicdn.com
+  - DOMAIN-SUFFIX,zaticdn.com
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com            #HK
@@ -162,7 +168,7 @@ payload:
   - DOMAIN-SUFFIX,iris.microsoft.com
   - DOMAIN-SUFFIX,gamepass.com
   - DOMAIN-SUFFIX,xboxab.com
-
+  - DOMAIN-SUFFIX,appcenter.ms
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com

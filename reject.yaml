@@ -9,6 +9,7 @@ payload:
   - DOMAIN-SUFFIX,duxiaoman.com
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
+  - DOMAIN-SUFFIX,360safe.com
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,sentry.dev
   - DOMAIN-SUFFIX,bloodhound.spotify.com
@@ -82,6 +83,7 @@ payload:
   - DOMAIN-SUFFIX,ad-scope.com.cn
   - DOMAIN-SUFFIX,sdk.beizi.biz
   - DOMAIN-SUFFIX,cpatrk.net
+  - DOMAIN-SUFFIX,tenetengine.com
 
   #Hoyoverse
   - DOMAIN-SUFFIX,log-upload-os.mihoyo.com
