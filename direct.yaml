@@ -40,6 +40,10 @@ payload:
   - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,178.com
   - DOMAIN-SUFFIX,adobedtm.com
+  - DOMAIN-SUFFIX,rsshub.app
+  - DOMAIN-SUFFIX,shields.io
+  - DOMAIN-SUFFIX,cloudinary.com
+  - DOMAIN-SUFFIX,opencollective.com
 
   #HK Finance
   - DOMAIN-SUFFIX,tapngo.com.hk         #Tap&go
@@ -64,6 +68,7 @@ payload:
   - DOMAIN-SUFFIX,jsdelivr.net
   - DOMAIN-SUFFIX,alicdn.com
   - DOMAIN-SUFFIX,zaticdn.com
+  - DOMAIN-SUFFIX,dogecdn.com
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com            #HK

@@ -12,6 +12,7 @@ payload:
   - DOMAIN-SUFFIX,linkedin.com
   - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,bluestacks.com
+  - DOMAIN-SUFFIX,proton.me
 
   #Deviantart
   - DOMAIN-SUFFIX,deviantart.net
