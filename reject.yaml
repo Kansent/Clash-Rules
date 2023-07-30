@@ -16,6 +16,7 @@ payload:
   - DOMAIN,us.tv.global.mi.com
   - DOMAIN-SUFFIX,fengkongcloud.com
   - DOMAIN,ads-img-al.xhscdn.com
+  - DOMAIN-SUFFIX,openinstall.io
 
   #Spotify
   - DOMAIN-SUFFIX,video-ak.cdn.spotify.com
