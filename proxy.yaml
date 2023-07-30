@@ -51,6 +51,7 @@ payload:
   #Twitter
   - DOMAIN-SUFFIX,twitter.com
   - DOMAIN-SUFFIX,twimg.com
+  - DOMAIN-SUFFIX,t.co
 
   #Facebook
   - DOMAIN-SUFFIX,facebook.com

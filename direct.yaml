@@ -39,6 +39,7 @@ payload:
   - DOMAIN-SUFFIX,logitechg.com
   - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,178.com
+  - DOMAIN-SUFFIX,adobedtm.com
 
   #HK Finance
   - DOMAIN-SUFFIX,tapngo.com.hk         #Tap&go
@@ -68,6 +69,7 @@ payload:
   - DOMAIN-SUFFIX,openrice.com            #HK
   - DOMAIN-SUFFIX,acghk.cc
   - DOMAIN-SUFFIX,ani-com.hk
+  - DOMAIN-SUFFIX,three.com.hk
 
   #字节跳动
   - DOMAIN-SUFFIX,xiaohongshu.com
@@ -107,6 +109,8 @@ payload:
   - DOMAIN-SUFFIX,tencent-cloud.net
   - DOMAIN-SUFFIX,qq.com
   - DOMAIN-SUFFIX,wechat.com
+  - IP-CIDR,43.156.192.0/18                 #腾讯新加坡
+  - IP-CIDR,101.32.118.0/23                 #腾讯新加坡
 
   #哔哩哔哩
   - DOMAIN-SUFFIX,bilibili.com
