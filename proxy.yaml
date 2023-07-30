@@ -13,6 +13,9 @@ payload:
   - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,bluestacks.com
 
+  #Deviantart
+  - DOMAIN-SUFFIX,deviantart.net
+
   #nsfw
   - DOMAIN-SUFFIX,xhamster.com
   - DOMAIN-SUFFIX,xhcdn.com
@@ -48,6 +51,7 @@ payload:
   - DOMAIN-SUFFIX,gmail.com
   - DOMAIN-SUFFIX,ggpht.com
   - DOMAIN-SUFFIX,googleusercontent.com
+  - DOMAIN-SUFFIX,firebaseio.com
 
   #Github
   - DOMAIN-SUFFIX,github.com
