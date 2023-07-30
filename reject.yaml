@@ -16,6 +16,9 @@ payload:
   - DOMAIN-SUFFIX,fengkongcloud.com
   - DOMAIN,ads-img-al.xhscdn.com
 
+  #Spotify
+  - DOMAIN-SUFFIX,video-ak.cdn.spotify.com
+
   #私有DNS
   - DOMAIN,dns.jd.com
   - DOMAIN,httpdns.meituan.com

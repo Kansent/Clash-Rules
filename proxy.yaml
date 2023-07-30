@@ -10,6 +10,7 @@ payload:
   - DOMAIN-SUFFIX,dnslytics.com
   - DOMAIN-SUFFIX,cloudflare.com
   - DOMAIN-SUFFIX,linkedin.com
+  - DOMAIN-SUFFIX,v2ex.com
 
   #Pinterest
   - DOMAIN-SUFFIX,pinterest.com

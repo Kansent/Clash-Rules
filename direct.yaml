@@ -35,11 +35,22 @@ payload:
   - DOMAIN-SUFFIX,upset.dev
   - DOMAIN-SUFFIX,exp.host
   - DOMAIN-SUFFIX,vercel.app
+  - DOMAIN-SUFFIX,aliyun.com
+
+  #购物
+  - DOMAIN-SUFFIX,360buyimg.com
+  - DOMAIN-SUFFIX,jd.com
+  - DOMAIN-SUFFIX,taobao.com
+  - DOMAIN-SUFFIX,tmall.com
+  - DOMAIN-SUFFIX,1688.com
+  - DOMAIN-SUFFIX,alibaba.com
+  - DOMAIN-SUFFIX,alipayobjects.com
 
   #CDN
   - DOMAIN-SUFFIX,akamaized.net
   - DOMAIN-SUFFIX,statically.io
   - DOMAIN-SUFFIX,jsdelivr.net
+  - DOMAIN-SUFFIX,alicdn.com
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com            #HK
