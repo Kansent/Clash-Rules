@@ -38,6 +38,7 @@ payload:
   - DOMAIN-SUFFIX,aliyun.com
   - DOMAIN-SUFFIX,logitechg.com
   - DOMAIN-SUFFIX,gstatic.com
+  - DOMAIN-SUFFIX,178.com
 
   #购物
   - DOMAIN-SUFFIX,360buyimg.com
@@ -156,6 +157,9 @@ payload:
   - DOMAIN-SUFFIX,azureedge.us
   - DOMAIN-SUFFIX,store.microsoft.com
   - DOMAIN-SUFFIX,iris.microsoft.com
+  - DOMAIN-SUFFIX,gamepass.com
+  - DOMAIN-SUFFIX,xboxab.com
+
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com
