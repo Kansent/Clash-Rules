@@ -36,7 +36,8 @@ payload:
   - DOMAIN-SUFFIX,exp.host
   - DOMAIN-SUFFIX,vercel.app
   - DOMAIN-SUFFIX,aliyun.com
-  - DOMAIN-SUFFIX,miui.com
+  - DOMAIN-SUFFIX,logitechg.com
+  - DOMAIN-SUFFIX,gstatic.com
 
   #购物
   - DOMAIN-SUFFIX,360buyimg.com
@@ -81,11 +82,12 @@ payload:
   - IP-CIDR,59.32.0.0/13,no-resolve
   - DOMAIN-SUFFIX,ptqy.gitv.tv
   
-  #小米国际版
+  #小米
   - DOMAIN-SUFFIX,appmifile.com
   - DOMAIN-SUFFIX,buy.mi.com
   - DOMAIN-SUFFIX,alsgp0.fds.api.xiaomi.com
   - DOMAIN-SUFFIX,tv.global.mi.com
+  - DOMAIN-SUFFIX,miui.com
 
   #腾讯
   - DOMAIN-SUFFIX,wetvinfo.com              #腾讯视频海外版
@@ -152,6 +154,8 @@ payload:
   - DOMAIN-SUFFIX,microsoftonline.com
   - DOMAIN-SUFFIX,msauth.net
   - DOMAIN-SUFFIX,azureedge.us
+  - DOMAIN-SUFFIX,store.microsoft.com
+  - DOMAIN-SUFFIX,iris.microsoft.com
 
   #Hoyoverse
   - DOMAIN-SUFFIX,sdk.hoyoverse.com

@@ -11,6 +11,7 @@ payload:
   - DOMAIN-SUFFIX,cloudflare.com
   - DOMAIN-SUFFIX,linkedin.com
   - DOMAIN-SUFFIX,v2ex.com
+  - DOMAIN-SUFFIX,bluestacks.com
 
   #Pinterest
   - DOMAIN-SUFFIX,pinterest.com
@@ -19,6 +20,7 @@ payload:
   #Microsoft
   - DOMAIN-SUFFIX,oneclient.sfx.ms
   - DOMAIN-SUFFIX,onedrive.live.com
+  - DOMAIN-SUFFIX,msn.com
 
   #Discord  
   - DOMAIN-SUFFIX,discord.com
@@ -32,6 +34,7 @@ payload:
   - DOMAIN-SUFFIX,googleapis.com
   - DOMAIN-SUFFIX,youtube.com
   - DOMAIN-SUFFIX,googlevideo.com
+  - DOMAIN-SUFFIX,youtube-nocookie.com
   - DOMAIN-SUFFIX,googleapis.cn
   - DOMAIN-SUFFIX,youtu.be
   - DOMAIN-SUFFIX,ytimg.com
