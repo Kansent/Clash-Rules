@@ -16,6 +16,7 @@ payload:
   #Deviantart
   - DOMAIN-SUFFIX,deviantart.net
   - DOMAIN-SUFFIX,parastorage.com
+  - DOMAIN-SUFFIX,wixmp.com
 
   #nsfw
   - DOMAIN-SUFFIX,xhamster.com

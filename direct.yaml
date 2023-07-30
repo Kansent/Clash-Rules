@@ -40,7 +40,6 @@ payload:
   - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,178.com
   - DOMAIN-SUFFIX,adobedtm.com
-  - DOMAIN-SUFFIX,wixmp.com
 
   #HK Finance
   - DOMAIN-SUFFIX,tapngo.com.hk         #Tap&go
