@@ -13,6 +13,10 @@ payload:
   - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,bluestacks.com
 
+  #xhamster
+  - DOMAIN-SUFFIX,xhamster.com
+  - DOMAIN-SUFFIX,xhcdn.com
+
   #Pinterest
   - DOMAIN-SUFFIX,pinterest.com
   - DOMAIN-SUFFIX,pinimg.com
