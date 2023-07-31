@@ -10,6 +10,7 @@ payload:
   - DOMAIN-SUFFIX,dnslytics.com
   - DOMAIN-SUFFIX,cloudflare.com
   - DOMAIN-SUFFIX,linkedin.com
+  - DOMAIN-SUFFIX,licdn.com
   - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,bluestacks.com
   - DOMAIN-SUFFIX,proton.me
@@ -55,6 +56,7 @@ payload:
   - DOMAIN-SUFFIX,ggpht.com
   - DOMAIN-SUFFIX,googleusercontent.com
   - DOMAIN-SUFFIX,firebaseio.com
+  - DOMAIN-SUFFIX,withgoogle.com
 
   #Github
   - DOMAIN-SUFFIX,github.com
