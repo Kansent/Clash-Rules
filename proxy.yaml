@@ -15,6 +15,14 @@ payload:
   - DOMAIN-SUFFIX,bluestacks.com
   - DOMAIN-SUFFIX,proton.me
 
+  #tiktok
+  - DOMAIN-SUFFIX,tiktok.com
+  - DOMAIN-SUFFIX,tiktokcdn.com
+  - DOMAIN-SUFFIX,tiktokv.com
+  - DOMAIN-SUFFIX,tiktokcdn-us.com
+  - DOMAIN-SUFFIX,ibytedtos.com
+  - DOMAIN-SUFFIX,ttwstatic.com
+
   #Deviantart
   - DOMAIN-SUFFIX,deviantart.net
   - DOMAIN-SUFFIX,parastorage.com
