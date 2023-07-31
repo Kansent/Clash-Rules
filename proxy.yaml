@@ -14,6 +14,7 @@ payload:
   - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,bluestacks.com
   - DOMAIN-SUFFIX,proton.me
+  - DOMAIN-SUFFIX,bandwagonhost.com
 
   #tiktok
   - DOMAIN-SUFFIX,tiktok.com
