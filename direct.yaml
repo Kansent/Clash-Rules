@@ -70,6 +70,7 @@ payload:
   - DOMAIN-SUFFIX,alicdn.com
   - DOMAIN-SUFFIX,zaticdn.com
   - DOMAIN-SUFFIX,dogecdn.com
+  - DOMAIN-SUFFIX,weibocdn.com
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com            #HK
