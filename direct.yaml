@@ -45,6 +45,9 @@ payload:
   - DOMAIN-SUFFIX,cloudinary.com
   - DOMAIN-SUFFIX,opencollective.com
 
+  #Google
+  - DOMAIN-SUFFIX,dl.google.com
+
   #HK Finance
   - DOMAIN-SUFFIX,tapngo.com.hk         #Tap&go
   - DOMAIN,tapngo.queue-it.net
@@ -64,7 +67,6 @@ payload:
   - DOMAIN-SUFFIX,goofish.com
 
   #Musixmatch
-  
   - DOMAIN-SUFFIX,mxmcdn.net
 
   #CDN
