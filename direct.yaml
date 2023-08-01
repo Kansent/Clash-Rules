@@ -61,6 +61,7 @@ payload:
   - DOMAIN-SUFFIX,yangkeduo.com
   - DOMAIN-SUFFIX,pinduoduo.com
   - DOMAIN-SUFFIX,pddpic.com
+  - DOMAIN-SUFFIX,goofish.com
 
   #CDN
   - DOMAIN-SUFFIX,akamaized.net

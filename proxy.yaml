@@ -67,6 +67,8 @@ payload:
   - DOMAIN-SUFFIX,googleusercontent.com
   - DOMAIN-SUFFIX,firebaseio.com
   - DOMAIN-SUFFIX,withgoogle.com
+  - DOMAIN-SUFFIX,google.com.hk
+  - DOMAIN-SUFFIX,goo.gl
 
   #Github
   - DOMAIN-SUFFIX,github.com
