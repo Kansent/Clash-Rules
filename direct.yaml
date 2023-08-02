@@ -16,8 +16,6 @@ payload:
   - DOMAIN-SUFFIX,download.teamviewer.com   #Teamviewer
   - DOMAIN-SUFFIX,95516.com                 #中国银联
   - DOMAIN-SUFFIX,chinaz.com                #站长之家
-  - DOMAIN-SUFFIX,kemono.su
-  - DOMAIN-SUFFIX,kemono.party
   - DOMAIN-SUFFIX,graueneko.xyz             #明日方舟工具箱
   - DOMAIN-SUFFIX,aconvert.com
   - DOMAIN-SUFFIX,wetransfer.com

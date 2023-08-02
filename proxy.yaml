@@ -18,6 +18,8 @@ payload:
   - DOMAIN,kiwivm.64clouds.com
   - DOMAIN-SUFFIX,patreon.com
   - DOMAIN-SUFFIX,pantheonsite.io
+  - DOMAIN-SUFFIX,kemono.su
+  - DOMAIN-SUFFIX,kemono.party
 
   - DOMAIN-SUFFIX,musixmatch.com
   - DOMAIN-SUFFIX,netflix.com
