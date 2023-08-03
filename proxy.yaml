@@ -20,7 +20,7 @@ payload:
   - DOMAIN-SUFFIX,pantheonsite.io
   - DOMAIN-SUFFIX,kemono.su
   - DOMAIN-SUFFIX,kemono.party
-
+  - DOMAIN-SUFFIX,dnslytics.net
   - DOMAIN-SUFFIX,musixmatch.com
   - DOMAIN-SUFFIX,netflix.com
 
