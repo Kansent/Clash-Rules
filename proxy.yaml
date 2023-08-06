@@ -23,6 +23,7 @@ payload:
   - DOMAIN-SUFFIX,dnslytics.net
   - DOMAIN-SUFFIX,musixmatch.com
   - DOMAIN-SUFFIX,netflix.com
+  - DOMAIN-SUFFIX,paimon.moe
 
   #tiktok
   - DOMAIN-SUFFIX,tiktok.com
