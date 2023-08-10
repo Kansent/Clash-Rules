@@ -24,7 +24,7 @@ payload:
   - DOMAIN-SUFFIX,paimon.moe
 
   
-  - DOMAIN-SUFFIX,prod-official-asia-dp01.starrails.com
+  - DOMAIN-SUFFIX,abtest-api-data-sg.hoyoverse.com
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
