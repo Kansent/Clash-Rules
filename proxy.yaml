@@ -23,6 +23,9 @@ payload:
   - DOMAIN-SUFFIX,netflix.com
   - DOMAIN-SUFFIX,paimon.moe
 
+  
+  - DOMAIN-SUFFIX,prod-official-asia-dp01.starrails.com
+
   #Messaging
   - DOMAIN-SUFFIX,t.me
   - DOMAIN-SUFFIX,whatsapp.net
