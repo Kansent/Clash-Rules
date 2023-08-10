@@ -23,7 +23,7 @@ payload:
   - DOMAIN-SUFFIX,netflix.com
   - DOMAIN-SUFFIX,paimon.moe
 
-  - DOMAIN-SUFFIX,minor-api-os.hoyoverse.com
+  - DOMAIN-SUFFIX,hkrpg-sdk-os-static.hoyoverse.com
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
