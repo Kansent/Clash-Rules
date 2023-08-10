@@ -4,8 +4,6 @@ payload:
   - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,recaptcha.net
   - DOMAIN-SUFFIX,nexon.com
-  - DOMAIN-SUFFIX,t.me
-  - DOMAIN-SUFFIX,whatsapp.net
   - DOMAIN-SUFFIX,spotify.com
   - DOMAIN-SUFFIX,dnslytics.com
   - DOMAIN-SUFFIX,cloudflare.com
@@ -24,6 +22,10 @@ payload:
   - DOMAIN-SUFFIX,musixmatch.com
   - DOMAIN-SUFFIX,netflix.com
   - DOMAIN-SUFFIX,paimon.moe
+
+  #Messaging
+  - DOMAIN-SUFFIX,t.me
+  - DOMAIN-SUFFIX,whatsapp.net
 
   #Shopping
   - DOMAIN-SUFFIX,amazon.com
