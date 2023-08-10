@@ -23,9 +23,6 @@ payload:
   - DOMAIN-SUFFIX,netflix.com
   - DOMAIN-SUFFIX,paimon.moe
 
-  
-  - DOMAIN-SUFFIX,abtest-api-data-sg.hoyoverse.com
-
   #Messaging
   - DOMAIN-SUFFIX,t.me
   - DOMAIN-SUFFIX,whatsapp.net
