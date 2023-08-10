@@ -25,6 +25,9 @@ payload:
   - DOMAIN-SUFFIX,netflix.com
   - DOMAIN-SUFFIX,paimon.moe
 
+  #Shopping
+  - DOMAIN-SUFFIX,amazon.com
+
   #tiktok
   - DOMAIN-SUFFIX,tiktok.com
   - DOMAIN-SUFFIX,tiktokcdn.com
