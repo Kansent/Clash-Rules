@@ -23,6 +23,7 @@ payload:
   - DOMAIN-SUFFIX,netflix.com
   - DOMAIN-SUFFIX,paimon.moe
   - DOMAIN,api-na.geetest.com
+  - DOMAIN,monitor.geetest.com
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
