@@ -22,8 +22,7 @@ payload:
   - DOMAIN-SUFFIX,musixmatch.com
   - DOMAIN-SUFFIX,netflix.com
   - DOMAIN-SUFFIX,paimon.moe
-  - DOMAIN,api-na.geetest.com
-  - DOMAIN,monitor.geetest.com
+  - DOMAIN,minor-api-os.hoyoverse.com
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
