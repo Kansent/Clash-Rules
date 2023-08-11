@@ -108,7 +108,7 @@ payload:
   - DOMAIN-SUFFIX,booth.pm
 
   #Hoyoverse
-  - DOMAIN-SUFFIX,globaldp-prod-os01.starrails.com
+  - DOMAIN-SUFFIX,prod-official-asia-dp01.starrails.com
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hsr.hoyoverse.com
   - IP-CIDR,170.33.13.121/32,no-resolve
