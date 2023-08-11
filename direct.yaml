@@ -193,7 +193,7 @@ payload:
   - DOMAIN-SUFFIX,hkrpg-launcher.hoyoverse.com
   - DOMAIN-SUFFIX,hkrpg-sdk-os-static.hoyoverse.com
   - DOMAIN-SUFFIX,hkrpg-sdk-os.hoyoverse.com
-  - DOMAIN-SUFFIX,sg-public-data-api.hoyoverse.com
+  #- DOMAIN-SUFFIX,sg-public-data-api.hoyoverse.com
   - DOMAIN-SUFFIX,starrails.com
   #- DOMAIN-SUFFIX,minor-api-os.hoyoverse.com
   #- DOMAIN-SUFFIX,prod-official-asia-dp01.starrails.com
