@@ -108,7 +108,7 @@ payload:
   - DOMAIN-SUFFIX,booth.pm
 
   #Hoyoverse
-  - DOMAIN-SUFFIX,hkrpg-sdk-os.hoyoverse.com
+  - DOMAIN-SUFFIX,hkrpg-sdk-os-static.hoyoverse.com
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hsr.hoyoverse.com
   - IP-CIDR,170.33.13.121/32,no-resolve
