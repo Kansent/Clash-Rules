@@ -42,6 +42,7 @@ payload:
   - DOMAIN-SUFFIX,shields.io
   - DOMAIN-SUFFIX,cloudinary.com
   - DOMAIN-SUFFIX,opencollective.com
+  - DOMAIN-SUFFIX,hcaptcha.com
 
   #Google
   - DOMAIN-SUFFIX,dl.google.com
