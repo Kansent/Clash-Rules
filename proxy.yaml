@@ -108,7 +108,7 @@ payload:
   - DOMAIN-SUFFIX,booth.pm
 
   #Hoyoverse
-  - DOMAIN,minor-api-os.hoyoverse.com
+  - DOMAIN,sg-public-data-api.hoyoverse.com
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hsr.hoyoverse.com
   - IP-CIDR,170.33.13.121/32,no-resolve
