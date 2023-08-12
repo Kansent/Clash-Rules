@@ -2,7 +2,6 @@ payload:
   - DOMAIN-SUFFIX,bing.com
   - DOMAIN-SUFFIX,iframe.ly                             #CDN
   - DOMAIN-SUFFIX,openai.com
-  - DOMAIN-SUFFIX,recaptcha.net
   - DOMAIN-SUFFIX,nexon.com
   - DOMAIN-SUFFIX,spotify.com
   - DOMAIN-SUFFIX,dnslytics.com

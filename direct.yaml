@@ -43,6 +43,7 @@ payload:
   - DOMAIN-SUFFIX,cloudinary.com
   - DOMAIN-SUFFIX,opencollective.com
   - DOMAIN-SUFFIX,hcaptcha.com
+  - DOMAIN-SUFFIX,recaptcha.net
 
   #Google
   - DOMAIN-SUFFIX,dl.google.com
@@ -196,3 +197,6 @@ payload:
   - IP-CIDR,47.74.32.0/19,no-resolve
   - IP-CIDR,47.245.0.0/19,no-resolve
   - IP-CIDR,8.209.224.0/19,no-resolve
+
+  #Rockstar Game
+  - DOMAIN-SUFFIX,rockstargames.com
