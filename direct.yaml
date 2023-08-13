@@ -43,6 +43,7 @@ payload:
   - DOMAIN-SUFFIX,opencollective.com
   - DOMAIN-SUFFIX,hcaptcha.com
   - DOMAIN-SUFFIX,recaptcha.net
+  - DOMAIN-SUFFIX,hifini.com
 
   #Google
   - DOMAIN-SUFFIX,dl.google.com
