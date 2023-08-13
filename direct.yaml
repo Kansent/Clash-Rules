@@ -38,13 +38,11 @@ payload:
   - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,178.com
   - DOMAIN-SUFFIX,adobedtm.com
-  - DOMAIN-SUFFIX,rsshub.app
   - DOMAIN-SUFFIX,shields.io
   - DOMAIN-SUFFIX,cloudinary.com
   - DOMAIN-SUFFIX,opencollective.com
   - DOMAIN-SUFFIX,hcaptcha.com
   - DOMAIN-SUFFIX,recaptcha.net
-  - DOMAIN-SUFFIX,rsshub.app
 
   #Google
   - DOMAIN-SUFFIX,dl.google.com
