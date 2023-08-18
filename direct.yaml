@@ -45,7 +45,8 @@ payload:
   - DOMAIN-SUFFIX,recaptcha.net
   - DOMAIN-SUFFIX,hifini.com
   - DOMAIN-SUFFIX,ping0.cc
-
+  - DOMAIN-SUFFIX,coolapk.com
+  
   #Huawei
   - DOMAIN-SUFFIX,dbankcloud.com
   - DOMAIN-SUFFIX,dbankcdn.com
@@ -83,6 +84,7 @@ payload:
   - DOMAIN-SUFFIX,dogecdn.com
   - DOMAIN-SUFFIX,weibocdn.com
   - DOMAIN-SUFFIX,cdntips.net
+  - DOMAIN-SUFFIX,hicloud.com
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com            #HK
