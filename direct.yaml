@@ -46,6 +46,10 @@ payload:
   - DOMAIN-SUFFIX,hifini.com
   - DOMAIN-SUFFIX,ping0.cc
 
+  #Huawei
+  - DOMAIN-SUFFIX,dbankcloud.com
+  - DOMAIN-SUFFIX,dbankcdn.com
+
   #Google
   - DOMAIN-SUFFIX,dl.google.com
 
@@ -54,7 +58,7 @@ payload:
   - DOMAIN,tapngo.queue-it.net
   - DOMAIN-SUFFIX,za.group              #ZA Bank
 
-  #购物
+  #Shopping
   - DOMAIN-SUFFIX,360buyimg.com
   - DOMAIN-SUFFIX,jd.com
   - DOMAIN-SUFFIX,taobao.com
@@ -78,6 +82,7 @@ payload:
   - DOMAIN-SUFFIX,zaticdn.com
   - DOMAIN-SUFFIX,dogecdn.com
   - DOMAIN-SUFFIX,weibocdn.com
+  - DOMAIN-SUFFIX,cdntips.net
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com            #HK
