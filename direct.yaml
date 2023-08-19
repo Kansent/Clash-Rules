@@ -83,7 +83,7 @@ payload:
   - DOMAIN-SUFFIX,zaticdn.com
   - DOMAIN-SUFFIX,dogecdn.com
   - DOMAIN-SUFFIX,weibocdn.com
-  - DOMAIN-SUFFIX,cdntips.net
+  - DOMAIN-SUFFIX,cdntips.net         #Tencent
   - DOMAIN-SUFFIX,hicloud.com
 
   #Travel
