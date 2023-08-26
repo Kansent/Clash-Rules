@@ -24,6 +24,8 @@ payload:
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,rsshub.app
 
+  - DOMAIN-SUFFIX,epicgames.com
+
   #Messaging
   - DOMAIN-SUFFIX,t.me
   - DOMAIN-SUFFIX,whatsapp.net
@@ -109,7 +111,6 @@ payload:
   - DOMAIN-SUFFIX,booth.pm
 
   #Hoyoverse
-  #- DOMAIN,sg-public-data-api.hoyoverse.com
   - DOMAIN,sg-hkrpg-api.hoyoverse.com
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hsr.hoyoverse.com

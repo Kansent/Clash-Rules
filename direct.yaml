@@ -48,6 +48,9 @@ payload:
   - DOMAIN-SUFFIX,coolapk.com
   - DOMAIN-SUFFIX,mrpyq.com
 
+  #Mail
+  - DOMAIN-SUFFIX,outlook.com
+
   #银行
   - DOMAIN-SUFFIX,95508.com                 #广发银行
 
