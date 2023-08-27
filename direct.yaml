@@ -144,6 +144,7 @@ payload:
   - DOMAIN-SUFFIX,wechat.com
   - IP-CIDR,43.156.192.0/18                 #腾讯新加坡
   - IP-CIDR,101.32.118.0/23                 #腾讯新加坡
+  - DOMAIN-SUFFIX,anticheatexpert.com       #腾讯游戏安全
 
   #哔哩哔哩
   - DOMAIN-SUFFIX,bilibili.com
@@ -217,6 +218,8 @@ payload:
   - IP-CIDR,47.74.32.0/19,no-resolve
   - IP-CIDR,47.245.0.0/19,no-resolve
   - IP-CIDR,8.209.224.0/19,no-resolve
+  - IP-CIDR,8.209.192.0/19,no-resolve
+  - IP-CIDR,8.211.128.0/19,no-resolve
 
   #Rockstar Game
   - DOMAIN-SUFFIX,rockstargames.com
