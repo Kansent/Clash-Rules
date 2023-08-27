@@ -24,7 +24,7 @@ payload:
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,rsshub.app
 
-  - DOMAIN,prod.cloud.rockstargames.com
+  #- DOMAIN,prod.cloud.rockstargames.com
   - DOMAIN-SUFFIX,epicgames.com
 
   #Messaging
