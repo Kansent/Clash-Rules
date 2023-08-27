@@ -86,6 +86,7 @@ payload:
   - DOMAIN-SUFFIX,withgoogle.com
   - DOMAIN-SUFFIX,google.com.hk
   - DOMAIN-SUFFIX,goo.gl
+  - DOMAIN-SUFFIX,gstatic.com
 
   #Github
   - DOMAIN-SUFFIX,github.com

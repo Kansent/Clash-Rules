@@ -35,7 +35,6 @@ payload:
   - DOMAIN-SUFFIX,vercel.app
   - DOMAIN-SUFFIX,aliyun.com
   - DOMAIN-SUFFIX,logitechg.com
-  - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,178.com
   - DOMAIN-SUFFIX,adobedtm.com
   - DOMAIN-SUFFIX,shields.io
