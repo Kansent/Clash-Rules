@@ -46,6 +46,7 @@ payload:
   - DOMAIN-SUFFIX,ping0.cc
   - DOMAIN-SUFFIX,coolapk.com
   - DOMAIN-SUFFIX,mrpyq.com
+  - DOMAIN,heartbeat.belkin.com
 
   #Mail
   - DOMAIN-SUFFIX,outlook.com
