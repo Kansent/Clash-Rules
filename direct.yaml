@@ -47,6 +47,10 @@ payload:
   - DOMAIN-SUFFIX,coolapk.com
   - DOMAIN-SUFFIX,mrpyq.com
   - DOMAIN,heartbeat.belkin.com
+  - DOMAIN-SUFFIX,youxiaohou.com
+
+  #樱花动漫
+  - DOMAIN-SUFFIX,yhmgo.com
 
   #Mail
   - DOMAIN-SUFFIX,outlook.com
