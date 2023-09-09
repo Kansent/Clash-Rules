@@ -51,6 +51,10 @@ payload:
 
   #樱花动漫
   - DOMAIN-SUFFIX,yhmgo.com
+  - DOMAIN-SUFFIX,vipyz-cdn3.com
+  - DOMAIN-SUFFIX,ffzy-play6.com
+  - DOMAIN-SUFFIX,bfzycdn.com
+  - DOMAIN-SUFFIX,fsvod1.com
 
   #Mail
   - DOMAIN-SUFFIX,outlook.com
