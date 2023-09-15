@@ -166,6 +166,7 @@ payload:
   - IP-CIDR,13.225.93.0/24,no-resolve
   - IP-CIDR,23.223.198.209/32,no-resolve
   - DOMAIN-SUFFIX,1plus.io
+  - DOMAIN-SUFFIX,allawnofs.com
 
   #Apple
   - DOMAIN-SUFFIX,push.apple.com            #Push
