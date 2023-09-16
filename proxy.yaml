@@ -23,6 +23,7 @@ payload:
   - DOMAIN-SUFFIX,paimon.moe
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,rsshub.app
+  - DOMAIN,dns.weixin.qq.com
 
   - DOMAIN,prod.cloud.rockstargames.com
   - DOMAIN-SUFFIX,epicgames.com
