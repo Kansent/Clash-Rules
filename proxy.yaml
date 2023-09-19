@@ -25,7 +25,7 @@ payload:
   - DOMAIN-SUFFIX,rsshub.app
 
   - DOMAIN,prod.cloud.rockstargames.com
-  - DOMAIN-SUFFIX,epicgames.com
+
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
