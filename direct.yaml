@@ -78,6 +78,7 @@ payload:
   - DOMAIN-SUFFIX,tapngo.com.hk         #Tap&go
   - DOMAIN,tapngo.queue-it.net
   - DOMAIN-SUFFIX,za.group              #ZA Bank
+  - DOMAIN-SUFFIX,boccc.com.hk          #BOCHK Credit Card
 
   #Shopping
   - DOMAIN-SUFFIX,360buyimg.com
