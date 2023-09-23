@@ -23,9 +23,9 @@ payload:
   - DOMAIN-SUFFIX,paimon.moe
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,rsshub.app
-
+  - DOMAIN-SUFFIX,paypal.com
+  - DOMAIN-SUFFIX,paypalobjects.com
   - DOMAIN,prod.cloud.rockstargames.com
-
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
@@ -70,6 +70,7 @@ payload:
   - DOMAIN-SUFFIX,discordapp.net
 
   #Google
+  - DOMAIN-SUFFIX,
   - DOMAIN-SUFFIX,google.com
   - DOMAIN-SUFFIX,googleapis.com
   - DOMAIN-SUFFIX,youtube.com

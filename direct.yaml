@@ -231,6 +231,3 @@ payload:
   - IP-CIDR,8.209.224.0/19,no-resolve
   - IP-CIDR,8.209.192.0/19,no-resolve         #HSR
   - IP-CIDR,8.211.128.0/19,no-resolve
-
-  #Rockstar Game
-  - DOMAIN-SUFFIX,rockstargames.com
