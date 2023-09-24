@@ -49,6 +49,7 @@ payload:
   - DOMAIN-SUFFIX,youxiaohou.com
   - IP-CIDR,183.0.0.0/10,no-resolve
   - IP-CIDR,111.0.0.0/10,no-resolve
+  - IP-CIDR,14.112.0.0/12,no-resolve
 
   #樱花动漫
   - DOMAIN-SUFFIX,yhmgo.com
