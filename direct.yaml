@@ -47,6 +47,8 @@ payload:
   - DOMAIN-SUFFIX,coolapk.com
   - DOMAIN-SUFFIX,mrpyq.com
   - DOMAIN-SUFFIX,youxiaohou.com
+  - IP-CIDR,183.0.0.0/10,no-resolve
+  - IP-CIDR,111.0.0.0/10,no-resolve
 
   #樱花动漫
   - DOMAIN-SUFFIX,yhmgo.com
@@ -83,6 +85,8 @@ payload:
   #Shopping
   - DOMAIN-SUFFIX,360buyimg.com
   - DOMAIN-SUFFIX,jd.com
+  - IP-CIDR,116.196.74.0/24,no-resolve
+  - IP-CIDR,116.198.0.0/18,no-resolve
   - DOMAIN-SUFFIX,taobao.com
   - DOMAIN-SUFFIX,tmall.com
   - DOMAIN-SUFFIX,1688.com
