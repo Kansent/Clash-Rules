@@ -87,7 +87,8 @@ payload:
   - DOMAIN-SUFFIX,tenetengine.com
 
   #Hoyoverse
-  - DOMAIN-SUFFIX,log-upload-os.mihoyo.com
-  - DOMAIN-SUFFIX,log-upload-os.hoyoverse.com
-  - DOMAIN-SUFFIX,hkrpg-log-upload-os.hoyoverse.com
-  - DOMAIN-SUFFIX,abtest-api-data-sg.hoyoverse.com
+  - DOMAIN,log-upload-os.mihoyo.com
+  - DOMAIN,log-upload-os.hoyoverse.com
+  - DOMAIN,hkrpg-log-upload-os.hoyoverse.com
+  - DOMAIN,abtest-api-data-sg.hoyoverse.com
+  - DOMAIN,ys-log-upload-os.hoyoverse.com
