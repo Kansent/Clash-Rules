@@ -48,6 +48,7 @@ payload:
   - DOMAIN-SUFFIX,mrpyq.com
   - DOMAIN-SUFFIX,youxiaohou.com
   - DOMAIN-SUFFIX,pixelexperience.org
+  - DOMAIN,socpk.com
 
   #樱花动漫
   - DOMAIN-SUFFIX,yhmgo.com
