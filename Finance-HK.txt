@@ -1,0 +1,9 @@
+#Tap&go
+DOMAIN-SUFFIX,tapngo.com.hk
+DOMAIN,tapngo.queue-it.net
+
+#ZA Bank
+DOMAIN-SUFFIX,za.group
+
+#BOCHK
+DOMAIN-SUFFIX,boccc.com.hk

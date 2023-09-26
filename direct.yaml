@@ -76,12 +76,6 @@ payload:
   #Google
   - DOMAIN-SUFFIX,dl.google.com
 
-  #HK Finance
-  - DOMAIN-SUFFIX,tapngo.com.hk         #Tap&go
-  - DOMAIN,tapngo.queue-it.net
-  - DOMAIN-SUFFIX,za.group              #ZA Bank
-  - DOMAIN-SUFFIX,boccc.com.hk          #BOCHK Credit Card
-
   #Shopping
   - DOMAIN-SUFFIX,360buyimg.com
   - DOMAIN-SUFFIX,jd.com
@@ -222,16 +216,3 @@ payload:
   - DOMAIN-SUFFIX,gamepass.com
   - DOMAIN-SUFFIX,xboxab.com
   - DOMAIN-SUFFIX,appcenter.ms
-
-  #Hoyoverse
-  - DOMAIN-SUFFIX,yuanshen.com
-  - DOMAIN-SUFFIX,starrails.com
-  - DOMAIN-SUFFIX,mihoyo.com
-  - DOMAIN-SUFFIX,hoyoverse.com
-  - IP-CIDR,47.242.0.0/16,no-resolve
-  - IP-CIDR,170.33.0.0/16,no-resolve
-  - IP-CIDR,47.74.32.0/19,no-resolve
-  - IP-CIDR,47.245.0.0/19,no-resolve
-  - IP-CIDR,8.209.224.0/19,no-resolve
-  - IP-CIDR,8.209.192.0/19,no-resolve         #HSR
-  - IP-CIDR,8.211.128.0/19,no-resolve
