@@ -12,6 +12,7 @@ payload:
   - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
   - DOMAIN-SUFFIX,360safe.com
+  - DOMAIN-SUFFIX,qihucdn.com
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,sentry.dev
   - DOMAIN-SUFFIX,bloodhound.spotify.com
@@ -58,9 +59,7 @@ payload:
   - DOMAIN,news-l.play.ott.video.qq.com
   - DOMAIN,omgmta.play.ott.video.qq.com
 
-  #微信小程序
   - DOMAIN-SUFFIX,ad.xiaotucc.com           #小兔充充
-  - DOMAIN-SUFFIX,duiba.com.cn              #兑吧
 
   #Lofter
   - DOMAIN-SUFFIX,ad.mh.163.com
