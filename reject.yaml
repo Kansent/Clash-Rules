@@ -8,8 +8,7 @@ payload:
   - DOMAIN-SUFFIX,caoyue.com.cn
   - DOMAIN-SUFFIX,app-measurement.com
   - DOMAIN-SUFFIX,duxiaoman.com
-  - DOMAIN,h5.mse.360.cn,DIRECT
-  - DOMAIN-SUFFIX,360.cn
+  #- DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
   - DOMAIN-SUFFIX,360safe.com
   - DOMAIN-SUFFIX,qihucdn.com
