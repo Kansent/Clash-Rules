@@ -49,6 +49,7 @@ payload:
   - DOMAIN-SUFFIX,youxiaohou.com
   - DOMAIN-SUFFIX,pixelexperience.org
   - DOMAIN,socpk.com
+  - DOMAIN-SUFFIX,yeslivetv.com
 
   #樱花动漫
   - DOMAIN-SUFFIX,yhmgo.com
