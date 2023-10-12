@@ -49,6 +49,7 @@ payload:
   - DOMAIN-SUFFIX,youxiaohou.com
   - DOMAIN-SUFFIX,pixelexperience.org
   - DOMAIN,socpk.com
+  - DOMAIN,blizzard.gcdn.cloudn.co.kr
 
   #樱花动漫
   - DOMAIN-SUFFIX,yhmgo.com
