@@ -27,6 +27,7 @@ payload:
   - DOMAIN-SUFFIX,paypalobjects.com
   - DOMAIN,prod.cloud.rockstargames.com
   - DOMAIN-SUFFIX,yeslivetv.com
+  - DOMAIN,cdimage.ubuntu.com
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
