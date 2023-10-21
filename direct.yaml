@@ -91,11 +91,11 @@ payload:
   - DOMAIN-SUFFIX,zaticdn.com
   - DOMAIN-SUFFIX,dogecdn.com
   - DOMAIN-SUFFIX,weibocdn.com
-  - DOMAIN-SUFFIX,cdntips.net         #Tencent
+  - DOMAIN-SUFFIX,cdntips.net
   - DOMAIN-SUFFIX,hicloud.com
 
   #Travel
-  - DOMAIN-SUFFIX,openrice.com            #HK
+  - DOMAIN-SUFFIX,openrice.com
   - DOMAIN-SUFFIX,acghk.cc
   - DOMAIN-SUFFIX,ani-com.hk
   - DOMAIN-SUFFIX,three.com.hk
