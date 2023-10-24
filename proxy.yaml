@@ -28,6 +28,8 @@ payload:
   - DOMAIN,prod.cloud.rockstargames.com
   - DOMAIN-SUFFIX,yeslivetv.com
   - DOMAIN,cdimage.ubuntu.com
+  - DOMAIN-SUFFIX,vercel.app
+  - DOMAIN-SUFFIX,vercel.com
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
