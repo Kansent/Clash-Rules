@@ -26,13 +26,14 @@ payload:
   - DOMAIN-SUFFIX,paypal.com
   - DOMAIN-SUFFIX,paypalobjects.com
   - DOMAIN,prod.cloud.rockstargames.com
-<<<<<<< HEAD
   - DOMAIN-SUFFIX,yeslivetv.com
   - DOMAIN,cdimage.ubuntu.com
   - DOMAIN-SUFFIX,vercel.app
   - DOMAIN-SUFFIX,vercel.com
-=======
->>>>>>> parent of de0be57 (.)
+
+ #Paypal
+  - DOMAIN-SUFFIX,paypal.com
+  - DOMAIN-SUFFIX,paypalobjects.com
 
   #Messaging
   - DOMAIN-SUFFIX,t.me
@@ -85,12 +86,38 @@ payload:
   - DOMAIN-SUFFIX,withgoogle.com
   - DOMAIN-SUFFIX,goo.gl
   - DOMAIN-SUFFIX,gstatic.com
+  - DOMAIN-SUFFIX,google.com.hk
+  - DOMAIN-SUFFIX,ytimg.com
+  
+  #Discord  
+  - DOMAIN-SUFFIX,discord.com
+  - DOMAIN-SUFFIX,discordapp.com
+  - DOMAIN-SUFFIX,discord.media
+  - DOMAIN-SUFFIX,discord.gg
+  - DOMAIN-SUFFIX,discordapp.net
+
+  #Twitter
+  - DOMAIN-SUFFIX,twitter.com
+  - DOMAIN-SUFFIX,twimg.com
+  - DOMAIN-SUFFIX,t.co
+
+  #Github
+  - DOMAIN-SUFFIX,github.com
+  - DOMAIN-SUFFIX,githubusercontent.com
 
   #Gitlab
   - DOMAIN-SUFFIX,gitlab.io
   - DOMAIN-SUFFIX,gitlab.com
 
+  #Facebook
+  - DOMAIN-SUFFIX,facebook.com
+  - DOMAIN-SUFFIX,fbcdn.net
+  - DOMAIN-SUFFIX,fbsbx.com
+  - DOMAIN-SUFFIX,instagram.com
+  - DOMAIN-SUFFIX,cdninstagram.com
+
   #Pixiv
+  - DOMAIN-SUFFIX,pixiv.net
   - DOMAIN-SUFFIX,pximg.net
   - DOMAIN-SUFFIX,fanbox.cc
   - DOMAIN-SUFFIX,pixivision.net
