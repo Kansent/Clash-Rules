@@ -177,6 +177,8 @@ payload:
   - DOMAIN-SUFFIX,guzzoni.apple.com         #Siri
   - IP-CIDR,17.253.85.201/32
   - DOMAIN-SUFFIX,apple-dns.net
+  - DOMAIN-SUFFIX,tv.apple.com
+  - DOMAIN-SUFFIX,itunes.apple.com
 
   #Nexon
   - DOMAIN-SUFFIX,nexoncdn.co.kr
