@@ -53,6 +53,7 @@ payload:
   - DOMAIN-SUFFIX,r2.dev
   - DOMAIN,cdimage.ubuntu.com
   - DOMAIN-SUFFIX,kigerhub.com
+  - DOMAIN,ruleset.skk.moe
   
   #Mail
   - DOMAIN-SUFFIX,outlook.com
@@ -221,4 +222,3 @@ payload:
   - DOMAIN-SUFFIX,xboxab.com
   - DOMAIN-SUFFIX,appcenter.ms
   - DOMAIN,store-images.microsoft.com
-  
