@@ -31,6 +31,8 @@ payload:
   - DOMAIN-SUFFIX,vercel.app
   - DOMAIN-SUFFIX,vercel.com
 
+  - DOMAIN-SUFFIX,battlenet.net
+
  #Paypal
   - DOMAIN-SUFFIX,paypal.com
   - DOMAIN-SUFFIX,paypalobjects.com
