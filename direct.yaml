@@ -179,6 +179,7 @@ payload:
   - DOMAIN-SUFFIX,apple-dns.net
   - DOMAIN-SUFFIX,tv.apple.com
   - DOMAIN-SUFFIX,itunes.apple.com
+  - DOMAIN,captive.apple.com
 
   #Nexon
   - DOMAIN-SUFFIX,nexoncdn.co.kr
