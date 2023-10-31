@@ -47,7 +47,7 @@ payload:
   - DOMAIN-SUFFIX,mrpyq.com
   - DOMAIN-SUFFIX,youxiaohou.com
   - DOMAIN-SUFFIX,pixelexperience.org
-  - DOMAIN,socpk.com
+  - DOMAIN-SUFFIX,socpk.com
   - DOMAIN,blizzard.gcdn.cloudn.co.kr
   - DOMAIN-SUFFIX,kigerhub.com
   - DOMAIN-SUFFIX,r2.dev
