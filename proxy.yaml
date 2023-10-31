@@ -26,10 +26,13 @@ payload:
   - DOMAIN-SUFFIX,paypal.com
   - DOMAIN-SUFFIX,paypalobjects.com
   - DOMAIN,prod.cloud.rockstargames.com
+<<<<<<< HEAD
   - DOMAIN-SUFFIX,yeslivetv.com
   - DOMAIN,cdimage.ubuntu.com
   - DOMAIN-SUFFIX,vercel.app
   - DOMAIN-SUFFIX,vercel.com
+=======
+>>>>>>> parent of de0be57 (.)
 
   #Messaging
   - DOMAIN-SUFFIX,t.me

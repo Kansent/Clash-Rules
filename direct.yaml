@@ -48,9 +48,13 @@ payload:
   - DOMAIN-SUFFIX,youxiaohou.com
   - DOMAIN-SUFFIX,pixelexperience.org
   - DOMAIN,socpk.com
+<<<<<<< HEAD
   - DOMAIN,blizzard.gcdn.cloudn.co.kr
   - DOMAIN-SUFFIX,kigerhub.com
   - DOMAIN-SUFFIX,r2.dev
+=======
+  - DOMAIN-SUFFIX,yeslivetv.com
+>>>>>>> parent of de0be57 (.)
 
   #樱花动漫
   - DOMAIN-SUFFIX,yhmgo.com
