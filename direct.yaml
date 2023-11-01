@@ -226,3 +226,4 @@ payload:
   - DOMAIN-SUFFIX,xboxab.com
   - DOMAIN-SUFFIX,appcenter.ms
   - DOMAIN,store-images.microsoft.com
+  - DOMAIN-SUFFIX,storage.live.com
