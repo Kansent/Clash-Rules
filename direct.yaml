@@ -51,7 +51,7 @@ payload:
   - DOMAIN,blizzard.gcdn.cloudn.co.kr
   - DOMAIN-SUFFIX,kigerhub.com
   - DOMAIN-SUFFIX,r2.dev
-  - DOMAIN,cdimage.ubuntu.com
+  - DOMAIN-SUFFIX,ubuntu.com
   - DOMAIN-SUFFIX,kigerhub.com
   - DOMAIN,ruleset.skk.moe
   
