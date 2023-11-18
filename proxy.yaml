@@ -129,6 +129,8 @@ payload:
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hsr.hoyoverse.com
   - IP-CIDR,170.33.13.121/32,no-resolve
+  - DOMAIN,osasiadispatch.yuanshen.com
+  - IP-CIDR,104.18.11.16/32,no-resolve
   
   #多邻国
   - DOMAIN-SUFFIX,api2.duolingo.cn
