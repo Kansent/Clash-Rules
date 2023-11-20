@@ -181,6 +181,8 @@ payload:
   - DOMAIN-SUFFIX,itunes.apple.com
   - DOMAIN,captive.apple.com
   - DOMAIN-SUFFIX,music.apple.com
+  - DOMAIN-SUFFIX,basejumper.apple.com
+  - DOMAIN-SUFFIX,opensource.apple.com
 
   #Nexon
   - DOMAIN-SUFFIX,nexoncdn.co.kr
