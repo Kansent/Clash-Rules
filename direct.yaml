@@ -54,7 +54,7 @@ payload:
   - DOMAIN-SUFFIX,ubuntu.com
   - DOMAIN-SUFFIX,kigerhub.com
   - DOMAIN,ruleset.skk.moe
-  - DOMAIN-KEYWORD,cntv
+  - DOMAIN-SUFFIX,sourceforge.net
   
   #Mail
   - DOMAIN-SUFFIX,outlook.com
