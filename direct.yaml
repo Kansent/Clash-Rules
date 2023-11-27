@@ -57,6 +57,7 @@ payload:
 
   #CoolerMaster
   - DOMAIN,coolermaster.egnyte.com
+  - DOMAIN-SUFFIX,coolermaster.com
 
   #Mail
   - DOMAIN-SUFFIX,outlook.com
