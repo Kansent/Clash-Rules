@@ -54,7 +54,10 @@ payload:
   - DOMAIN-SUFFIX,ubuntu.com
   - DOMAIN-SUFFIX,kigerhub.com
   - DOMAIN,ruleset.skk.moe
-    
+
+  #CoolerMaster
+  - DOMAIN,coolermaster.egnyte.com
+
   #Mail
   - DOMAIN-SUFFIX,outlook.com
 
