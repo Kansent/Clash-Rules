@@ -1,5 +1,4 @@
 payload:
-  - DOMAIN-SUFFIX,bing.com
   - DOMAIN-SUFFIX,iframe.ly                             #CDN
   - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,nexon.com
@@ -33,7 +32,10 @@ payload:
 
   - DOMAIN-SUFFIX,battlenet.net
 
- #Paypal
+  #Apple
+  - DOMAIN,podcasts.apple.com
+
+  #Paypal
   - DOMAIN-SUFFIX,paypal.com
   - DOMAIN-SUFFIX,paypalobjects.com
 
@@ -68,6 +70,7 @@ payload:
   - DOMAIN-SUFFIX,pinimg.com
 
   #Microsoft
+  - DOMAIN-SUFFIX,bing.com
   - DOMAIN-SUFFIX,oneclient.sfx.ms
   - DOMAIN-SUFFIX,onedrive.live.com
   - DOMAIN-SUFFIX,msn.com
