@@ -54,6 +54,7 @@ payload:
   - DOMAIN-SUFFIX,ubuntu.com
   - DOMAIN-SUFFIX,kigerhub.com
   - DOMAIN,ruleset.skk.moe
+  - DOMAIN-SUFFIX,sleep.pokemon.co.jp
 
   #CoolerMaster
   - DOMAIN,coolermaster.egnyte.com
