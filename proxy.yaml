@@ -93,6 +93,7 @@ payload:
   - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,google.com.hk
   - DOMAIN-SUFFIX,ytimg.com
+  - DOMAIN-SUFFIX,recaptcha.net
   
   #Discord  
   - DOMAIN-SUFFIX,discord.com

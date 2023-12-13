@@ -40,7 +40,6 @@ payload:
   - DOMAIN-SUFFIX,cloudinary.com
   - DOMAIN-SUFFIX,opencollective.com
   - DOMAIN-SUFFIX,hcaptcha.com
-  - DOMAIN-SUFFIX,recaptcha.net
   - DOMAIN-SUFFIX,hifini.com
   - DOMAIN-SUFFIX,ping0.cc
   - DOMAIN-SUFFIX,coolapk.com
