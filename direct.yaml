@@ -54,6 +54,7 @@ payload:
   - DOMAIN-SUFFIX,kigerhub.com
   - DOMAIN,ruleset.skk.moe
   - DOMAIN-SUFFIX,sleep.pokemon.co.jp
+  - DOMAIN-SUFFIX,obsproject.com
 
   #CoolerMaster
   - DOMAIN,coolermaster.egnyte.com
