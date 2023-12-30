@@ -55,6 +55,7 @@ payload:
   - DOMAIN,ruleset.skk.moe
   - DOMAIN-SUFFIX,sleep.pokemon.co.jp
   - DOMAIN-SUFFIX,obsproject.com
+  - DOMAIN,hostloc.com
 
   #CoolerMaster
   - DOMAIN,coolermaster.egnyte.com
