@@ -72,7 +72,6 @@ payload:
   - DOMAIN-SUFFIX,mobads-logs.baidu.com
   - DOMAIN-SUFFIX,open.e.kuaishou.com
   - DOMAIN-SUFFIX,g-api.kwai.com
-  - DOMAIN-SUFFIX,bugly.qq.com
   - DOMAIN-SUFFIX,open.e.kuaishou.cn
   - DOMAIN-SUFFIX,open.kuaishouzt.com
   - DOMAIN-SUFFIX,open.kwaizt.com
