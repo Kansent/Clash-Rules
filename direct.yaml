@@ -191,6 +191,8 @@ payload:
   - DOMAIN-SUFFIX,basejumper.apple.com
   - DOMAIN-SUFFIX,opensource.apple.com
   - DOMAIN-SUFFIX,videos.apple.com
+  - DOMAIN,mask.icloud.com
+  - DOMAIN,mask-h2.icloud.com
 
   #Nexon
   - DOMAIN-SUFFIX,nexoncdn.co.kr
