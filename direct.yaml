@@ -57,6 +57,7 @@ payload:
   - DOMAIN-SUFFIX,obsproject.com
   - DOMAIN,hostloc.com
   - DOMAIN-SUFFIX,epicgames.com
+  - DOMAIN-SUFFIX,cityline.com
 
   #CoolerMaster
   - DOMAIN,coolermaster.egnyte.com
