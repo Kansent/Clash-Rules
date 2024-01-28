@@ -58,6 +58,7 @@ payload:
   - DOMAIN,hostloc.com
   - DOMAIN-SUFFIX,epicgames.com
   - DOMAIN-SUFFIX,urbtix.hk
+  - DOMAIN-SUFFIX,oobesaas.adobe.com
 
   #CoolerMaster
   - DOMAIN,coolermaster.egnyte.com
