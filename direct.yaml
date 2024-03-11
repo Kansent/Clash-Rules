@@ -116,6 +116,7 @@ payload:
   - DOMAIN-SUFFIX,cdntips.net
   - DOMAIN-SUFFIX,hicloud.com
   - DOMAIN-SUFFIX,steamstatic.com
+  - DOMAIN-SUFFIX,steamcontent.com
 
   #Travel
   - DOMAIN-SUFFIX,openrice.com
