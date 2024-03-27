@@ -6,4 +6,8 @@ DOMAIN,tapngo.queue-it.net
 DOMAIN-SUFFIX,za.group
 
 #BOCHK
+DOMAIN-SUFFIX,bochk.com.hk
 DOMAIN-SUFFIX,boccc.com.hk
+
+#HSBC HK
+DOMAIN-SUFFIX,hsbc.com.hk
