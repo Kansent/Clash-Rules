@@ -127,6 +127,7 @@ payload:
   - DOMAIN-SUFFIX,hkcsl.com
   - DOMAIN-SUFFIX,hkexpress.com
   - DOMAIN-SUFFIX,mclcinema.com
+  - DOMAIN-SUFFIX,wmoov.com
 
   #字节跳动
   - DOMAIN-SUFFIX,xiaohongshu.com
