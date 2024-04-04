@@ -126,6 +126,7 @@ payload:
   - DOMAIN-SUFFIX,three.com.hk
   - DOMAIN-SUFFIX,hkcsl.com
   - DOMAIN-SUFFIX,hkexpress.com
+  - DOMAIN-SUFFIX,mclcinema.com
 
   #字节跳动
   - DOMAIN-SUFFIX,xiaohongshu.com
