@@ -32,6 +32,9 @@ payload:
 
   - DOMAIN-SUFFIX,battlenet.net
 
+  - DOMAIN-SUFFIX,interactivebrokers.com
+
+
   #Apple
   - DOMAIN,podcasts.apple.com
 

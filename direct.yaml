@@ -69,6 +69,7 @@ payload:
 
   #银行
   - DOMAIN-SUFFIX,95508.com                 #广发银行
+  - DOMAIN-SUFFIX,ikbr.com
 
   #外卖
   - DOMAIN-SUFFIX,meituan.com
