@@ -16,8 +16,8 @@ payload:
   - DOMAIN-SUFFIX,sentry.dev
   - DOMAIN-SUFFIX,bloodhound.spotify.com
   - DOMAIN,us.tv.global.mi.com
-  #- DOMAIN-SUFFIX,fengkongcloud.com
-  - DOMAIN,ads-img-al.xhscdn.com
+  - DOMAIN-SUFFIX,fengkongcloud.com
+  #- DOMAIN,ads-img-al.xhscdn.com
   - DOMAIN-SUFFIX,openinstall.io
 
   #Spotify
