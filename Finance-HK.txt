@@ -14,3 +14,4 @@ DOMAIN-SUFFIX,hsbc.com.hk
 DOMAIN-SUFFIX,vv1865.com
 DOMAIN-SUFFIX,tealiumiq.com
 DOMAIN,mobile.eum-appdynamics.com
+DOMAIN-SUFFIX,gslb-hk1.hsbc.com
