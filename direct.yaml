@@ -1,6 +1,5 @@
 payload:
   - DOMAIN-SUFFIX,mapi.xiaotucc.com         #小兔充充
-  - DOMAIN-SUFFIX,huggingface.co            #AI绘画模型
   - DOMAIN-SUFFIX,cloudflarestorage.com     #cloudflare
   - DOMAIN-SUFFIX,images.weserv.nl          #图片反代
   - DOMAIN-SUFFIX,download.nvidia.com       #Nvidia
