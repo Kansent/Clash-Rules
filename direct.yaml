@@ -254,3 +254,7 @@ payload:
   - DOMAIN,public-im-ubiservices.ubi.com
   - DOMAIN,public-ubiservices.ubi.com
   - DOMAIN,public-ws-ubiservices.ubi.com
+  - DOMAIN-SUFFIX,ubiconnect.fleet.ubi.com
+  - DOMAIN-SUFFIX,cdn.ubisoft.com
+  - DOMAIN,channel-service.upc.ubi.com
+  
