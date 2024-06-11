@@ -251,3 +251,6 @@ payload:
 
   # Ubisoft 
   - DOMAIN-SUFFIX,upc.ubisoft.com
+  - DOMAIN,public-im-ubiservices.ubi.com
+  - DOMAIN,public-ubiservices.ubi.com
+  - DOMAIN,public-ws-ubiservices.ubi.com
