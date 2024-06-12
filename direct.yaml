@@ -250,11 +250,11 @@ payload:
   - DOMAIN-SUFFIX,storage.live.com
 
   # Ubisoft 
-  - DOMAIN-SUFFIX,upc.ubisoft.com
-  - DOMAIN,public-im-ubiservices.ubi.com
-  - DOMAIN,public-ubiservices.ubi.com
-  - DOMAIN,public-ws-ubiservices.ubi.com
-  - DOMAIN-SUFFIX,ubiconnect.fleet.ubi.com
-  - DOMAIN-SUFFIX,cdn.ubisoft.com
-  - DOMAIN-SUFFIX,cdn.ubi.com
-  - DOMAIN,channel-service.upc.ubi.com
+  #- DOMAIN-SUFFIX,upc.ubisoft.com
+  #- DOMAIN,public-im-ubiservices.ubi.com
+  #- DOMAIN,public-ubiservices.ubi.com
+  #- DOMAIN,public-ws-ubiservices.ubi.com
+  #- DOMAIN-SUFFIX,ubiconnect.fleet.ubi.com
+  #- DOMAIN-SUFFIX,cdn.ubisoft.com
+  #- DOMAIN-SUFFIX,cdn.ubi.com
+  #- DOMAIN,channel-service.upc.ubi.com
