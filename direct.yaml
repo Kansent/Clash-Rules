@@ -258,3 +258,6 @@ payload:
   #- DOMAIN-SUFFIX,cdn.ubisoft.com
   - DOMAIN-SUFFIX,cdn.ubi.com
   #- DOMAIN,channel-service.upc.ubi.com
+
+  # 雀魂
+  - DOMAIN-SUFFIX,catmjstudio.com
