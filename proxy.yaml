@@ -28,7 +28,7 @@ payload:
   - DOMAIN,cdimage.ubuntu.com
   - DOMAIN-SUFFIX,vercel.app
   - DOMAIN-SUFFIX,vercel.com
-
+  - DOMAIN,time.is
   - DOMAIN-SUFFIX,battlenet.net
 
   - DOMAIN-SUFFIX,interactivebrokers.com
