@@ -1,0 +1,18 @@
+payload:
+  # Tap&go
+  - DOMAIN-SUFFIX,tapngo.com.hk
+  - DOMAIN,tapngo.queue-it.net
+
+  # ZA Bank
+  - DOMAIN-SUFFIX,za.group
+
+  # BOCHK
+  - DOMAIN-SUFFIX,bochk.com.hk
+  - DOMAIN-SUFFIX,boccc.com.hk
+
+  #HSBC HK
+  - DOMAIN-SUFFIX,hsbc.com.hk
+  - DOMAIN-SUFFIX,vv1865.com
+  - DOMAIN-SUFFIX,tealiumiq.com
+  - DOMAIN,mobile.eum-appdynamics.com
+  - DOMAIN-SUFFIX,gslb-hk1.hsbc.com
