@@ -59,39 +59,39 @@ payload:
   - DOMAIN-SUFFIX,urbtix.hk
   - DOMAIN-SUFFIX,teamviewer.com
 
-  #CoolerMaster
+  # CoolerMaster
   - DOMAIN,coolermaster.egnyte.com
   - DOMAIN-SUFFIX,coolermaster.com
 
-  #Mail
+  # Mail
   - DOMAIN-SUFFIX,outlook.com
 
-  #银行
+  # 银行
   - DOMAIN-SUFFIX,95508.com                 #广发银行
   - DOMAIN-SUFFIX,ibkr.com
   - DOMAIN-SUFFIX,ibllc.com
 
-  #外卖
+  # 外卖
   - DOMAIN-SUFFIX,meituan.com
   - DOMAIN-SUFFIX,dianping.com
   - DOMAIN-SUFFIX,meituan.net
   - DOMAIN-SUFFIX,vhall.com
 
-  #樱花动漫
+  # 樱花动漫
   - DOMAIN-SUFFIX,yhmgo.com
   - DOMAIN-SUFFIX,vipyz-cdn3.com
   - DOMAIN-SUFFIX,ffzy-play6.com
   - DOMAIN-SUFFIX,bfzycdn.com
   - DOMAIN-SUFFIX,fsvod1.com
 
-  #Huawei
+  # Huawei
   - DOMAIN-SUFFIX,dbankcloud.com
   - DOMAIN-SUFFIX,dbankcdn.com
 
-  #Google
+  # Google
   - DOMAIN-SUFFIX,dl.google.com
 
-  #Shopping
+  # Shopping
   - DOMAIN-SUFFIX,360buyimg.com
   - DOMAIN-SUFFIX,jd.com
   - DOMAIN-SUFFIX,taobao.com
@@ -104,10 +104,10 @@ payload:
   - DOMAIN-SUFFIX,pddpic.com
   - DOMAIN-SUFFIX,goofish.com
 
-  #Musixmatch
+  # Musixmatch
   - DOMAIN-SUFFIX,mxmcdn.net
 
-  #CDN
+  # CDN
   - DOMAIN-SUFFIX,akamaized.net
   - DOMAIN-SUFFIX,statically.io
   - DOMAIN-SUFFIX,jsdelivr.net
@@ -121,7 +121,7 @@ payload:
   - DOMAIN-SUFFIX,steamcontent.com
   - DOMAIN-SUFFIX,proxmox.com
 
-  #Travel
+  # Travel
   - DOMAIN-SUFFIX,openrice.com
   - DOMAIN-SUFFIX,acghk.cc
   - DOMAIN-SUFFIX,ani-com.hk
@@ -131,22 +131,21 @@ payload:
   - DOMAIN-SUFFIX,mclcinema.com
   - DOMAIN-SUFFIX,wmoov.com
 
-  #字节跳动
-  - DOMAIN-SUFFIX,xiaohongshu.com
+  # 字节跳动
   - DOMAIN-SUFFIX,xhscdn.com
 
-  #Spotify
+  # Spotify
   - DOMAIN-SUFFIX,scdn.co
   - DOMAIN-SUFFIX,spotifycdn.com
 
-  #SSL
+  # SSL
   - DOMAIN-SUFFIX,abetterinternet.org
   - DOMAIN-SUFFIX,lencr.org
   - DOMAIN,ocsp.pki.goog
   - DOMAIN,ocsp.digicert.com
   - DOMAIN-SUFFIX,comodoca.com
 
-  #iqiyi
+  # iqiyi
   - DOMAIN-SUFFIX,iq.com
   - DOMAIN-SUFFIX,ulivetv.net
   - DOMAIN-SUFFIX,iqiyi.com
@@ -154,14 +153,14 @@ payload:
   - IP-CIDR,59.32.0.0/13,no-resolve
   - DOMAIN-SUFFIX,ptqy.gitv.tv
   
-  #小米
+  # 小米
   - DOMAIN-SUFFIX,appmifile.com
   - DOMAIN-SUFFIX,buy.mi.com
   - DOMAIN-SUFFIX,alsgp0.fds.api.xiaomi.com
   - DOMAIN-SUFFIX,tv.global.mi.com
   - DOMAIN-SUFFIX,miui.com
 
-  #腾讯
+  # 腾讯
   - DOMAIN-SUFFIX,wetvinfo.com              #腾讯视频海外版
   - DOMAIN-SUFFIX,wetv.vip                  #腾讯视频海外版
   - IP-CIDR,211.152.148.0/24,no-resolve     #腾讯视频海外版
@@ -173,13 +172,13 @@ payload:
   - IP-CIDR,101.32.118.0/23                 #腾讯新加坡
   - DOMAIN-SUFFIX,anticheatexpert.com       #腾讯游戏安全
 
-  #哔哩哔哩
+  # 哔哩哔哩
   - DOMAIN-SUFFIX,bilibili.com
   - DOMAIN-SUFFIX,biliapi.net
   - DOMAIN-SUFFIX,bilivideo.com
   - DOMAIN-SUFFIX,biligame.com
 
-  #一加
+  # 一加
   - DOMAIN-SUFFIX,oxygenos.oneplus.net
   - DOMAIN-SUFFIX,h2os.com
   - IP-CIDR,13.225.93.0/24,no-resolve
@@ -187,7 +186,7 @@ payload:
   - DOMAIN-SUFFIX,1plus.io
   - DOMAIN-SUFFIX,allawnofs.com
 
-  #Apple
+  # Apple
   - DOMAIN-SUFFIX,push.apple.com            #Push
   - DOMAIN-SUFFIX,xp.apple.com              #Update
   - DOMAIN-SUFFIX,guzzoni.apple.com         #Siri
@@ -204,20 +203,20 @@ payload:
   - DOMAIN,mask-h2.icloud.com
   - DOMAIN-SUFFIX,ess.apple.com             #FaceTime, iMessage
 
-  #Nexon
+  # Nexon
   - DOMAIN-SUFFIX,nexoncdn.co.kr
   - IP-CIDR,42.99.140.8/32,no-resolve
   - IP-CIDR,23.218.80.154/32,no-resolve
   - DOMAIN-SUFFIX,arenadownload.nexon.com
 
-  #ntp
+  # ntp
   - DOMAIN-SUFFIX,time.is
   - DOMAIN-SUFFIX,stdtime.gov.hk
   - DOMAIN-SUFFIX,time.apple.com
   - DOMAIN-SUFFIX,pool.ntp.org
   - DOMAIN-SUFFIX,ntp.msn.com
 
-  #Microsoft
+  # Microsoft
   - DOMAIN-SUFFIX,data.microsoft.com
   - DOMAIN-SUFFIX,visualstudio.com
   - DOMAIN-SUFFIX,live.com
@@ -263,4 +262,3 @@ payload:
   # 雀魂
   - DOMAIN-SUFFIX,catmjstudio.com
   - DOMAIN-SUFFIX,catmajsoul.com
-  
