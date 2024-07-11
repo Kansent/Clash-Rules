@@ -202,6 +202,7 @@ payload:
   - DOMAIN-SUFFIX,videos.apple.com
   - DOMAIN,mask.icloud.com
   - DOMAIN,mask-h2.icloud.com
+  - DOMAIN-SUFFIX,ess.apple.com             #FaceTime, iMessage
 
   #Nexon
   - DOMAIN-SUFFIX,nexoncdn.co.kr
