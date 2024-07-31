@@ -59,6 +59,10 @@ payload:
   - DOMAIN-SUFFIX,urbtix.hk
   - DOMAIN-SUFFIX,teamviewer.com
 
+  # 向日葵
+  - DOMAIN-SUFFIX,aweray.com
+  - DOMAIN-SUFFIX,aweray.net
+
   # CoolerMaster
   - DOMAIN,coolermaster.egnyte.com
   - DOMAIN-SUFFIX,coolermaster.com
