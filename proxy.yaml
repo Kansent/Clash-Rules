@@ -1,17 +1,10 @@
 payload:
   - DOMAIN-SUFFIX,iframe.ly                             #CDN
-  - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,nexon.com
-  - DOMAIN-SUFFIX,spotify.com
   - DOMAIN-SUFFIX,dnslytics.com
-  - DOMAIN-SUFFIX,cloudflare.com
-  - DOMAIN-SUFFIX,linkedin.com
-  - DOMAIN-SUFFIX,licdn.com
   - DOMAIN-SUFFIX,v2ex.com
   - DOMAIN-SUFFIX,bluestacks.com
   - DOMAIN-SUFFIX,proton.me
-  - DOMAIN-SUFFIX,bandwagonhost.com
-  - DOMAIN,kiwivm.64clouds.com
   - DOMAIN-SUFFIX,patreon.com
   - DOMAIN-SUFFIX,pantheonsite.io
   - DOMAIN-SUFFIX,kemono.su
@@ -21,34 +14,18 @@ payload:
   - DOMAIN-SUFFIX,paimon.moe
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,rsshub.app
-  - DOMAIN-SUFFIX,paypal.com
-  - DOMAIN-SUFFIX,paypalobjects.com
-  - DOMAIN,prod.cloud.rockstargames.com
   - DOMAIN-SUFFIX,yeslivetv.com
   - DOMAIN,cdimage.ubuntu.com
   - DOMAIN-SUFFIX,vercel.app
   - DOMAIN-SUFFIX,vercel.com
-  - DOMAIN,time.is
+  - DOMAIN,prod.cloud.rockstargames.com
+  - DOMAIN-SUFFIX,cloudflare.com
+  - DOMAIN-SUFFIX,bandwagonhost.com
+  - DOMAIN,kiwivm.64clouds.com
   - DOMAIN-SUFFIX,battlenet.net
+  - DOMAIN-SUFFIX,spotify.com
 
-  - DOMAIN-SUFFIX,interactivebrokers.com
-
-
-  #Apple
-  - DOMAIN,podcasts.apple.com
-
-  #Paypal
-  - DOMAIN-SUFFIX,paypal.com
-  - DOMAIN-SUFFIX,paypalobjects.com
-
-  #Messaging
-  - DOMAIN-SUFFIX,t.me
-  - DOMAIN-SUFFIX,whatsapp.net
-
-  #Shopping
-  - DOMAIN-SUFFIX,amazon.com
-
-  #tiktok
+  # Tiktok
   - DOMAIN-SUFFIX,tiktok.com
   - DOMAIN-SUFFIX,tiktokcdn.com
   - DOMAIN-SUFFIX,tiktokv.com
@@ -56,28 +33,55 @@ payload:
   - DOMAIN-SUFFIX,ibytedtos.com
   - DOMAIN-SUFFIX,ttwstatic.com
 
-  #Deviantart
-  - DOMAIN-SUFFIX,deviantart.net
-  - DOMAIN-SUFFIX,parastorage.com
-  - DOMAIN-SUFFIX,wixmp.com
-
-  #nsfw
+  # Nsfw
   - DOMAIN-SUFFIX,xhamster.com
   - DOMAIN-SUFFIX,xhcdn.com
   - DOMAIN-SUFFIX,pronhub.com
   - DOMAIN-SUFFIX,phncdn.com
+  
+  # Pixiv
+  - DOMAIN-SUFFIX,pixiv.net
+  - DOMAIN-SUFFIX,pximg.net
+  - DOMAIN-SUFFIX,fanbox.cc
+  - DOMAIN-SUFFIX,pixivision.net
+  - DOMAIN-SUFFIX,booth.pm
 
-  #Pinterest
+  # Hoyoverse
+  - DOMAIN-SUFFIX,hoyolab.com
+  - DOMAIN-SUFFIX,hsr.hoyoverse.com
+  - IP-CIDR,170.33.13.121/32,no-resolve
+  
+  # Linkedin
+  - DOMAIN-SUFFIX,linkedin.com
+  - DOMAIN-SUFFIX,licdn.com
+
+  # Apple
+  - DOMAIN,podcasts.apple.com
+
+  # Finance
+  - DOMAIN-SUFFIX,interactivebrokers.com
+  - DOMAIN-SUFFIX,paypal.com
+  - DOMAIN-SUFFIX,paypalobjects.com
+
+  # Shopping
+  - DOMAIN-SUFFIX,amazon.com
+
+  # Deviantart
+  - DOMAIN-SUFFIX,deviantart.net
+  - DOMAIN-SUFFIX,parastorage.com
+  - DOMAIN-SUFFIX,wixmp.com
+
+  # Pinterest
   - DOMAIN-SUFFIX,pinterest.com
   - DOMAIN-SUFFIX,pinimg.com
 
-  #Microsoft
+  # Microsoft
   - DOMAIN-SUFFIX,bing.com
   - DOMAIN-SUFFIX,oneclient.sfx.ms
   - DOMAIN-SUFFIX,onedrive.live.com
   - DOMAIN-SUFFIX,msn.com
 
-  #Google
+  # Google
   - DOMAIN-SUFFIX,google.com
   - DOMAIN-SUFFIX,googleapis.com
   - DOMAIN-SUFFIX,youtube.com
@@ -96,46 +100,35 @@ payload:
   - DOMAIN-SUFFIX,google.com.hk
   - DOMAIN-SUFFIX,ytimg.com
   - DOMAIN-SUFFIX,recaptcha.net
-  
-  #Discord  
+
+  # Twitter
+  - DOMAIN-SUFFIX,twitter.com
+  - DOMAIN-SUFFIX,twimg.com
+  - DOMAIN-SUFFIX,t.co
+
+  # Github
+  - DOMAIN-SUFFIX,github.com
+  - DOMAIN-SUFFIX,githubusercontent.com
+
+  # Gitlab
+  - DOMAIN-SUFFIX,gitlab.io
+  - DOMAIN-SUFFIX,gitlab.com
+
+  # Discord  
   - DOMAIN-SUFFIX,discord.com
   - DOMAIN-SUFFIX,discordapp.com
   - DOMAIN-SUFFIX,discord.media
   - DOMAIN-SUFFIX,discord.gg
   - DOMAIN-SUFFIX,discordapp.net
 
-  #Twitter
-  - DOMAIN-SUFFIX,twitter.com
-  - DOMAIN-SUFFIX,twimg.com
-  - DOMAIN-SUFFIX,t.co
-
-  #Github
-  - DOMAIN-SUFFIX,github.com
-  - DOMAIN-SUFFIX,githubusercontent.com
-
-  #Gitlab
-  - DOMAIN-SUFFIX,gitlab.io
-  - DOMAIN-SUFFIX,gitlab.com
-
-  #Facebook
+  # Facebook
   - DOMAIN-SUFFIX,facebook.com
   - DOMAIN-SUFFIX,fbcdn.net
   - DOMAIN-SUFFIX,fbsbx.com
   - DOMAIN-SUFFIX,instagram.com
   - DOMAIN-SUFFIX,cdninstagram.com
+  - DOMAIN-SUFFIX,whatsapp.net
 
-  #Pixiv
-  - DOMAIN-SUFFIX,pixiv.net
-  - DOMAIN-SUFFIX,pximg.net
-  - DOMAIN-SUFFIX,fanbox.cc
-  - DOMAIN-SUFFIX,pixivision.net
-  - DOMAIN-SUFFIX,booth.pm
-
-  #Hoyoverse
-  - DOMAIN-SUFFIX,hoyolab.com
-  - DOMAIN-SUFFIX,hsr.hoyoverse.com
-  - IP-CIDR,170.33.13.121/32,no-resolve
-  
-  #多邻国
+  # Duolingo
   - DOMAIN-SUFFIX,api2.duolingo.cn
   - IP-CIDR,139.196.36.248/32,no-resolve
