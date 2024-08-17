@@ -58,6 +58,7 @@ payload:
   - DOMAIN-SUFFIX,epicgames.com
   - DOMAIN-SUFFIX,urbtix.hk
   - DOMAIN-SUFFIX,teamviewer.com
+  - DOMAIN-SUFFIX,dlpanda.com
 
   # 向日葵
   - DOMAIN-SUFFIX,aweray.com
