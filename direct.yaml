@@ -69,6 +69,7 @@ payload:
 
   # Mail
   - DOMAIN-SUFFIX,outlook.com
+  - DOMAIN-SUFFIX,hotmail.com
 
   # 银行
   - DOMAIN-SUFFIX,95508.com                 #广发银行
@@ -207,6 +208,7 @@ payload:
   - DOMAIN,mask.icloud.com
   - DOMAIN,mask-h2.icloud.com
   - DOMAIN-SUFFIX,ess.apple.com             #FaceTime, iMessage
+  - DOMAIN,gateway.icloud.com
 
   # Nexon
   - DOMAIN-SUFFIX,nexoncdn.co.kr
