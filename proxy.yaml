@@ -57,6 +57,9 @@ payload:
 
   # Apple
   - DOMAIN,podcasts.apple.com
+  - DOMAIN,gspe1-ssl.ls.apple.com       #地区检测
+  - DOMAIN,guzzoni.smoot.apple.com      #Siri
+  - DOMAIN,gateway.icloud.com
 
   # Finance
   - DOMAIN-SUFFIX,interactivebrokers.com
