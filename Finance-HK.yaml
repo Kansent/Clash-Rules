@@ -10,9 +10,13 @@ payload:
   - DOMAIN-SUFFIX,bochk.com.hk
   - DOMAIN-SUFFIX,boccc.com.hk
 
-  #HSBC HK
+  # HSBC HK
   - DOMAIN-SUFFIX,hsbc.com.hk
   - DOMAIN-SUFFIX,vv1865.com
   - DOMAIN-SUFFIX,tealiumiq.com
   - DOMAIN,mobile.eum-appdynamics.com
   - DOMAIN-SUFFIX,gslb-hk1.hsbc.com
+
+  # FSMONE HK
+  - DOMAIN-SUFFIX,fsmone.com.hk
+  
