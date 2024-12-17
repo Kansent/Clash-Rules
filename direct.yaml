@@ -54,7 +54,6 @@ payload:
   - DOMAIN,ruleset.skk.moe
   - DOMAIN-SUFFIX,sleep.pokemon.co.jp
   - DOMAIN-SUFFIX,obsproject.com
-  - DOMAIN,hostloc.com
   - DOMAIN-SUFFIX,epicgames.com
   - DOMAIN-SUFFIX,urbtix.hk
   - DOMAIN-SUFFIX,teamviewer.com

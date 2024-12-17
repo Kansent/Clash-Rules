@@ -24,6 +24,7 @@ payload:
   - DOMAIN,kiwivm.64clouds.com
   - DOMAIN-SUFFIX,battlenet.net
   - DOMAIN-SUFFIX,spotify.com
+  - DOMAIN-SUFFIX,hostloc.com
 
   # Tiktok
   - DOMAIN-SUFFIX,tiktok.com
