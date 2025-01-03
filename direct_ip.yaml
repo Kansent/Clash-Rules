@@ -1,0 +1,21 @@
+payload:
+  # iqiyi
+  - IP-CIDR,116.211.192.0/20,no-resolve
+  - IP-CIDR,59.32.0.0/13,no-resolve
+
+  # 腾讯
+  - IP-CIDR,211.152.148.0/24,no-resolve     #腾讯视频海外版
+  - IP-CIDR,203.205.192.0/18,no-resolve     #腾讯视频海外版
+  - IP-CIDR,43.156.192.0/18                 #腾讯新加坡
+  - IP-CIDR,101.32.118.0/23                 #腾讯新加坡
+
+  # 一加
+  - IP-CIDR,13.225.93.0/24,no-resolve
+  - IP-CIDR,23.223.198.209/32,no-resolve
+
+  # Apple
+  - IP-CIDR,17.253.85.201/32,no-resolve
+
+  # Nexon
+  - IP-CIDR,42.99.140.8/32,no-resolve
+  - IP-CIDR,23.218.80.154/32,no-resolve

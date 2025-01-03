@@ -50,7 +50,6 @@ payload:
   # Hoyoverse
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hsr.hoyoverse.com
-  - IP-CIDR,170.33.13.121/32,no-resolve
   
   # Linkedin
   - DOMAIN-SUFFIX,linkedin.com
@@ -135,4 +134,3 @@ payload:
 
   # Duolingo
   - DOMAIN-SUFFIX,api2.duolingo.cn
-  - IP-CIDR,139.196.36.248/32,no-resolve

@@ -1,0 +1,7 @@
+payload:
+  - IP-CIDR,47.242.0.0/16,no-resolve
+  - IP-CIDR,170.33.0.0/16,no-resolve
+  - IP-CIDR,47.74.32.0/19,no-resolve
+  - IP-CIDR,47.245.0.0/19,no-resolve
+  - IP-CIDR,8.209.0.0/16,no-resolve
+  - IP-CIDR,8.211.0.0/16,no-resolve
