@@ -19,6 +19,7 @@ payload:
   #- DOMAIN-SUFFIX,fengkongcloud.com
   #- DOMAIN,ads-img-al.xhscdn.com
   - DOMAIN-SUFFIX,openinstall.io
+  - DOMAIN-SUFFIX,ads-pixiv.net
 
   #Spotify
   - DOMAIN-SUFFIX,video-ak.cdn.spotify.com
