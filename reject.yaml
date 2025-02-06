@@ -17,9 +17,11 @@ payload:
   - DOMAIN-SUFFIX,bloodhound.spotify.com
   - DOMAIN,us.tv.global.mi.com
   #- DOMAIN-SUFFIX,fengkongcloud.com
-  #- DOMAIN,ads-img-al.xhscdn.com
+  - DOMAIN,ads-img-al.xhscdn.com
   - DOMAIN-SUFFIX,openinstall.io
   - DOMAIN-SUFFIX,ads-pixiv.net
+  - DOMAIN-SUFFIX,app-analytics-services.com
+  - DOMAIN-SUFFIX,iadsdk.apple.com
 
   #Spotify
   - DOMAIN-SUFFIX,video-ak.cdn.spotify.com
