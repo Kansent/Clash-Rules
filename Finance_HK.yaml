@@ -9,6 +9,7 @@ payload:
   # BOCHK
   - DOMAIN-SUFFIX,bochk.com.hk
   - DOMAIN-SUFFIX,boccc.com.hk
+  - DOMAIN-SUFFIX,bochk.com
 
   # HSBC HK
   - DOMAIN-SUFFIX,hsbc.com.hk
