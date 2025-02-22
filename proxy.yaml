@@ -26,6 +26,9 @@ payload:
   - DOMAIN-SUFFIX,spotify.com
   - DOMAIN-SUFFIX,hostloc.com
 
+  # 无忧行
+  - DOMAIN,app3.jegotrip.com.cn
+
   # Tiktok
   - DOMAIN-SUFFIX,tiktok.com
   - DOMAIN-SUFFIX,tiktokcdn.com

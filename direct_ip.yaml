@@ -19,3 +19,16 @@ payload:
   # Nexon
   - IP-CIDR,42.99.140.8/32,no-resolve
   - IP-CIDR,23.218.80.154/32,no-resolve
+
+  # 无忧行
+  - IP-CIDR,18.166.0.0/16,no-resolve
+  - IP-CIDR,18.162.0.0/16,no-resolve
+  - IP-CIDR,18.163.0.0/16,no-resolve
+  - IP-CIDR,18.139.0.0/16,no-resolve
+  - IP-CIDR,13.228.0.0/15,no-resolve
+  - IP-CIDR,52.8.0.0/16,no-resolve
+  - IP-CIDR,52.74.0.0/16,no-resolve
+  - IP-CIDR,52.222.160.0/21,no-resolve
+  - IP-CIDR,15.184.0.0/16,no-resolve
+  - IP-CIDR,108.136.0.0/15,no-resolve
+  - IP-CIDR,52.80.0.0/16,no-resolve         #GEO-CN

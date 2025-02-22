@@ -1,4 +1,5 @@
 payload:
+  - DOMAIN-SUFFIX,jpush.cn
   - DOMAIN-SUFFIX,bugly.qq.com
   - DOMAIN-SUFFIX,reyun.com
   - DOMAIN-SUFFIX,xdrig.com
@@ -22,19 +23,27 @@ payload:
   - DOMAIN-SUFFIX,ads-pixiv.net
   - DOMAIN-SUFFIX,app-analytics-services.com
   - DOMAIN-SUFFIX,iadsdk.apple.com
+  - DOMAIN,analysis.tratao.com
+  - DOMAIN,dualstack-logs.amap.com
+  - DOMAIN-SUFFIX,ad.xiaotucc.com           #小兔充充
+  - DOMAIN-SUFFIX,jiguang.cn
 
-  #Spotify
+  # 爱玛出行
+  - DOMAIN-SUFFIX,jiguang.aimaiot.cn
+  - DOMAIN-SUFFIX,ax.admobile.top
+
+  # Spotify
   - DOMAIN-SUFFIX,video-ak.cdn.spotify.com
 
-  #私有DNS
+  # 私有DNS
   - DOMAIN,dns.jd.com
   - DOMAIN,httpdns.meituan.com
 
-  #银河奇异果
+  # 银河奇异果
   - DOMAIN,pb.bi.gitv.tv
   - DOMAIN-SUFFIX,t7z.cupid.ptqy.gitv.tv
 
-  #iqiyi
+  # iqiyi
   - DOMAIN-SUFFIX,a.ckm.iqiyi.com
   - DOMAIN-SUFFIX,ad.m.iqiyi.com
   - DOMAIN-SUFFIX,afp.iqiyi.com
@@ -53,7 +62,7 @@ payload:
   - DOMAIN-SUFFIX,policy.video.iqiyi.com
   - DOMAIN-SUFFIX,yuedu.iqiyi.com
 
-  #腾讯视频
+  # 腾讯视频
   - DOMAIN,btrace.qq.com
   - DOMAIN,mtrace.qq.com
   - DOMAIN,vqq.admaster.com.cn
@@ -61,15 +70,13 @@ payload:
   - DOMAIN,news-l.play.ott.video.qq.com
   - DOMAIN,omgmta.play.ott.video.qq.com
 
-  - DOMAIN-SUFFIX,ad.xiaotucc.com           #小兔充充
-
-  #Lofter
+  # Lofter
   - DOMAIN-SUFFIX,ad.mh.163.com
   - DOMAIN-SUFFIX,netease.im
   - DOMAIN-SUFFIX,bytedance.com
   - DOMAIN-SUFFIX,ad.lofter.com
 
-  #名人朋友圈
+  # 名人朋友圈
   - DOMAIN-SUFFIX,mobads.baidu.com
   - DOMAIN-SUFFIX,sdk.e.qq.com
   - DOMAIN-SUFFIX,mobads-logs.baidu.com
@@ -88,9 +95,109 @@ payload:
   - DOMAIN-SUFFIX,cpatrk.net
   - DOMAIN-SUFFIX,tenetengine.com
 
-  #Hoyoverse
+  # Hoyoverse
   - DOMAIN,log-upload-os.mihoyo.com
   - DOMAIN,log-upload-os.hoyoverse.com
   - DOMAIN,hkrpg-log-upload-os.hoyoverse.com
   - DOMAIN,abtest-api-data-sg.hoyoverse.com
   - DOMAIN,ys-log-upload-os.hoyoverse.com
+
+  # alibaba-ads
+  - DOMAIN,a.alimama.cn
+  - DOMAIN,acjs.aliyun.com
+  - DOMAIN,adash-c.m.taobao.com
+  - DOMAIN,adash-c.ut.taobao.com
+  - DOMAIN,adash-emas.cn-hangzhou.aliyuncs.com
+  - DOMAIN,adash.m.taobao.com
+  - DOMAIN,adash.man.aliyuncs.com
+  - DOMAIN,adashbc.m.taobao.com
+  - DOMAIN,adashbc.ut.taobao.com
+  - DOMAIN,adashx.m.taobao.com
+  - DOMAIN,adashx.ut.amap.com
+  - DOMAIN,adashx.ut.ele.me
+  - DOMAIN,adashx.ut.youku.com
+  - DOMAIN,adashx4ae.ut.taobao.com
+  - DOMAIN,adashx4yt.m.taobao.com
+  - DOMAIN,adashxgc.ut.taobao.com
+  - DOMAIN,adsh.m.taobao.com
+  - DOMAIN,afp.adchina.com
+  - DOMAIN,afp.alicdn.com
+  - DOMAIN,agoodm.m.taobao.com
+  - DOMAIN,agoodm.wapa.taobao.com
+  - DOMAIN,alipaylog.com
+  - DOMAIN,amdc.alipay.com
+  - DOMAIN,api.wapa.taobao.com
+  - DOMAIN,api.waptest.taobao.com
+  - DOMAIN,apoll.m.taobao.com
+  - DOMAIN,atanx.alicdn.com
+  - DOMAIN,atanx2.alicdn.com
+  - DOMAIN,c-adash.m.taobao.com
+  - DOMAIN,cdn0.mobmore.com
+  - DOMAIN,click.aliyun.com
+  - DOMAIN,click.mz.simba.taobao.com
+  - DOMAIN,cm.ipinyou.com
+  - DOMAIN,dsp.simba.taobao.com
+  - DOMAIN,ex.mobmore.com
+  - DOMAIN,ex.puata.info
+  - DOMAIN,fav.simba.taobao.com
+  - DOMAIN,feedback.whalecloud.com
+  - DOMAIN,ff.win.taobao.com
+  - DOMAIN,fm.p0y.cn
+  - DOMAIN,g.click.taobao.com
+  - DOMAIN,g.tbcdn.cn
+  - DOMAIN,gma.alicdn.com
+  - DOMAIN,gtms01.alicdn.com
+  - DOMAIN,gtms02.alicdn.com
+  - DOMAIN,gtms03.alicdn.com
+  - DOMAIN,gtms04.alicdn.com
+  - DOMAIN,h-adashx.ut.ele.me
+  - DOMAIN,h-adashx.ut.taobao.com
+  - DOMAIN,h-adashx.ut.youku.com
+  - DOMAIN,h-adashx4yt.ut.taobao.com
+  - DOMAIN,hydra.alibaba.com
+  - DOMAIN,hz.pre.tbusergw.taobao.net
+  - DOMAIN,hz.tbusergw.taobao.net
+  - DOMAIN,i.ipinyou.com
+  - DOMAIN,init.phpwind.com
+  - DOMAIN,intl.wapa.taobao.com
+  - DOMAIN,intl.waptest.taobao.com
+  - DOMAIN,jxlog.istreamsche.com
+  - DOMAIN,log.umtrack.com
+  - DOMAIN,m-adash.m.taobao.com
+  - DOMAIN,m.intl.taobao.com
+  - DOMAIN,m.simba.taobao.com
+  - DOMAIN,match.p4p.1688.com
+  - DOMAIN,material.istreamsche.com
+  - DOMAIN,mlt01.com
+  - DOMAIN,nbsdk-baichuan.alicdn.com
+  - DOMAIN,nbsdk-baichuan.taobao.com
+  - DOMAIN,osfota.cdn.aliyun.com
+  - DOMAIN,osupdate.aliyun.com
+  - DOMAIN,osupdateservice.yunos.com
+  - DOMAIN,pindao.huoban.taobao.com
+  - DOMAIN,push.wandoujia.com
+  - DOMAIN,re.m.taobao.com
+  - DOMAIN,re.taobao.com
+  - DOMAIN,redirect.simba.taobao.com
+  - DOMAIN,rj.m.taobao.co
+  - DOMAIN,rj.m.taobao.com
+  - DOMAIN,sdkinit.taobao.com
+  - DOMAIN,simaba.taobao.com
+  - DOMAIN,simba.m.taobao.com
+  - DOMAIN,srd.simba.taobao.com
+  - DOMAIN,stats.ipinyou.com
+  - DOMAIN,strip.taobaocdn.com
+  - DOMAIN,tanxlog.istreamsche.com
+  - DOMAIN,tejia.taobao.com
+  - DOMAIN,temai.taobao.com
+  - DOMAIN,tns.simba.taobao.com
+  - DOMAIN,tongji.linezing.com
+  - DOMAIN,tvupgrade.yunos.com
+  - DOMAIN,tyh.taobao.com
+  - DOMAIN,userimg.qunar.com
+  - DOMAIN,v6-adashx.ut.amap.com
+  - DOMAIN,v6-adashx.ut.cainiao.com
+  - DOMAIN,v6-adashx.ut.ele.me
+  - DOMAIN,v6-adashx.ut.taobao.com
+  - DOMAIN,w.m.taobao.com
+  - DOMAIN,yiliao.hupan.com
