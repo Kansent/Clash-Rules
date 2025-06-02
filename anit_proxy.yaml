@@ -2,4 +2,4 @@ payload:
   - DOMAIN-SUFFIX,xiaohongshu.com
   - DOMAIN-KEYWORD,xiaohongshu
   - DOMAIN,weibo.com
-  - DOMAIN-SUFFIX,api.weibo.cn
+  - DOMAIN,api.weibo.cn
