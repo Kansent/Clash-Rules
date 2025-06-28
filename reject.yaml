@@ -9,7 +9,7 @@ payload:
   - DOMAIN-SUFFIX,caoyue.com.cn
   - DOMAIN-SUFFIX,app-measurement.com
   - DOMAIN-SUFFIX,duxiaoman.com
-  #- DOMAIN-SUFFIX,360.cn
+  - DOMAIN-SUFFIX,360.cn
   - DOMAIN-SUFFIX,360.com
   - DOMAIN-SUFFIX,360safe.com
   - DOMAIN-SUFFIX,qihucdn.com
@@ -17,7 +17,7 @@ payload:
   - DOMAIN-SUFFIX,sentry.dev
   - DOMAIN-SUFFIX,bloodhound.spotify.com
   - DOMAIN,us.tv.global.mi.com
-  #- DOMAIN-SUFFIX,fengkongcloud.com
+  - DOMAIN-SUFFIX,fengkongcloud.com
   - DOMAIN,ads-img-al.xhscdn.com
   - DOMAIN-SUFFIX,openinstall.io
   - DOMAIN-SUFFIX,ads-pixiv.net
@@ -72,7 +72,6 @@ payload:
 
   # Lofter
   - DOMAIN-SUFFIX,ad.mh.163.com
-  - DOMAIN-SUFFIX,netease.im
   - DOMAIN-SUFFIX,bytedance.com
   - DOMAIN-SUFFIX,ad.lofter.com
 
