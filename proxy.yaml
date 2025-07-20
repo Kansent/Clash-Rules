@@ -63,6 +63,9 @@ payload:
   - DOMAIN,gspe1-ssl.ls.apple.com       #地区检测
   - DOMAIN,guzzoni.smoot.apple.com      #Siri
   - DOMAIN,gateway.icloud.com
+  - DOMAIN-KEYWORD,apple-relay
+  - DOMAIN-SUFFIX,apple-relay.apple.com
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com
 
   # Finance
   - DOMAIN-SUFFIX,interactivebrokers.com
