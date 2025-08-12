@@ -1,5 +1,5 @@
 payload:
-  - DOMAIN-SUFFIX,iframe.ly                             #CDN
+  - DOMAIN-SUFFIX,iframe.ly #CDN
   - DOMAIN-SUFFIX,nexon.com
   - DOMAIN-SUFFIX,dnslytics.com
   - DOMAIN-SUFFIX,v2ex.com
@@ -42,7 +42,7 @@ payload:
   - DOMAIN-SUFFIX,xhcdn.com
   - DOMAIN-SUFFIX,pronhub.com
   - DOMAIN-SUFFIX,phncdn.com
-  
+
   # Pixiv
   - DOMAIN-SUFFIX,pixiv.net
   - DOMAIN-SUFFIX,pximg.net
@@ -53,15 +53,15 @@ payload:
   # Hoyoverse
   - DOMAIN-SUFFIX,hoyolab.com
   - DOMAIN-SUFFIX,hsr.hoyoverse.com
-  
+
   # Linkedin
   - DOMAIN-SUFFIX,linkedin.com
   - DOMAIN-SUFFIX,licdn.com
 
   # Apple
   - DOMAIN,podcasts.apple.com
-  - DOMAIN,gspe1-ssl.ls.apple.com       #地区检测
-  - DOMAIN,guzzoni.smoot.apple.com      #Siri
+  - DOMAIN,gspe1-ssl.ls.apple.com #地区检测
+  - DOMAIN,guzzoni.smoot.apple.com #Siri
   - DOMAIN,gateway.icloud.com
   - DOMAIN-KEYWORD,apple-relay
   - DOMAIN-SUFFIX,apple-relay.apple.com
@@ -117,13 +117,14 @@ payload:
 
   # Github
   - DOMAIN-SUFFIX,github.com
+  - DOMAIN-SUFFIX,githubassets.com
   - DOMAIN-SUFFIX,githubusercontent.com
 
   # Gitlab
   - DOMAIN-SUFFIX,gitlab.io
   - DOMAIN-SUFFIX,gitlab.com
 
-  # Discord  
+  # Discord
   - DOMAIN-SUFFIX,discord.com
   - DOMAIN-SUFFIX,discordapp.com
   - DOMAIN-SUFFIX,discord.media
