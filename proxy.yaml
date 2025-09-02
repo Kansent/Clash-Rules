@@ -66,6 +66,7 @@ payload:
   - DOMAIN-KEYWORD,apple-relay
   - DOMAIN-SUFFIX,apple-relay.apple.com
   - DOMAIN-SUFFIX,apple-relay.cloudflare.com
+  - DOMAIN,mask-api.icloud.com      #iCloud Private Relay
 
   # Finance
   - DOMAIN-SUFFIX,interactivebrokers.com
