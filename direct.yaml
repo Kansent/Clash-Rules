@@ -91,9 +91,6 @@ payload:
   - DOMAIN-SUFFIX,dbankcloud.com
   - DOMAIN-SUFFIX,dbankcdn.com
 
-  # Google
-  - DOMAIN-SUFFIX,dl.google.com
-
   # Shopping
   - DOMAIN-SUFFIX,360buyimg.com
   - DOMAIN-SUFFIX,jd.com
