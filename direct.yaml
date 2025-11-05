@@ -120,6 +120,7 @@ payload:
   - DOMAIN-SUFFIX,steamstatic.com
   - DOMAIN-SUFFIX,steamcontent.com
   - DOMAIN-SUFFIX,proxmox.com
+  - DOMAIN-SUFFIX,akamaihd.net
 
   # Travel
   - DOMAIN-SUFFIX,openrice.com
