@@ -266,3 +266,5 @@ payload:
   # 鹰角
   - DOMAIN-SUFFIX,hypergryph.com
 
+  # Steam
+  - DOMAIN,store.steampowered.com
