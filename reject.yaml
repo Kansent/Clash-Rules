@@ -27,6 +27,7 @@ payload:
   - DOMAIN,dualstack-logs.amap.com
   - DOMAIN-SUFFIX,ad.xiaotucc.com           #小兔充充
   - DOMAIN-SUFFIX,jiguang.cn
+  - DOMAIN-SUFFIX,ping0.cc
 
   # 爱玛出行
   - DOMAIN-SUFFIX,jiguang.aimaiot.cn
