@@ -265,6 +265,6 @@ payload:
   - DOMAIN-SUFFIX,hypergryph.com
 
   # Steam
-  - DOMAIN,store.steampowered.com
+  # - DOMAIN,store.steampowered.com
   - DOMAIN-SUFFIX,steamstatic.com
   - DOMAIN-SUFFIX,steamcontent.com
