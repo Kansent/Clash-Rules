@@ -118,10 +118,9 @@ payload:
   - DOMAIN-SUFFIX,weibocdn.com
   - DOMAIN-SUFFIX,cdntips.net
   - DOMAIN-SUFFIX,hicloud.com
-  - DOMAIN-SUFFIX,steamstatic.com
-  - DOMAIN-SUFFIX,steamcontent.com
   - DOMAIN-SUFFIX,proxmox.com
   - DOMAIN-SUFFIX,akamaihd.net
+  - DOMAIN-SUFFIX,epicgamescdn.com
 
   # Travel
   - DOMAIN-SUFFIX,openrice.com
@@ -266,4 +265,6 @@ payload:
   - DOMAIN-SUFFIX,hypergryph.com
 
   # Steam
-  #- DOMAIN,store.steampowered.com
+  - DOMAIN,store.steampowered.com
+  - DOMAIN-SUFFIX,steamstatic.com
+  - DOMAIN-SUFFIX,steamcontent.com
