@@ -132,9 +132,6 @@ payload:
   - DOMAIN-SUFFIX,mclcinema.com
   - DOMAIN-SUFFIX,wmoov.com
 
-  # 字节跳动
-  - DOMAIN-SUFFIX,xhscdn.com
-
   # Spotify
   - DOMAIN-SUFFIX,scdn.co
   - DOMAIN-SUFFIX,spotifycdn.com
@@ -260,9 +257,6 @@ payload:
   # 超自然行动组
   - DOMAIN-SUFFIX,preternatural.cc
   - DOMAIN-SUFFIX,chaoziran.com
-
-  # 鹰角
-  - DOMAIN-SUFFIX,hypergryph.com
 
   # Steam
   # - DOMAIN,store.steampowered.com
