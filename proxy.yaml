@@ -1,4 +1,12 @@
 payload:
+  # 无忧行
+  - DOMAIN,app3.jegotrip.com.cn
+
+  # NSFW
+  - DOMAIN-SUFFIX,pronhub.com
+
+
+
   - DOMAIN-SUFFIX,iframe.ly #CDN
   - DOMAIN-SUFFIX,nexon.com
   - DOMAIN-SUFFIX,dnslytics.com
@@ -26,8 +34,7 @@ payload:
   - DOMAIN-SUFFIX,spotify.com
   - DOMAIN-SUFFIX,hostloc.com
 
-  # 无忧行
-  - DOMAIN,app3.jegotrip.com.cn
+
 
   # Tiktok
   - DOMAIN-SUFFIX,tiktok.com
@@ -40,8 +47,7 @@ payload:
   # Nsfw
   - DOMAIN-SUFFIX,xhamster.com
   - DOMAIN-SUFFIX,xhcdn.com
-  - DOMAIN-SUFFIX,pronhub.com
-  - DOMAIN-SUFFIX,phncdn.com
+
 
   # Pixiv
   - DOMAIN-SUFFIX,pixiv.net
