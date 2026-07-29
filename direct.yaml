@@ -1,4 +1,6 @@
 payload:
+  - DOMAIN-SUFFIX,kukutool.com
+
   - DOMAIN-SUFFIX,mapi.xiaotucc.com         #小兔充充
   - DOMAIN-SUFFIX,cloudflarestorage.com     #cloudflare
   - DOMAIN-SUFFIX,images.weserv.nl          #图片反代
