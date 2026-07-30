@@ -1,5 +1,6 @@
 payload:
   - DOMAIN-SUFFIX,kukutool.com
+  - DOMAIN,vcards.metowolf.com
 
   - DOMAIN-SUFFIX,mapi.xiaotucc.com         #小兔充充
   - DOMAIN-SUFFIX,cloudflarestorage.com     #cloudflare
