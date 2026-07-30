@@ -94,6 +94,7 @@ payload:
   - DOMAIN-SUFFIX,sdk.beizi.biz
   - DOMAIN-SUFFIX,cpatrk.net
   - DOMAIN-SUFFIX,tenetengine.com
+  - DOMAIN-SUFFIX,zhangyuyidong.cn
 
   # Hoyoverse
   - DOMAIN,log-upload-os.mihoyo.com

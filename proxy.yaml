@@ -5,7 +5,9 @@ payload:
   # NSFW
   - DOMAIN-SUFFIX,pronhub.com
 
-
+  # interactivebrokers
+  - DOMAIN,www.interactivebrokers.com
+  - DOMAIN,ndcdyn.interactivebrokers.com
 
   - DOMAIN-SUFFIX,iframe.ly #CDN
   - DOMAIN-SUFFIX,nexon.com
