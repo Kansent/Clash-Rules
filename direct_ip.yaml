@@ -1,4 +1,7 @@
 payload:
+  # Hoyoverse Alibaba Japan
+  - IP-ASN,45102,no-resolve  
+
   # iqiyi
   - IP-CIDR,116.211.192.0/20,no-resolve
   - IP-CIDR,59.32.0.0/13,no-resolve

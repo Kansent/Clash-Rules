@@ -1,6 +1,8 @@
 payload:
-  - DOMAIN-SUFFIX,kukutool.com
-  - DOMAIN,vcards.metowolf.com
+  - DOMAIN-SUFFIX,kukutool.com        #去水印下载
+  - DOMAIN,vcards.metowolf.com        #vCards
+  - DOMAIN,www.end-axis.com           #MAAEND
+  - DOMAIN,prts.plus                  #MAA
 
   # Welab Bank
   - DOMAIN-SUFFIX,welab.bank
