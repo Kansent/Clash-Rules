@@ -1,6 +1,16 @@
 payload:
   - DOMAIN-SUFFIX,kukutool.com        #去水印下载
   - DOMAIN,vcards.metowolf.com        #vCards
+  - DOMAIN-SUFFIX,canmoe.com          #终末地工具箱
+
+  # BT下载站
+  - DOMAIN,dyttzyw.com
+  - DOMAIN-SUFFIX,dyttimage.com
+  - DOMAIN,919168.com
+  - DOMAIN,1lou.me
+
+  # 字节跳动
+  - DOMAIN,aweme.snssdk.com
 
   # Welab Bank
   - DOMAIN-SUFFIX,welab.bank
@@ -71,7 +81,7 @@ payload:
   - DOMAIN-SUFFIX,epicgames.com
   - DOMAIN-SUFFIX,urbtix.hk
   - DOMAIN-SUFFIX,teamviewer.com
-  - DOMAIN,end.canmoe.com               #终末地工具箱
+  
   - DOMAIN-SUFFIX,lmstudio.ai
   
   # 向日葵
