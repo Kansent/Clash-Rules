@@ -2,12 +2,16 @@ payload:
   - DOMAIN-SUFFIX,kukutool.com        #去水印下载
   - DOMAIN,vcards.metowolf.com        #vCards
   - DOMAIN-SUFFIX,canmoe.com          #终末地工具箱
+  - DOMAIN,www.chzy7.com
 
   # BT下载站
   - DOMAIN,dyttzyw.com
   - DOMAIN-SUFFIX,dyttimage.com
   - DOMAIN,919168.com
-  - DOMAIN,1lou.me
+  - DOMAIN-SUFFIX,1lou.me
+  - DOMAIN-SUFFIX,bbegge.com
+  - DOMAIN-SUFFIX,baidubaidu.win
+  - DOMAIN-SUFFIX,mvinfo.homes
 
   # 字节跳动
   - DOMAIN,aweme.snssdk.com
