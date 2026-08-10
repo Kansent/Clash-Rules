@@ -4,6 +4,9 @@ payload:
   - DOMAIN-SUFFIX,canmoe.com          #终末地工具箱
   - DOMAIN,www.chzy7.com
 
+  # Hoyoverse
+  - DOMAIN-SUFFIX,hoyoverse.com
+
   # BT下载站
   - DOMAIN,dyttzyw.com
   - DOMAIN-SUFFIX,dyttimage.com
