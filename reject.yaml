@@ -1,4 +1,13 @@
 payload:
+  # 广告及跟踪器
+  - DOMAIN,adm.zhangyuyidong.cn
+  - DOMAIN,sdk.zhangyuyidong.cn
+  - DOMAIN,track.1b1tech.com
+
+
+
+
+
   - DOMAIN-SUFFIX,jpush.cn
   - DOMAIN-SUFFIX,bugly.qq.com
   - DOMAIN-SUFFIX,reyun.com
