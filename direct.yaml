@@ -3,6 +3,7 @@ payload:
   - DOMAIN,vcards.metowolf.com        #vCards
   - DOMAIN-SUFFIX,canmoe.com          #终末地工具箱
   - DOMAIN,www.chzy7.com
+  - DOMAIN-SUFFIX,yuanshen.site
 
   # Hoyoverse
   - DOMAIN-SUFFIX,hoyoverse.com
