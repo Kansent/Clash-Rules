@@ -4,6 +4,7 @@ payload:
   - DOMAIN-SUFFIX,canmoe.com          #终末地工具箱
   - DOMAIN,www.chzy7.com
   - DOMAIN-SUFFIX,yuanshen.site
+  - DOMAIN-SUFFIX,gpu.me
 
   # Hoyoverse
   - DOMAIN-SUFFIX,hoyoverse.com
@@ -25,6 +26,9 @@ payload:
 
   # CDN
   - DOMAIN-SUFFIX,branch.io
+  - DOMAIN-SUFFIX,scdn.co
+  - DOMAIN-SUFFIX,spotifycdn.com
+  - DOMAIN-SUFFIX,spotify.com
 
   # MAA
   - DOMAIN,end.maafw.com

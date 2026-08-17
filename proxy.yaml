@@ -9,6 +9,11 @@ payload:
   - DOMAIN-SUFFIX,interactivebrokers.com
   - DOMAIN-SUFFIX,ibkr.com
 
+  # Spotify
+  - DOMAIN,accounts.spotify.com
+  - DOMAIN,open.spotify.com
+  - DOMAIN,www.spotify.com
+
 
 
   - DOMAIN-SUFFIX,iframe.ly #CDN
