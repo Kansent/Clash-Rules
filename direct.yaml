@@ -8,10 +8,19 @@ payload:
 
   # Apple
   - DOMAIN,lcdn-registration.apple.com
+  - DOMAIN,lcdn-registration.apple.com.akadns.net
+  - DOMAIN,ms11p01su-lcdnreg.isu.apple.com.akadns.net
   - DOMAIN,suconfig.apple.com
+  - DOMAIN,suconfig.apple.com.edgesuite.net
+  - DOMAIN,a803.g4.akamai.net
   - DOMAIN,xp-cdn.apple.com
+  - DOMAIN,cdn-xp-ingest.edge.apple
+  - DOMAIN,cdn-xp-ingest-ab.v.aaplimg.com
   - DOMAIN,lcdn-locator.apple.com
+  - DOMAIN,lcdn-locator.apple.com.akadns.net
+  - DOMAIN,lcdn-locator-usms11.apple.com.akadns.net
   - DOMAIN,serverstatus.apple.com
+  - DOMAIN,serverstatus.apple.com.akadns.net
 
   # Hoyoverse
   - DOMAIN-SUFFIX,hoyoverse.com
