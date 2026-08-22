@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - 'rules/REJECT/**'
+      - 'rules/[rR][eE][jJ][eE][cC][tT]/**'
       - '.github/workflows/build-adguardhome.yml'
   workflow_dispatch:
 
@@ -26,35 +26,36 @@ jobs:
           import os
           import glob
 
-          REJECT_DIR = "rules/reject"
+          RULES_DIR = "rules"
           OUTPUT_FILE = "agh_output/reject.txt"
-
           agh_domains = set()
 
-          if os.path.exists(REJECT_DIR):
-              # 匹配 rules/reject/ 下及其子目录下的所有 .list 和 .txt 文件
-              files = glob.glob(f"{REJECT_DIR}/**/*.list", recursive=True) + glob.glob(f"{REJECT_DIR}/**/*.txt", recursive=True)
-              
-              for fpath in files:
-                  with open(fpath, "r", encoding="utf-8") as f:
-                      for line in f:
-                          line = line.strip()
-                          # 过滤空行、注释以及 keyword: 规则
-                          if not line or line.startswith("#") or line.startswith("keyword:"):
-                              continue
-                          
-                          # 提取域名（剥离 +. 或 full: 前缀）
-                          if line.startswith("+."):
-                              domain = line[2:]
-                          elif line.startswith("full:"):
-                              domain = line[5:]
-                          else:
-                              domain = line
-                          
-                          domain = domain.strip()
-                          if domain:
-                              # 统一转为 AdGuard Home 的 ||domain^ 格式
-                              agh_domains.add(f"||{domain}^")
+          if os.path.exists(RULES_DIR):
+              # 自动匹配大小写的 reject 目录 (如 REJECT, reject, Reject)
+              for d in os.listdir(RULES_DIR):
+                  if d.lower() == "reject":
+                      target_dir = os.path.join(RULES_DIR, d)
+                      files = glob.glob(f"{target_dir}/**/*.list", recursive=True) + glob.glob(f"{target_dir}/**/*.txt", recursive=True)
+                      
+                      for fpath in files:
+                          with open(fpath, "r", encoding="utf-8") as f:
+                              for line in f:
+                                  line = line.strip()
+                                  # 过滤空行、注释以及 keyword:
+                                  if not line or line.startswith("#") or line.startswith("keyword:"):
+                                      continue
+                                  
+                                  # 提取域名（剥离 +. 或 full: 前缀）
+                                  if line.startswith("+."):
+                                      domain = line[2:]
+                                  elif line.startswith("full:"):
+                                      domain = line[5:]
+                                  else:
+                                      domain = line
+                                  
+                                  domain = domain.strip()
+                                  if domain:
+                                      agh_domains.add(f"||{domain}^")
 
           if agh_domains:
               with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
@@ -63,18 +64,21 @@ jobs:
                   f.write("! Total Count: " + str(len(agh_domains)) + "\n\n")
                   f.write("\n".join(sorted(agh_domains)))
                   f.write("\n")
+              print(f"Successfully generated {len(agh_domains)} rules to {OUTPUT_FILE}")
+          else:
+              print("No valid reject domain rules found!")
           '
 
       - name: Deploy to AdGuard Home Branch
         run: |
-          if [ -d "agh_output" ] && [ "$(ls -A agh_output)" ]; then
+          if [ -f "agh_output/reject.txt" ]; then
             cd agh_output
             git init
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add .
             git commit -m "build: auto generate adguardhome reject rules"
-            git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:adguardhome
+            git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:adguardhome
           else
-            echo "No domain reject rules found, skip deployment."
+            echo "No reject file found, skip deployment."
           fi
