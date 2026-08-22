@@ -2,7 +2,7 @@ name: Build Mihomo Ruleset (.mrs)
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main]
     paths:
       - 'rules/**'
       - '.github/workflows/build-mrs.yml'
@@ -103,6 +103,21 @@ jobs:
                           domains.add(line)
               return domains
 
+          def parse_ip_files(files):
+              ips = set()
+              for fpath in files:
+                  with open(fpath, "r", encoding="utf-8") as f:
+                      for line in f:
+                          line = line.strip()
+                          if not line or line.startswith("#"):
+                              continue
+                          if line.upper().startswith("AS") and line[2:].isdigit():
+                              fetched = get_cidrs_from_asn_mmdb(line)
+                              ips.update(fetched)
+                          else:
+                              ips.add(line)
+              return ips
+
           def save_yaml(filename, items):
               if not items:
                   return
@@ -135,9 +150,8 @@ jobs:
                   domain_dir = os.path.join(policy_path, "domain")
                   ip_dir = os.path.join(policy_path, "ip")
 
-                  # 模式 A：存在分类文件夹
+                  # 模式 A：存在 domain 或 ip 文件夹 (如 rules/DIRECT/domain/ 和 rules/DIRECT/ip/)
                   if os.path.exists(domain_dir) or os.path.exists(ip_dir):
-                      # 处理 域名 部分
                       if os.path.exists(domain_dir):
                           files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
                           domains = parse_domain_files(files)
@@ -145,37 +159,43 @@ jobs:
                               save_yaml(f"{policy}-domain", domains)
                               compile_mrs(f"{policy}-domain", domains, "domain")
 
-                      # 处理 IP 部分（将该 Policy 下的所有 IP、ASN 解析结果完全整合）
                       if os.path.exists(ip_dir):
                           files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
-                          
-                          policy_all_ips = set()
-
-                          for fpath in files:
-                              with open(fpath, "r", encoding="utf-8") as f:
-                                  for line in f:
-                                      line = line.strip()
-                                      if not line or line.startswith("#"):
-                                          continue
-                                      if line.upper().startswith("AS") and line[2:].isdigit():
-                                          fetched = get_cidrs_from_asn_mmdb(line)
-                                          policy_all_ips.update(fetched)
-                                      else:
-                                          policy_all_ips.add(line)
-
-                          # 汇总、CIDR 优化合并，只导出统一的 <Policy>-ip.yaml 与 <Policy>-ip.mrs
+                          policy_all_ips = parse_ip_files(files)
                           if policy_all_ips:
                               optimized_policy_ips = optimize_cidrs(list(policy_all_ips))
                               save_yaml(f"{policy}-ip", optimized_policy_ips)
                               compile_mrs(f"{policy}-ip", optimized_policy_ips, "ipcidr")
 
-                  # 模式 B：根目录下直接放 .list (如 rules/REJECT/ads.list)
+                  # 模式 B：策略根目录下直接放置 .list (如 rules/Anti-attribution/domain.list 和 ip.list)
                   else:
                       files = glob.glob(f"{policy_path}/*.list") + glob.glob(f"{policy_path}/*.txt")
-                      domains = parse_domain_files(files)
-                      if domains:
-                          save_yaml(f"{policy}-domain", domains)
-                          compile_mrs(f"{policy}-domain", domains, "domain")
+                      
+                      domain_files = [f for f in files if "domain" in os.path.basename(f).lower()]
+                      ip_files = [f for f in files if "ip" in os.path.basename(f).lower()]
+                      other_files = [f for f in files if f not in domain_files and f not in ip_files]
+
+                      # 处理包含 domain 字样的文件
+                      if domain_files:
+                          domains = parse_domain_files(domain_files)
+                          if domains:
+                              save_yaml(f"{policy}-domain", domains)
+                              compile_mrs(f"{policy}-domain", domains, "domain")
+
+                      # 处理包含 ip 字样的文件
+                      if ip_files:
+                          ips = parse_ip_files(ip_files)
+                          if ips:
+                              optimized_ips = optimize_cidrs(list(ips))
+                              save_yaml(f"{policy}-ip", optimized_ips)
+                              compile_mrs(f"{policy}-ip", optimized_ips, "ipcidr")
+
+                      #兜底：未带 domain/ip 标记的文件默认按域名处理
+                      if other_files:
+                          domains = parse_domain_files(other_files)
+                          if domains:
+                              save_yaml(f"{policy}-domain", domains)
+                              compile_mrs(f"{policy}-domain", domains, "domain")
           '
 
           rm -rf output/tmp
