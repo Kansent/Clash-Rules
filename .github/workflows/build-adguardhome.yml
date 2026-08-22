@@ -1,0 +1,79 @@
+name: Build AdGuard Home Rules
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'rules/reject/domain/**'
+      - '.github/workflows/build-adguardhome.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-agh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Convert Reject Domain Rules to AdGuard Home Format
+        run: |
+          mkdir -p agh_output
+          
+          python3 -c '
+          import os
+          import glob
+
+          REJECT_DOMAIN_DIR = "rules/reject/domain"
+          OUTPUT_FILE = "agh_output/reject.txt"
+
+          agh_domains = set()
+
+          if os.path.exists(REJECT_DOMAIN_DIR):
+              files = glob.glob(f"{REJECT_DOMAIN_DIR}/**/*.list", recursive=True) + glob.glob(f"{REJECT_DOMAIN_DIR}/**/*.txt", recursive=True)
+              
+              for fpath in files:
+                  with open(fpath, "r", encoding="utf-8") as f:
+                      for line in f:
+                          line = line.strip()
+                          # 忽略空行、注释以及关键词 (keyword:)
+                          if not line or line.startswith("#") or line.startswith("keyword:"):
+                              continue
+                          
+                          # 提取域名（剥离前缀）
+                          if line.startswith("+."):
+                              domain = line[2:]
+                          elif line.startswith("full:"):
+                              domain = line[5:]
+                          else:
+                              domain = line
+                          
+                          domain = domain.strip()
+                          if domain:
+                              # 精准域名和泛域名统一转为 ||domain^ 语法
+                              agh_domains.add(f"||{domain}^")
+
+          if agh_domains:
+              with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+                  f.write("! Title: Reject Rules for AdGuard Home\n")
+                  f.write("! Homepage: https://github.com/" + os.getenv("GITHUB_REPOSITORY", "") + "\n")
+                  f.write("! Total Count: " + str(len(agh_domains)) + "\n\n")
+                  f.write("\n".join(sorted(agh_domains)))
+                  f.write("\n")
+          '
+
+      - name: Deploy to AdGuard Home Branch
+        run: |
+          if [ -d "agh_output" ] && [ "$(ls -A agh_output)" ]; then
+            cd agh_output
+            git init
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "build: auto generate adguardhome reject rules"
+            git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:adguardhome
+          else
+            echo "No domain reject rules found, skip deployment."
+          fi
