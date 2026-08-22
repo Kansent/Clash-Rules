@@ -2,8 +2,10 @@ name: Build Mihomo Ruleset (.mrs)
 
 on:
   push:
-    branches: [ main ]
-    paths: [ 'rules/**' ]
+    branches: [ main, master ]
+    paths:
+      - 'rules/**'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 permissions:
@@ -36,74 +38,93 @@ jobs:
           OUTPUT_DIR = "output"
           TMP_DIR = "output/tmp"
 
-          if not os.path.exists(RULES_DIR):
-              print("Rules directory not found!")
-              exit(0)
+          if os.path.exists(RULES_DIR):
+              # 遍历 rules 目录下的一级策略目录 (例如: direct, proxy, reject 等)
+              for policy in os.listdir(RULES_DIR):
+                  policy_path = os.path.join(RULES_DIR, policy)
+                  if not os.path.isdir(policy_path):
+                      continue
 
-          # 遍历 rules 目录下的一级策略目录 (例如: direct, proxy, reject 等)
-          for policy in os.listdir(RULES_DIR):
-              policy_path = os.path.join(RULES_DIR, policy)
-              if not os.path.isdir(policy_path):
-                  continue
-
-              # 1. 处理 Domain 类型的规则
-              domain_dir = os.path.join(policy_path, "domain")
-              if os.path.exists(domain_dir):
-                  domain_lines = set()
-                  # 匹配 .list 和 .txt 文件
-                  files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
-                  for fpath in files:
-                      with open(fpath, "r", encoding="utf-8") as f:
-                          for line in f:
-                              line = line.strip()
-                              if not line or line.startswith("#"):
-                                  continue
-                              # 判断逻辑
-                              if line.startswith("keyword:") or line.startswith("+.") or line.startswith("full:"):
-                                  domain_lines.add(line)
-                              else:
-                                  # 纯域名自动标记为 DOMAIN (full:)
-                                  domain_lines.add(f"full:{line}")
-                  
-                  if domain_lines:
-                      tmp_file = os.path.join(TMP_DIR, f"{policy}_domain.txt")
-                      mrs_file = os.path.join(OUTPUT_DIR, f"{policy}-domain.mrs")
-                      with open(tmp_file, "w", encoding="utf-8") as f:
-                          f.write("\n".join(sorted(domain_lines)))
+                  # 1. 处理 Domain 类型的规则
+                  domain_dir = os.path.join(policy_path, "domain")
+                  if os.path.exists(domain_dir):
+                      domain_lines = set()
+                      files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
+                      for fpath in files:
+                          with open(fpath, "r", encoding="utf-8") as f:
+                              for line in f:
+                                  line = line.strip()
+                                  if not line or line.startswith("#"):
+                                      continue
+                                  if line.startswith("keyword:") or line.startswith("+.") or line.startswith("full:"):
+                                      domain_lines.add(line)
+                                  else:
+                                      domain_lines.add(f"full:{line}")
                       
-                      # 执行 mihomo 编译
-                      print(f"Compiling {mrs_file}...")
-                      subprocess.run(["./mihomo", "convert-ruleset", "domain", "text", tmp_file, mrs_file], check=True)
+                      if domain_lines:
+                          tmp_file = os.path.join(TMP_DIR, f"{policy}_domain.txt")
+                          yaml_file = os.path.join(OUTPUT_DIR, f"{policy}-domain.yaml")
+                          mrs_file = os.path.join(OUTPUT_DIR, f"{policy}-domain.mrs")
+                          
+                          sorted_domains = sorted(domain_lines)
 
-              # 2. 处理 IP 类型的规则
-              ip_dir = os.path.join(policy_path, "ip")
-              if os.path.exists(ip_dir):
-                  ip_lines = set()
-                  files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
-                  for fpath in files:
-                      with open(fpath, "r", encoding="utf-8") as f:
-                          for line in f:
-                              line = line.strip()
-                              if not line or line.startswith("#"):
-                                  continue
-                              ip_lines.add(line)
-                  
-                  if ip_lines:
-                      tmp_file = os.path.join(TMP_DIR, f"{policy}_ip.txt")
-                      mrs_file = os.path.join(OUTPUT_DIR, f"{policy}-ip.mrs")
-                      with open(tmp_file, "w", encoding="utf-8") as f:
-                          f.write("\n".join(sorted(ip_lines)))
+                          # 写入用于编译 .mrs 的临时文本
+                          with open(tmp_file, "w", encoding="utf-8") as f:
+                              f.write("\n".join(sorted_domains))
+                          
+                          # 生成符合 Mihomo 格式的 YAML 规则集 (payload 格式)
+                          with open(yaml_file, "w", encoding="utf-8") as f:
+                              f.write("payload:\n")
+                              for domain in sorted_domains:
+                                  f.write(f"  - \x27{domain}\x27\n")
+                          
+                          # 执行 mihomo 编译为 .mrs
+                          print(f"Compiling {mrs_file}...")
+                          subprocess.run(["./mihomo", "convert-ruleset", "domain", "text", tmp_file, mrs_file], check=True)
+
+                  # 2. 处理 IP 类型的规则
+                  ip_dir = os.path.join(policy_path, "ip")
+                  if os.path.exists(ip_dir):
+                      ip_lines = set()
+                      files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
+                      for fpath in files:
+                          with open(fpath, "r", encoding="utf-8") as f:
+                              for line in f:
+                                  line = line.strip()
+                                  if not line or line.startswith("#"):
+                                      continue
+                                  ip_lines.add(line)
                       
-                      # 执行 mihomo 编译
-                      print(f"Compiling {mrs_file}...")
-                      subprocess.run(["./mihomo", "convert-ruleset", "ipcidr", "text", tmp_file, mrs_file], check=True)
+                      if ip_lines:
+                          tmp_file = os.path.join(TMP_DIR, f"{policy}_ip.txt")
+                          yaml_file = os.path.join(OUTPUT_DIR, f"{policy}-ip.yaml")
+                          mrs_file = os.path.join(OUTPUT_DIR, f"{policy}-ip.mrs")
+                          
+                          sorted_ips = sorted(ip_lines)
+
+                          # 写入用于编译 .mrs 的临时文本
+                          with open(tmp_file, "w", encoding="utf-8") as f:
+                              f.write("\n".join(sorted_ips))
+
+                          # 生成符合 Mihomo 格式的 YAML 规则集 (payload 格式)
+                          with open(yaml_file, "w", encoding="utf-8") as f:
+                              f.write("payload:\n")
+                              for ip in sorted_ips:
+                                  f.write(f"  - \x27{ip}\x27\n")
+                          
+                          # 执行 mihomo 编译为 .mrs
+                          print(f"Compiling {mrs_file}...")
+                          subprocess.run(["./mihomo", "convert-ruleset", "ipcidr", "text", tmp_file, mrs_file], check=True)
           '
 
           rm -rf output/tmp
 
       - name: Deploy to Release Branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
-          publish_branch: release
+        run: |
+          cd output
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "build: auto compile ruleset"
+          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:release
