@@ -18,8 +18,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download Mihomo CLI
+      - name: Set up Python and Install Dependencies
         run: |
+          python3 -m pip install --upgrade pip
+          pip install geoip2 maxminddb
+
+      - name: Download GeoIP-ASN Database & Mihomo CLI
+        run: |
+          # 下载最新的 GeoIP ASN 数据库
+          echo "Downloading GeoLite2-ASN database..."
+          curl -L "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb" -o GeoLite2-ASN.mmdb
+
+          # 下载 Mihomo CLI
           MIHOMO_URL=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep "browser_download_url" | grep "linux-amd64" | grep -v "compatible" | head -n 1 | cut -d '"' -f 4)
           curl -L $MIHOMO_URL -o mihomo.gz
           gunzip mihomo.gz
@@ -33,69 +43,54 @@ jobs:
           import os
           import glob
           import subprocess
-          import urllib.request
-          import json
+          import ipaddress
+          import geoip2.database
 
           RULES_DIR = "rules"
           OUTPUT_DIR = "output"
           TMP_DIR = "output/tmp"
+          MMDB_PATH = "GeoLite2-ASN.mmdb"
 
-          def get_cidrs_from_asn(asn_str):
-              asn = asn_str.upper().replace("AS", "").strip()
-              print(f"--> [ASN Parser] Fetching CIDRs for ASN: {asn}...")
-              cidrs = []
+          def optimize_cidrs(cidr_list):
+              """对 IPv4 和 IPv6 网段分别做 CIDR 重叠与连续网段合并优化"""
+              v4_nets = []
+              v6_nets = []
+              for item in cidr_list:
+                  try:
+                      net = ipaddress.ip_network(item, strict=False)
+                      if net.version == 4:
+                          v4_nets.append(net)
+                      else:
+                          v6_nets.append(net)
+                  except Exception:
+                      continue
               
-              # 1. 第一来源：BGPView API (支持全网所有 RIR 注册数据)
-              url_bgpview = f"https://api.bgpview.io/asn/{asn}/prefixes"
-              try:
-                  req = urllib.request.Request(url_bgpview, headers={"User-Agent": "Mozilla/5.0"})
-                  with urllib.request.urlopen(req) as response:
-                      data = json.loads(response.read().decode("utf-8"))
-                      if data.get("status") == "ok" and "data" in data:
-                          ipv4_prefixes = data["data"].get("ipv4_prefixes", [])
-                          for item in ipv4_prefixes:
-                              prefix = item.get("prefix")
-                              if prefix:
-                                  cidrs.append(prefix)
-                          ipv6_prefixes = data["data"].get("ipv6_prefixes", [])
-                          for item in ipv6_prefixes:
-                              prefix = item.get("prefix")
-                              if prefix:
-                                  cidrs.append(prefix)
-              except Exception as e:
-                  print(f"--> [ASN Parser] BGPView API failed for AS{asn}: {e}")
+              merged_v4 = [str(net) for net in ipaddress.collapse_addresses(v4_nets)]
+              merged_v6 = [str(net) for net in ipaddress.collapse_addresses(v6_nets)]
+              return merged_v4 + merged_v6
 
-              # 2. 第二来源：RIPEstat API (降级备用)
-              if not cidrs:
-                  url_ripestat = f"https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{asn}"
+          def get_cidrs_from_asn_mmdb(asn_str):
+              """基于 GeoLite2-ASN.mmdb 全盘检索最精准的 IPv4 + IPv6 网段"""
+              target_asn = int(asn_str.upper().replace("AS", "").strip())
+              print(f"--> [GeoIP MMDB] Querying AS{target_asn} from GeoLite2-ASN.mmdb...")
+              
+              raw_cidrs = []
+              if os.path.exists(MMDB_PATH):
                   try:
-                      req = urllib.request.Request(url_ripestat, headers={"User-Agent": "Mozilla/5.0"})
-                      with urllib.request.urlopen(req) as response:
-                          data = json.loads(response.read().decode("utf-8"))
-                          prefixes = data.get("data", {}).get("prefixes", [])
-                          for item in prefixes:
-                              prefix = item.get("prefix")
-                              if prefix:
-                                  cidrs.append(prefix)
+                      with geoip2.database.Reader(MMDB_PATH) as reader:
+                          # 遍历 mmdb 中的全部网络节点
+                          for network, record in reader.raw_db:
+                              asn = record.get("autonomous_system_number")
+                              if asn == target_asn:
+                                  raw_cidrs.append(str(network))
                   except Exception as e:
-                      print(f"--> [ASN Parser] RIPEstat API failed for AS{asn}: {e}")
+                      print(f"--> [GeoIP MMDB] Error reading mmdb: {e}")
+              else:
+                  print("--> [GeoIP MMDB] MMDB file not found!")
 
-              # 3. 第三来源：ipverse 静态源 (保底)
-              if not cidrs:
-                  url_ipverse = f"https://raw.githubusercontent.com/ipverse/asn-ip/master/as/{asn}/ipv4-aggregated.cidr"
-                  try:
-                      req = urllib.request.Request(url_ipverse, headers={"User-Agent": "Mozilla/5.0"})
-                      with urllib.request.urlopen(req) as response:
-                          lines = response.read().decode("utf-8").splitlines()
-                          for line in lines:
-                              line = line.strip()
-                              if line and not line.startswith("#"):
-                                  cidrs.append(line)
-                  except Exception as e:
-                      print(f"--> [ASN Parser] ipverse failed for AS{asn}: {e}")
-
-              print(f"--> [ASN Parser] Total {len(cidrs)} CIDRs found for AS{asn}")
-              return cidrs
+              optimized = optimize_cidrs(raw_cidrs)
+              print(f"--> [GeoIP MMDB] Total {len(optimized)} precise IPv4/IPv6 CIDRs found for AS{target_asn}")
+              return optimized
 
           def parse_domain_files(files):
               domains = set()
@@ -166,14 +161,14 @@ jobs:
                                           continue
                                       if line.upper().startswith("AS") and line[2:].isdigit():
                                           has_asn = True
-                                          fetched = get_cidrs_from_asn(line)
+                                          fetched = get_cidrs_from_asn_mmdb(line)
                                           asn_ips.update(fetched)
                                       else:
                                           normal_ips.add(line)
 
                               # 包含了 ASN 的情况（如 Hoyoverse.list 内写了 AS45102）
                               if has_asn:
-                                  # 1. 导出 Hoyoverse-ipcidr.yaml
+                                  # 1. 导出 Hoyoverse-ipcidr.yaml (仅含 ASN 生成的 IPv4/v6 网段)
                                   if asn_ips:
                                       save_yaml(f"{fname}-ipcidr", asn_ips)
 
@@ -181,8 +176,8 @@ jobs:
                                   if normal_ips:
                                       save_yaml(f"{fname}-ip", normal_ips)
 
-                                  # 3. 将 ASN 网段 + 普通 IP 合并编译导出 Hoyoverse.mrs
-                                  combined_ips = asn_ips.union(normal_ips)
+                                  # 3. 将 ASN 网段 + 普通 IP 合并重新做 CIDR 优化后，编译导出 Hoyoverse.mrs
+                                  combined_ips = optimize_cidrs(list(asn_ips.union(normal_ips)))
                                   if combined_ips:
                                       compile_mrs(f"{fname}", combined_ips, "ipcidr")
 
