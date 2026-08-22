@@ -1,4 +1,4 @@
-name: Build Clash mrs Flies
+name: Build Clash mrs Files
 
 on:
   push:
@@ -33,10 +33,28 @@ jobs:
           import os
           import glob
           import subprocess
+          import urllib.request
 
           RULES_DIR = "rules"
           OUTPUT_DIR = "output"
           TMP_DIR = "output/tmp"
+
+          def get_cidrs_from_asn(asn_str):
+              asn = asn_str.upper().replace("AS", "").strip()
+              print(f"--> [ASN Parser] Fetching CIDRs for ASN: {asn}...")
+              cidrs = []
+              url = f"https://raw.githubusercontent.com/ipverse/asn-ip/master/as/{asn}/ipv4-aggregated.cidr"
+              try:
+                  req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                  with urllib.request.urlopen(req) as response:
+                      lines = response.read().decode("utf-8").splitlines()
+                      for line in lines:
+                          line = line.strip()
+                          if line and not line.startswith("#"):
+                              cidrs.append(line)
+              except Exception as e:
+                  print(f"--> [ASN Parser] Error fetching ASN {asn}: {e}")
+              return cidrs
 
           def parse_domain_files(files):
               domains = set()
@@ -44,42 +62,32 @@ jobs:
                   with open(fpath, "r", encoding="utf-8") as f:
                       for line in f:
                           line = line.strip()
-                          # 过滤空行、注释以及 keyword:
                           if not line or line.startswith("#") or line.startswith("keyword:"):
                               continue
                           domains.add(line)
               return domains
 
-          def parse_ip_files(files):
-              ips = set()
-              for fpath in files:
-                  with open(fpath, "r", encoding="utf-8") as f:
-                      for line in f:
-                          line = line.strip()
-                          if not line or line.startswith("#"):
-                              continue
-                          ips.add(line)
-              return ips
-
-          def generate_and_compile(name, items, rule_type, output_dir, tmp_dir):
+          def save_yaml(filename, items):
               if not items:
                   return
               sorted_items = sorted(items)
-              tmp_file = os.path.join(tmp_dir, f"{name}.txt")
-              yaml_file = os.path.join(output_dir, f"{name}.yaml")
-              mrs_file = os.path.join(output_dir, f"{name}.mrs")
-
-              with open(tmp_file, "w", encoding="utf-8") as f:
-                  f.write("\n".join(sorted_items))
-
-              # 生成原生无引号 YAML
+              yaml_file = os.path.join(OUTPUT_DIR, f"{filename}.yaml")
               with open(yaml_file, "w", encoding="utf-8") as f:
                   f.write("payload:\n")
                   for item in sorted_items:
                       f.write(f"  - {item}\n")
 
-              print(f"Compiling {mrs_file}...")
-              conv_type = "domain" if rule_type == "domain" else "ipcidr"
+          def compile_mrs(filename, items, conv_type):
+              if not items:
+                  return
+              sorted_items = sorted(items)
+              tmp_file = os.path.join(TMP_DIR, f"{filename}.txt")
+              mrs_file = os.path.join(OUTPUT_DIR, f"{filename}.mrs")
+
+              with open(tmp_file, "w", encoding="utf-8") as f:
+                  f.write("\n".join(sorted_items))
+
+              print(f"Compiling {mrs_file} using behavior: {conv_type}...")
               subprocess.run(["./mihomo", "convert-ruleset", conv_type, "text", tmp_file, mrs_file], check=True)
 
           if os.path.exists(RULES_DIR):
@@ -91,28 +99,71 @@ jobs:
                   domain_dir = os.path.join(policy_path, "domain")
                   ip_dir = os.path.join(policy_path, "ip")
 
-                  # 模式 A：如果有分类子文件夹 domain 或 ip
+                  # 模式 A：存在分类文件夹
                   if os.path.exists(domain_dir) or os.path.exists(ip_dir):
                       if os.path.exists(domain_dir):
                           files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
                           domains = parse_domain_files(files)
-                          generate_and_compile(f"{policy}-domain", domains, "domain", OUTPUT_DIR, TMP_DIR)
+                          if domains:
+                              save_yaml(f"{policy}-domain", domains)
+                              compile_mrs(f"{policy}-domain", domains, "domain")
 
                       if os.path.exists(ip_dir):
                           files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
-                          ips = parse_ip_files(files)
-                          generate_and_compile(f"{policy}-ip", ips, "ip", OUTPUT_DIR, TMP_DIR)
+                          
+                          # 针对 ip 目录下的每个单独 list/txt 文件进行精确分类处理
+                          for fpath in files:
+                              fname = os.path.splitext(os.path.basename(fpath))[0]
+                              
+                              normal_ips = set()
+                              asn_ips = set()
+                              has_asn = False
 
-                  # 模式 B：没有子文件夹，直接在 rules/reject/ 目录下放 .list 或 .txt（默认全按 Domain 处理）
+                              with open(fpath, "r", encoding="utf-8") as f:
+                                  for line in f:
+                                      line = line.strip()
+                                      if not line or line.startswith("#"):
+                                          continue
+                                      if line.upper().startswith("AS") and line[2:].isdigit():
+                                          has_asn = True
+                                          fetched = get_cidrs_from_asn(line)
+                                          asn_ips.update(fetched)
+                                      else:
+                                          normal_ips.add(line)
+
+                              # 包含了 ASN 的情况
+                              if has_asn:
+                                  # 1. 独立导出 ASN 产生的网段为 Policy-ipcidr.yaml
+                                  if asn_ips:
+                                      save_yaml(f"{policy}-ipcidr", asn_ips)
+
+                                  # 2. 如果还有普通网段，导出 Policy-ip.yaml
+                                  if normal_ips:
+                                      save_yaml(f"{policy}-ip", normal_ips)
+
+                                  # 3. 将 ASN 网段 + 普通 IP 合并后编译为 Policy.mrs
+                                  combined_ips = asn_ips.union(normal_ips)
+                                  if combined_ips:
+                                      compile_mrs(f"{policy}", combined_ips, "ipcidr")
+
+                              # 普通 IP 列表（不含 ASN）的情况
+                              else:
+                                  if normal_ips:
+                                      save_yaml(f"{policy}-{fname}", normal_ips)
+                                      compile_mrs(f"{policy}-{fname}", normal_ips, "ipcidr")
+
+                  # 模式 B：根目录下直接放 .list (如 rules/REJECT/ads.list，按域名处理)
                   else:
                       files = glob.glob(f"{policy_path}/*.list") + glob.glob(f"{policy_path}/*.txt")
                       domains = parse_domain_files(files)
-                      generate_and_compile(f"{policy}-domain", domains, "domain", OUTPUT_DIR, TMP_DIR)
+                      if domains:
+                          save_yaml(f"{policy}-domain", domains)
+                          compile_mrs(f"{policy}-domain", domains, "domain")
           '
 
           rm -rf output/tmp
 
-      - name: Deploy to Release Branch
+      - name: Deploy to Meta Branch
         run: |
           cd output
           git init
