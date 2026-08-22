@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - 'rules/reject/domain/**'
+      - 'rules/reject/**'
       - '.github/workflows/build-adguardhome.yml'
   workflow_dispatch:
 
@@ -26,23 +26,24 @@ jobs:
           import os
           import glob
 
-          REJECT_DOMAIN_DIR = "rules/reject/domain"
+          REJECT_DIR = "rules/reject"
           OUTPUT_FILE = "agh_output/reject.txt"
 
           agh_domains = set()
 
-          if os.path.exists(REJECT_DOMAIN_DIR):
-              files = glob.glob(f"{REJECT_DOMAIN_DIR}/**/*.list", recursive=True) + glob.glob(f"{REJECT_DOMAIN_DIR}/**/*.txt", recursive=True)
+          if os.path.exists(REJECT_DIR):
+              # 匹配 rules/reject/ 下及其子目录下的所有 .list 和 .txt 文件
+              files = glob.glob(f"{REJECT_DIR}/**/*.list", recursive=True) + glob.glob(f"{REJECT_DIR}/**/*.txt", recursive=True)
               
               for fpath in files:
                   with open(fpath, "r", encoding="utf-8") as f:
                       for line in f:
                           line = line.strip()
-                          # 忽略空行、注释以及关键词 (keyword:)
+                          # 过滤空行、注释以及 keyword: 规则
                           if not line or line.startswith("#") or line.startswith("keyword:"):
                               continue
                           
-                          # 提取域名（剥离前缀）
+                          # 提取域名（剥离 +. 或 full: 前缀）
                           if line.startswith("+."):
                               domain = line[2:]
                           elif line.startswith("full:"):
@@ -52,7 +53,7 @@ jobs:
                           
                           domain = domain.strip()
                           if domain:
-                              # 精准域名和泛域名统一转为 ||domain^ 语法
+                              # 统一转为 AdGuard Home 的 ||domain^ 格式
                               agh_domains.add(f"||{domain}^")
 
           if agh_domains:

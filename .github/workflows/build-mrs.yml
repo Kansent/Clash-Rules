@@ -38,79 +38,76 @@ jobs:
           OUTPUT_DIR = "output"
           TMP_DIR = "output/tmp"
 
+          def parse_domain_files(files):
+              domains = set()
+              for fpath in files:
+                  with open(fpath, "r", encoding="utf-8") as f:
+                      for line in f:
+                          line = line.strip()
+                          # 过滤空行、注释以及 keyword:
+                          if not line or line.startswith("#") or line.startswith("keyword:"):
+                              continue
+                          domains.add(line)
+              return domains
+
+          def parse_ip_files(files):
+              ips = set()
+              for fpath in files:
+                  with open(fpath, "r", encoding="utf-8") as f:
+                      for line in f:
+                          line = line.strip()
+                          if not line or line.startswith("#"):
+                              continue
+                          ips.add(line)
+              return ips
+
+          def generate_and_compile(name, items, rule_type, output_dir, tmp_dir):
+              if not items:
+                  return
+              sorted_items = sorted(items)
+              tmp_file = os.path.join(tmp_dir, f"{name}.txt")
+              yaml_file = os.path.join(output_dir, f"{name}.yaml")
+              mrs_file = os.path.join(output_dir, f"{name}.mrs")
+
+              with open(tmp_file, "w", encoding="utf-8") as f:
+                  f.write("\n".join(sorted_items))
+
+              # 生成原生无引号 YAML
+              with open(yaml_file, "w", encoding="utf-8") as f:
+                  f.write("payload:\n")
+                  for item in sorted_items:
+                      f.write(f"  - {item}\n")
+
+              print(f"Compiling {mrs_file}...")
+              conv_type = "domain" if rule_type == "domain" else "ipcidr"
+              subprocess.run(["./mihomo", "convert-ruleset", conv_type, "text", tmp_file, mrs_file], check=True)
+
           if os.path.exists(RULES_DIR):
               for policy in os.listdir(RULES_DIR):
                   policy_path = os.path.join(RULES_DIR, policy)
                   if not os.path.isdir(policy_path):
                       continue
 
-                  # 1. 处理 Domain 类型的规则
                   domain_dir = os.path.join(policy_path, "domain")
-                  if os.path.exists(domain_dir):
-                      domain_lines = set()
-                      files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
-                      for fpath in files:
-                          with open(fpath, "r", encoding="utf-8") as f:
-                              for line in f:
-                                  line = line.strip()
-                                  # 过滤空行、注释，以及 MRS Domain 不支持的 keyword: 规则
-                                  if not line or line.startswith("#") or line.startswith("keyword:"):
-                                      continue
-                                  
-                                  domain_lines.add(line)
-                      
-                      if domain_lines:
-                          tmp_file = os.path.join(TMP_DIR, f"{policy}_domain.txt")
-                          yaml_file = os.path.join(OUTPUT_DIR, f"{policy}-domain.yaml")
-                          mrs_file = os.path.join(OUTPUT_DIR, f"{policy}-domain.mrs")
-                          
-                          sorted_domains = sorted(domain_lines)
-
-                          # 写入临时文本供编译
-                          with open(tmp_file, "w", encoding="utf-8") as f:
-                              f.write("\n".join(sorted_domains))
-                          
-                          # 生成无引号的 Mihomo 原生 YAML 格式
-                          with open(yaml_file, "w", encoding="utf-8") as f:
-                              f.write("payload:\n")
-                              for domain in sorted_domains:
-                                  f.write(f"  - {domain}\n")
-                          
-                          # 执行 mihomo 编译为 .mrs
-                          print(f"Compiling {mrs_file}...")
-                          subprocess.run(["./mihomo", "convert-ruleset", "domain", "text", tmp_file, mrs_file], check=True)
-
-                  # 2. 处理 IP 类型的规则
                   ip_dir = os.path.join(policy_path, "ip")
-                  if os.path.exists(ip_dir):
-                      ip_lines = set()
-                      files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
-                      for fpath in files:
-                          with open(fpath, "r", encoding="utf-8") as f:
-                              for line in f:
-                                  line = line.strip()
-                                  if not line or line.startswith("#"):
-                                      continue
-                                  ip_lines.add(line)
-                      
-                      if ip_lines:
-                          tmp_file = os.path.join(TMP_DIR, f"{policy}_ip.txt")
-                          yaml_file = os.path.join(OUTPUT_DIR, f"{policy}-ip.yaml")
-                          mrs_file = os.path.join(OUTPUT_DIR, f"{policy}-ip.mrs")
-                          
-                          sorted_ips = sorted(ip_lines)
 
-                          with open(tmp_file, "w", encoding="utf-8") as f:
-                              f.write("\n".join(sorted_ips))
+                  # 模式 A：如果有分类子文件夹 domain 或 ip
+                  if os.path.exists(domain_dir) or os.path.exists(ip_dir):
+                      if os.path.exists(domain_dir):
+                          files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
+                          domains = parse_domain_files(files)
+                          generate_and_compile(f"{policy}-domain", domains, "domain", OUTPUT_DIR, TMP_DIR)
 
-                          # 生成无引号的 Mihomo 原生 YAML 格式
-                          with open(yaml_file, "w", encoding="utf-8") as f:
-                              f.write("payload:\n")
-                              for ip in sorted_ips:
-                                  f.write(f"  - {ip}\n")
-                          
-                          print(f"Compiling {mrs_file}...")
-                          subprocess.run(["./mihomo", "convert-ruleset", "ipcidr", "text", tmp_file, mrs_file], check=True)
+                      if os.path.exists(ip_dir):
+                          files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
+                          ips = parse_ip_files(files)
+                          generate_and_compile(f"{policy}-ip", ips, "ip", OUTPUT_DIR, TMP_DIR)
+
+                  # 模式 B：没有子文件夹，直接在 rules/reject/ 目录下放 .list 或 .txt（默认全按 Domain 处理）
+                  else:
+                      files = glob.glob(f"{policy_path}/*.list") + glob.glob(f"{policy_path}/*.txt")
+                      domains = parse_domain_files(files)
+                      generate_and_compile(f"{policy}-domain", domains, "domain", OUTPUT_DIR, TMP_DIR)
           '
 
           rm -rf output/tmp
@@ -120,7 +117,7 @@ jobs:
           cd output
           git init
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "build: auto compile ruleset"
           git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:release
