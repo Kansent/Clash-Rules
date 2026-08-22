@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - 'rules/reject/**'
+      - 'rules/REJECT/**'
       - '.github/workflows/build-adguardhome.yml'
   workflow_dispatch:
 
