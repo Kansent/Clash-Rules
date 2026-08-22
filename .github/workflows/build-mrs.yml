@@ -1,4 +1,4 @@
-name: Build Clash mrs Files
+name: Build Mihomo Ruleset (.mrs)
 
 on:
   push:
@@ -34,6 +34,7 @@ jobs:
           import glob
           import subprocess
           import urllib.request
+          import re
 
           RULES_DIR = "rules"
           OUTPUT_DIR = "output"
@@ -43,9 +44,11 @@ jobs:
               asn = asn_str.upper().replace("AS", "").strip()
               print(f"--> [ASN Parser] Fetching CIDRs for ASN: {asn}...")
               cidrs = []
-              url = f"https://raw.githubusercontent.com/ipverse/asn-ip/master/as/{asn}/ipv4-aggregated.cidr"
+              
+              # 1. 优先从 ipverse 抓取
+              url_ipverse = f"https://raw.githubusercontent.com/ipverse/asn-ip/master/as/{asn}/ipv4-aggregated.cidr"
               try:
-                  req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                  req = urllib.request.Request(url_ipverse, headers={"User-Agent": "Mozilla/5.0"})
                   with urllib.request.urlopen(req) as response:
                       lines = response.read().decode("utf-8").splitlines()
                       for line in lines:
@@ -53,7 +56,24 @@ jobs:
                           if line and not line.startswith("#"):
                               cidrs.append(line)
               except Exception as e:
-                  print(f"--> [ASN Parser] Error fetching ASN {asn}: {e}")
+                  print(f"--> [ASN Parser] ipverse failed for AS{asn}, trying bgp.tools...")
+
+              # 2. 如果 ipverse 失败或为空（如 AS45102），降级从 bgp.tools 抓取
+              if not cidrs:
+                  url_bgptools = f"https://bgp.tools/as/{asn}/ipv4.txt"
+                  try:
+                      req = urllib.request.Request(url_bgptools, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+                      with urllib.request.urlopen(req) as response:
+                          lines = response.read().decode("utf-8").splitlines()
+                          for line in lines:
+                              line = line.strip()
+                              # 匹配标准 CIDR 格式
+                              if line and not line.startswith("#") and "/" in line:
+                                  cidrs.append(line)
+                  except Exception as e:
+                      print(f"--> [ASN Parser] Error fetching AS{asn} from bgp.tools: {e}")
+
+              print(f"--> [ASN Parser] Total {len(cidrs)} CIDRs found for AS{asn}")
               return cidrs
 
           def parse_domain_files(files):
@@ -111,7 +131,6 @@ jobs:
                       if os.path.exists(ip_dir):
                           files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
                           
-                          # 针对 ip 目录下的每个单独 list/txt 文件进行精确分类处理
                           for fpath in files:
                               fname = os.path.splitext(os.path.basename(fpath))[0]
                               
@@ -131,28 +150,28 @@ jobs:
                                       else:
                                           normal_ips.add(line)
 
-                              # 包含了 ASN 的情况
+                              # 包含了 ASN 的情况（如 Hoyoverse.list 内写了 AS45102）
                               if has_asn:
-                                  # 1. 独立导出 ASN 产生的网段为 Policy-ipcidr.yaml
+                                  # 1. 导出 Hoyoverse-ipcidr.yaml
                                   if asn_ips:
-                                      save_yaml(f"{policy}-ipcidr", asn_ips)
+                                      save_yaml(f"{fname}-ipcidr", asn_ips)
 
-                                  # 2. 如果还有普通网段，导出 Policy-ip.yaml
+                                  # 2. 如果还有普通 IP，导出 Hoyoverse-ip.yaml
                                   if normal_ips:
-                                      save_yaml(f"{policy}-ip", normal_ips)
+                                      save_yaml(f"{fname}-ip", normal_ips)
 
-                                  # 3. 将 ASN 网段 + 普通 IP 合并后编译为 Policy.mrs
+                                  # 3. 将 ASN 网段 + 普通 IP 合并编译导出 Hoyoverse.mrs
                                   combined_ips = asn_ips.union(normal_ips)
                                   if combined_ips:
-                                      compile_mrs(f"{policy}", combined_ips, "ipcidr")
+                                      compile_mrs(f"{fname}", combined_ips, "ipcidr")
 
-                              # 普通 IP 列表（不含 ASN）的情况
+                              # 普通 IP 列表（不含 ASN，如 PROXY/ip/app.list）
                               else:
                                   if normal_ips:
                                       save_yaml(f"{policy}-{fname}", normal_ips)
                                       compile_mrs(f"{policy}-{fname}", normal_ips, "ipcidr")
 
-                  # 模式 B：根目录下直接放 .list (如 rules/REJECT/ads.list，按域名处理)
+                  # 模式 B：根目录下直接放 .list (如 rules/REJECT/ads.list)
                   else:
                       files = glob.glob(f"{policy_path}/*.list") + glob.glob(f"{policy_path}/*.txt")
                       domains = parse_domain_files(files)
