@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
     paths:
       - 'rules/**'
-      - '.github/workflows/**'
+      - '.github/workflows/build-mrs.yml'
   workflow_dispatch:
 
 permissions:
@@ -39,7 +39,6 @@ jobs:
           TMP_DIR = "output/tmp"
 
           if os.path.exists(RULES_DIR):
-              # 遍历 rules 目录下的一级策略目录 (例如: direct, proxy, reject 等)
               for policy in os.listdir(RULES_DIR):
                   policy_path = os.path.join(RULES_DIR, policy)
                   if not os.path.isdir(policy_path):
@@ -54,12 +53,12 @@ jobs:
                           with open(fpath, "r", encoding="utf-8") as f:
                               for line in f:
                                   line = line.strip()
-                                  if not line or line.startswith("#"):
+                                  # 过滤空行、注释，以及 MRS Domain 不支持的 keyword: 规则
+                                  if not line or line.startswith("#") or line.startswith("keyword:"):
                                       continue
-                                  if line.startswith("keyword:") or line.startswith("+.") or line.startswith("full:"):
-                                      domain_lines.add(line)
-                                  else:
-                                      domain_lines.add(f"full:{line}")
+                                  
+                                  # 保持原始域名，不强加 full: 前缀
+                                  domain_lines.add(line)
                       
                       if domain_lines:
                           tmp_file = os.path.join(TMP_DIR, f"{policy}_domain.txt")
@@ -68,11 +67,11 @@ jobs:
                           
                           sorted_domains = sorted(domain_lines)
 
-                          # 写入用于编译 .mrs 的临时文本
+                          # 写入临时文本供编译
                           with open(tmp_file, "w", encoding="utf-8") as f:
                               f.write("\n".join(sorted_domains))
                           
-                          # 生成符合 Mihomo 格式的 YAML 规则集 (payload 格式)
+                          # 生成干净无 full: 的 Mihomo YAML 规则集
                           with open(yaml_file, "w", encoding="utf-8") as f:
                               f.write("payload:\n")
                               for domain in sorted_domains:
@@ -102,17 +101,14 @@ jobs:
                           
                           sorted_ips = sorted(ip_lines)
 
-                          # 写入用于编译 .mrs 的临时文本
                           with open(tmp_file, "w", encoding="utf-8") as f:
                               f.write("\n".join(sorted_ips))
 
-                          # 生成符合 Mihomo 格式的 YAML 规则集 (payload 格式)
                           with open(yaml_file, "w", encoding="utf-8") as f:
                               f.write("payload:\n")
                               for ip in sorted_ips:
                                   f.write(f"  - \x27{ip}\x27\n")
                           
-                          # 执行 mihomo 编译为 .mrs
                           print(f"Compiling {mrs_file}...")
                           subprocess.run(["./mihomo", "convert-ruleset", "ipcidr", "text", tmp_file, mrs_file], check=True)
           '
