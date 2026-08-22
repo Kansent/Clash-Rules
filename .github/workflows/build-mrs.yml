@@ -1,4 +1,4 @@
-name: Build Mihomo Ruleset (.mrs)
+name: Build Clash mrs Flies
 
 on:
   push:
