@@ -70,7 +70,7 @@ jobs:
               return merged_v4 + merged_v6
 
           def get_cidrs_from_asn_mmdb(asn_str):
-              """使用 maxminddb 官方库底层的底层迭代遍历整棵树"""
+              """使用 maxminddb 底层逻辑提取极度精确的 CIDR 网段"""
               target_asn = int(asn_str.upper().replace("AS", "").strip())
               print(f"--> [GeoIP MMDB] Querying AS{target_asn} from GeoLite2-ASN.mmdb...")
               
@@ -78,7 +78,6 @@ jobs:
               if os.path.exists(MMDB_PATH):
                   try:
                       with maxminddb.open_database(MMDB_PATH) as reader:
-                          # low-level reader.to_source() 方法支持精准且极速迭代整个 mmdb
                           for network, record in reader:
                               if isinstance(record, dict):
                                   asn = record.get("autonomous_system_number")
@@ -138,6 +137,7 @@ jobs:
 
                   # 模式 A：存在分类文件夹
                   if os.path.exists(domain_dir) or os.path.exists(ip_dir):
+                      # 处理 域名 部分
                       if os.path.exists(domain_dir):
                           files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
                           domains = parse_domain_files(files)
@@ -145,9 +145,12 @@ jobs:
                               save_yaml(f"{policy}-domain", domains)
                               compile_mrs(f"{policy}-domain", domains, "domain")
 
+                      # 处理 IP 部分（将该 Policy 下的所有 IP、ASN 解析结果全部合并）
                       if os.path.exists(ip_dir):
                           files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
                           
+                          policy_all_ips = set()
+
                           for fpath in files:
                               fname = os.path.splitext(os.path.basename(fpath))[0]
                               
@@ -167,26 +170,25 @@ jobs:
                                       else:
                                           normal_ips.add(line)
 
-                              # 包含了 ASN 的情况（如 Hoyoverse.list 内写了 AS45102）
+                              # 导出针对单独文件的细分 yaml
                               if has_asn:
-                                  # 1. 导出 Hoyoverse-ipcidr.yaml
                                   if asn_ips:
                                       save_yaml(f"{fname}-ipcidr", asn_ips)
-
-                                  # 2. 如果还有普通 IP，导出 Hoyoverse-ip.yaml
                                   if normal_ips:
                                       save_yaml(f"{fname}-ip", normal_ips)
-
-                                  # 3. 将 ASN 网段 + 普通 IP 合并重新做 CIDR 优化后，编译导出 Hoyoverse.mrs
-                                  combined_ips = optimize_cidrs(list(asn_ips.union(normal_ips)))
-                                  if combined_ips:
-                                      compile_mrs(f"{fname}", combined_ips, "ipcidr")
-
-                              # 普通 IP 列表（不含 ASN，如 PROXY/ip/app.list）
                               else:
                                   if normal_ips:
                                       save_yaml(f"{policy}-{fname}", normal_ips)
-                                      compile_mrs(f"{policy}-{fname}", normal_ips, "ipcidr")
+
+                              # 汇总到当前 Policy 大类集合中
+                              policy_all_ips.update(asn_ips)
+                              policy_all_ips.update(normal_ips)
+
+                          # 对当前 Policy 策略下的所有 IP 进行汇总、CIDR 优化合并，并生成统一的 <Policy>-ip.mrs 和 <Policy>-ip.yaml
+                          if policy_all_ips:
+                              optimized_policy_ips = optimize_cidrs(list(policy_all_ips))
+                              save_yaml(f"{policy}-ip", optimized_policy_ips)
+                              compile_mrs(f"{policy}-ip", optimized_policy_ips, "ipcidr")
 
                   # 模式 B：根目录下直接放 .list (如 rules/REJECT/ads.list)
                   else:
