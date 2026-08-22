@@ -18,18 +18,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python and Install Dependencies
+      - name: Download GeoIP-ASN Database, Tools & Mihomo CLI
         run: |
-          python3 -m pip install --upgrade pip
-          pip install geoip2 maxminddb
-
-      - name: Download GeoIP-ASN Database & Mihomo CLI
-        run: |
-          # 下载最新的 GeoIP ASN 数据库
+          # 1. 下载最新 GeoLite2-ASN.mmdb
           echo "Downloading GeoLite2-ASN database..."
           curl -L "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb" -o GeoLite2-ASN.mmdb
 
-          # 下载 Mihomo CLI
+          # 2. 下载 mmdbctl 工具 (用于极速解析 MMDB)
+          MMDBCTL_URL=$(curl -s https://api.github.com/repos/ipverse/mmdbctl/releases/latest | grep "browser_download_url" | grep "linux_amd64" | cut -d '"' -f 4)
+          curl -L $MMDBCTL_URL -o mmdbctl.tar.gz
+          tar -xvf mmdbctl.tar.gz mmdbctl
+          chmod +x mmdbctl
+
+          # 3. 下载 Mihomo CLI
           MIHOMO_URL=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep "browser_download_url" | grep "linux-amd64" | grep -v "compatible" | head -n 1 | cut -d '"' -f 4)
           curl -L $MIHOMO_URL -o mihomo.gz
           gunzip mihomo.gz
@@ -44,7 +45,6 @@ jobs:
           import glob
           import subprocess
           import ipaddress
-          import geoip2.database
 
           RULES_DIR = "rules"
           OUTPUT_DIR = "output"
@@ -70,23 +70,31 @@ jobs:
               return merged_v4 + merged_v6
 
           def get_cidrs_from_asn_mmdb(asn_str):
-              """基于 GeoLite2-ASN.mmdb 全盘检索最精准的 IPv4 + IPv6 网段"""
-              target_asn = int(asn_str.upper().replace("AS", "").strip())
+              """使用 mmdbctl 命令行极速、精准提取对应 ASN 的全部 CIDR"""
+              target_asn = asn_str.upper().replace("AS", "").strip()
               print(f"--> [GeoIP MMDB] Querying AS{target_asn} from GeoLite2-ASN.mmdb...")
               
               raw_cidrs = []
-              if os.path.exists(MMDB_PATH):
+              if os.path.exists(MMDB_PATH) and os.path.exists("./mmdbctl"):
                   try:
-                      with geoip2.database.Reader(MMDB_PATH) as reader:
-                          # 遍历 mmdb 中的全部网络节点
-                          for network, record in reader.raw_db:
-                              asn = record.get("autonomous_system_number")
-                              if asn == target_asn:
-                                  raw_cidrs.append(str(network))
+                      # 使用 mmdbctl read 匹配包含该 ASN 的条目
+                      res = subprocess.run(
+                          ["./mmdbctl", "read", MMDB_PATH, "-f", f"autonomous_system_number={target_asn}"],
+                          capture_output=True,
+                          text=True,
+                          check=True
+                      )
+                      # 返回格式类似于 "1.0.0.0/24, AS13335, ..."
+                      for line in res.stdout.splitlines():
+                          parts = line.split(",")
+                          if parts:
+                              cidr = parts[0].strip()
+                              if "/" in cidr:
+                                  raw_cidrs.append(cidr)
                   except Exception as e:
-                      print(f"--> [GeoIP MMDB] Error reading mmdb: {e}")
+                      print(f"--> [GeoIP MMDB] mmdbctl execution failed: {e}")
               else:
-                  print("--> [GeoIP MMDB] MMDB file not found!")
+                  print("--> [GeoIP MMDB] MMDB file or mmdbctl tool not found!")
 
               optimized = optimize_cidrs(raw_cidrs)
               print(f"--> [GeoIP MMDB] Total {len(optimized)} precise IPv4/IPv6 CIDRs found for AS{target_asn}")
@@ -168,7 +176,7 @@ jobs:
 
                               # 包含了 ASN 的情况（如 Hoyoverse.list 内写了 AS45102）
                               if has_asn:
-                                  # 1. 导出 Hoyoverse-ipcidr.yaml (仅含 ASN 生成的 IPv4/v6 网段)
+                                  # 1. 导出 Hoyoverse-ipcidr.yaml
                                   if asn_ips:
                                       save_yaml(f"{fname}-ipcidr", asn_ips)
 
@@ -206,4 +214,4 @@ jobs:
           git config user.email "github-actions[bot]"
           git add .
           git commit -m "build: auto compile ruleset"
-          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:meta
+          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:meta
