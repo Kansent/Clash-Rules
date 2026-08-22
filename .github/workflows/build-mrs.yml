@@ -57,7 +57,6 @@ jobs:
                                   if not line or line.startswith("#") or line.startswith("keyword:"):
                                       continue
                                   
-                                  # 保持原始域名，不强加 full: 前缀
                                   domain_lines.add(line)
                       
                       if domain_lines:
@@ -71,11 +70,11 @@ jobs:
                           with open(tmp_file, "w", encoding="utf-8") as f:
                               f.write("\n".join(sorted_domains))
                           
-                          # 生成干净无 full: 的 Mihomo YAML 规则集
+                          # 生成无引号的 Mihomo 原生 YAML 格式
                           with open(yaml_file, "w", encoding="utf-8") as f:
                               f.write("payload:\n")
                               for domain in sorted_domains:
-                                  f.write(f"  - \x27{domain}\x27\n")
+                                  f.write(f"  - {domain}\n")
                           
                           # 执行 mihomo 编译为 .mrs
                           print(f"Compiling {mrs_file}...")
@@ -104,10 +103,11 @@ jobs:
                           with open(tmp_file, "w", encoding="utf-8") as f:
                               f.write("\n".join(sorted_ips))
 
+                          # 生成无引号的 Mihomo 原生 YAML 格式
                           with open(yaml_file, "w", encoding="utf-8") as f:
                               f.write("payload:\n")
                               for ip in sorted_ips:
-                                  f.write(f"  - \x27{ip}\x27\n")
+                                  f.write(f"  - {ip}\n")
                           
                           print(f"Compiling {mrs_file}...")
                           subprocess.run(["./mihomo", "convert-ruleset", "ipcidr", "text", tmp_file, mrs_file], check=True)
@@ -120,7 +120,7 @@ jobs:
           cd output
           git init
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]"
           git add .
           git commit -m "build: auto compile ruleset"
           git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:release
