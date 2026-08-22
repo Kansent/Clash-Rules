@@ -34,7 +34,7 @@ jobs:
           import glob
           import subprocess
           import urllib.request
-          import re
+          import json
 
           RULES_DIR = "rules"
           OUTPUT_DIR = "output"
@@ -45,33 +45,54 @@ jobs:
               print(f"--> [ASN Parser] Fetching CIDRs for ASN: {asn}...")
               cidrs = []
               
-              # 1. 优先从 ipverse 抓取
-              url_ipverse = f"https://raw.githubusercontent.com/ipverse/asn-ip/master/as/{asn}/ipv4-aggregated.cidr"
+              # 1. 第一来源：BGPView API (支持全网所有 RIR 注册数据)
+              url_bgpview = f"https://api.bgpview.io/asn/{asn}/prefixes"
               try:
-                  req = urllib.request.Request(url_ipverse, headers={"User-Agent": "Mozilla/5.0"})
+                  req = urllib.request.Request(url_bgpview, headers={"User-Agent": "Mozilla/5.0"})
                   with urllib.request.urlopen(req) as response:
-                      lines = response.read().decode("utf-8").splitlines()
-                      for line in lines:
-                          line = line.strip()
-                          if line and not line.startswith("#"):
-                              cidrs.append(line)
+                      data = json.loads(response.read().decode("utf-8"))
+                      if data.get("status") == "ok" and "data" in data:
+                          ipv4_prefixes = data["data"].get("ipv4_prefixes", [])
+                          for item in ipv4_prefixes:
+                              prefix = item.get("prefix")
+                              if prefix:
+                                  cidrs.append(prefix)
+                          ipv6_prefixes = data["data"].get("ipv6_prefixes", [])
+                          for item in ipv6_prefixes:
+                              prefix = item.get("prefix")
+                              if prefix:
+                                  cidrs.append(prefix)
               except Exception as e:
-                  print(f"--> [ASN Parser] ipverse failed for AS{asn}, trying bgp.tools...")
+                  print(f"--> [ASN Parser] BGPView API failed for AS{asn}: {e}")
 
-              # 2. 如果 ipverse 失败或为空（如 AS45102），降级从 bgp.tools 抓取
+              # 2. 第二来源：RIPEstat API (降级备用)
               if not cidrs:
-                  url_bgptools = f"https://bgp.tools/as/{asn}/ipv4.txt"
+                  url_ripestat = f"https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{asn}"
                   try:
-                      req = urllib.request.Request(url_bgptools, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+                      req = urllib.request.Request(url_ripestat, headers={"User-Agent": "Mozilla/5.0"})
+                      with urllib.request.urlopen(req) as response:
+                          data = json.loads(response.read().decode("utf-8"))
+                          prefixes = data.get("data", {}).get("prefixes", [])
+                          for item in prefixes:
+                              prefix = item.get("prefix")
+                              if prefix:
+                                  cidrs.append(prefix)
+                  except Exception as e:
+                      print(f"--> [ASN Parser] RIPEstat API failed for AS{asn}: {e}")
+
+              # 3. 第三来源：ipverse 静态源 (保底)
+              if not cidrs:
+                  url_ipverse = f"https://raw.githubusercontent.com/ipverse/asn-ip/master/as/{asn}/ipv4-aggregated.cidr"
+                  try:
+                      req = urllib.request.Request(url_ipverse, headers={"User-Agent": "Mozilla/5.0"})
                       with urllib.request.urlopen(req) as response:
                           lines = response.read().decode("utf-8").splitlines()
                           for line in lines:
                               line = line.strip()
-                              # 匹配标准 CIDR 格式
-                              if line and not line.startswith("#") and "/" in line:
+                              if line and not line.startswith("#"):
                                   cidrs.append(line)
                   except Exception as e:
-                      print(f"--> [ASN Parser] Error fetching AS{asn} from bgp.tools: {e}")
+                      print(f"--> [ASN Parser] ipverse failed for AS{asn}: {e}")
 
               print(f"--> [ASN Parser] Total {len(cidrs)} CIDRs found for AS{asn}")
               return cidrs
@@ -187,7 +208,7 @@ jobs:
           cd output
           git init
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions[bot]"
           git add .
           git commit -m "build: auto compile ruleset"
           git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:meta
