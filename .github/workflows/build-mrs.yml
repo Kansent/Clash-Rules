@@ -70,7 +70,7 @@ jobs:
               return merged_v4 + merged_v6
 
           def get_cidrs_from_asn_mmdb(asn_str):
-              """使用 maxminddb 底层逻辑提取极度精确的 CIDR 网段"""
+              """使用 maxminddb 官方库遍历提取极度精确的 CIDR 网段"""
               target_asn = int(asn_str.upper().replace("AS", "").strip())
               print(f"--> [GeoIP MMDB] Querying AS{target_asn} from GeoLite2-ASN.mmdb...")
               
@@ -145,46 +145,25 @@ jobs:
                               save_yaml(f"{policy}-domain", domains)
                               compile_mrs(f"{policy}-domain", domains, "domain")
 
-                      # 处理 IP 部分（将该 Policy 下的所有 IP、ASN 解析结果全部合并）
+                      # 处理 IP 部分（将该 Policy 下的所有 IP、ASN 解析结果完全整合）
                       if os.path.exists(ip_dir):
                           files = glob.glob(f"{ip_dir}/**/*.list", recursive=True) + glob.glob(f"{ip_dir}/**/*.txt", recursive=True)
                           
                           policy_all_ips = set()
 
                           for fpath in files:
-                              fname = os.path.splitext(os.path.basename(fpath))[0]
-                              
-                              normal_ips = set()
-                              asn_ips = set()
-                              has_asn = False
-
                               with open(fpath, "r", encoding="utf-8") as f:
                                   for line in f:
                                       line = line.strip()
                                       if not line or line.startswith("#"):
                                           continue
                                       if line.upper().startswith("AS") and line[2:].isdigit():
-                                          has_asn = True
                                           fetched = get_cidrs_from_asn_mmdb(line)
-                                          asn_ips.update(fetched)
+                                          policy_all_ips.update(fetched)
                                       else:
-                                          normal_ips.add(line)
+                                          policy_all_ips.add(line)
 
-                              # 导出针对单独文件的细分 yaml
-                              if has_asn:
-                                  if asn_ips:
-                                      save_yaml(f"{fname}-ipcidr", asn_ips)
-                                  if normal_ips:
-                                      save_yaml(f"{fname}-ip", normal_ips)
-                              else:
-                                  if normal_ips:
-                                      save_yaml(f"{policy}-{fname}", normal_ips)
-
-                              # 汇总到当前 Policy 大类集合中
-                              policy_all_ips.update(asn_ips)
-                              policy_all_ips.update(normal_ips)
-
-                          # 对当前 Policy 策略下的所有 IP 进行汇总、CIDR 优化合并，并生成统一的 <Policy>-ip.mrs 和 <Policy>-ip.yaml
+                          # 汇总、CIDR 优化合并，只导出统一的 <Policy>-ip.yaml 与 <Policy>-ip.mrs
                           if policy_all_ips:
                               optimized_policy_ips = optimize_cidrs(list(policy_all_ips))
                               save_yaml(f"{policy}-ip", optimized_policy_ips)
