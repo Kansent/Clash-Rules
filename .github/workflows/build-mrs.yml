@@ -58,18 +58,17 @@ jobs:
           # 可以为不同的策略指定上游链接列表 (例如 REJECT / AdBlock)
           REMOTE_SOURCES = {
               "REJECT": [
-                  #"https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro-onlydomains.txt"
+                  "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt"
               ]
           }
           # ===============================================================
 
           def fetch_remote_domains(urls):
-              """从在线 URL 下载规则，精准剥离注释(#/!)，确保只留纯域名"""
+              """解析 Adblock 规则，剥离 || 和 ^，提取根域名给 Mihomo 做全路径匹配"""
               domains = set()
               for url in urls:
                   print(f"--> [Remote] Fetching remote domains from: {url}")
                   try:
-                      # 模拟浏览器 User-Agent，避免 GitHub Raw 拦截或返回异常页面
                       req = urllib.request.Request(
                           url, 
                           headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
@@ -78,10 +77,19 @@ jobs:
                           content = response.read().decode("utf-8")
                           for line in content.splitlines():
                               line = line.strip()
-                              # 过滤空行、#注释、!注释、关键词前缀等
-                              if not line or line.startswith("#") or line.startswith("!") or line.startswith("keyword:"):
+                              if not line or line.startswith("#") or line.startswith("!"):
                                   continue
-                              domains.add(line)
+                              
+                              # 去除可能包含的修饰符参数（如 ||example.com^$third-party）
+                              clean_line = line.split("$")[0]
+
+                              # 剥离 || 开头 和 ^ 结尾
+                              if clean_line.startswith("||") and clean_line.endswith("^"):
+                                  domain = clean_line[2:-1]
+                                  domains.add(domain)
+                              # 兜底处理纯域名情况
+                              elif not clean_line.startswith("|") and not clean_line.startswith("[") and "/" not in clean_line:
+                                  domains.add(clean_line)
                   except Exception as e:
                       print(f"--> [Remote Error] Failed to fetch {url}: {e}")
               return domains
