@@ -2,7 +2,7 @@ name: Build AdGuard Home Rules
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main]
     paths:
       - 'rules/[rR][eE][jJ][eE][cC][tT]/**'
       - '.github/workflows/build-adguardhome.yml'
