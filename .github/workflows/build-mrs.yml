@@ -7,8 +7,6 @@ on:
       - 'rules/**'
       - '.github/workflows/build-mrs.yml'
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * 1'
 
 permissions:
   contents: write
@@ -23,7 +21,7 @@ jobs:
       - name: Set up Python & Dependencies
         run: |
           python3 -m pip install --upgrade pip
-          pip install maxminddb requests
+          pip install maxminddb
 
       - name: Download GeoIP-ASN Database & Mihomo CLI
         run: |
@@ -47,52 +45,11 @@ jobs:
           import subprocess
           import ipaddress
           import maxminddb
-          import urllib.request
 
           RULES_DIR = "rules"
           OUTPUT_DIR = "output"
           TMP_DIR = "output/tmp"
           MMDB_PATH = "GeoLite2-ASN.mmdb"
-
-          # ==================== 在这里配置远程上游地址 ====================
-          # 可以为不同的策略指定上游链接列表 (例如 REJECT / AdBlock)
-          REMOTE_SOURCES = {
-              "REJECT": [
-                  "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt"
-              ]
-          }
-          # ===============================================================
-
-          def fetch_remote_domains(urls):
-              """解析 Adblock 规则，剥离 || 和 ^，提取根域名给 Mihomo 做全路径匹配"""
-              domains = set()
-              for url in urls:
-                  print(f"--> [Remote] Fetching remote domains from: {url}")
-                  try:
-                      req = urllib.request.Request(
-                          url, 
-                          headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
-                      )
-                      with urllib.request.urlopen(req, timeout=30) as response:
-                          content = response.read().decode("utf-8")
-                          for line in content.splitlines():
-                              line = line.strip()
-                              if not line or line.startswith("#") or line.startswith("!"):
-                                  continue
-                              
-                              # 去除可能包含的修饰符参数（如 ||example.com^$third-party）
-                              clean_line = line.split("$")[0]
-
-                              # 剥离 || 开头 和 ^ 结尾
-                              if clean_line.startswith("||") and clean_line.endswith("^"):
-                                  domain = clean_line[2:-1]
-                                  domains.add(domain)
-                              # 兜底处理纯域名情况
-                              elif not clean_line.startswith("|") and not clean_line.startswith("[") and "/" not in clean_line:
-                                  domains.add(clean_line)
-                  except Exception as e:
-                      print(f"--> [Remote Error] Failed to fetch {url}: {e}")
-              return domains
 
           def optimize_cidrs(cidr_list):
               """对 IPv4 和 IPv6 网段分别做 CIDR 重叠与连续网段合并优化"""
@@ -141,7 +98,7 @@ jobs:
                   with open(fpath, "r", encoding="utf-8") as f:
                       for line in f:
                           line = line.strip()
-                          if not line or line.startswith("#") or line.startswith("!") or line.startswith("keyword:"):
+                          if not line or line.startswith("#") or line.startswith("keyword:"):
                               continue
                           domains.add(line)
               return domains
@@ -193,16 +150,11 @@ jobs:
                   domain_dir = os.path.join(policy_path, "domain")
                   ip_dir = os.path.join(policy_path, "ip")
 
-                  # 检查当前策略是否有配置的在线远程上游
-                  remote_domains = set()
-                  if policy in REMOTE_SOURCES:
-                      remote_domains = fetch_remote_domains(REMOTE_SOURCES[policy])
-
-                  # 模式 A：存在 domain 或 ip 文件夹
+                  # 模式 A：存在 domain 或 ip 文件夹 (如 rules/DIRECT/domain/ 和 rules/DIRECT/ip/)
                   if os.path.exists(domain_dir) or os.path.exists(ip_dir):
-                      if os.path.exists(domain_dir) or remote_domains:
-                          files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True) if os.path.exists(domain_dir) else []
-                          domains = parse_domain_files(files) | remote_domains
+                      if os.path.exists(domain_dir):
+                          files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
+                          domains = parse_domain_files(files)
                           if domains:
                               save_yaml(f"{policy}-domain", domains)
                               compile_mrs(f"{policy}-domain", domains, "domain")
@@ -215,7 +167,7 @@ jobs:
                               save_yaml(f"{policy}-ip", optimized_policy_ips)
                               compile_mrs(f"{policy}-ip", optimized_policy_ips, "ipcidr")
 
-                  # 模式 B：策略根目录下直接放置 .list 文件
+                  # 模式 B：策略根目录下直接放置 .list (如 rules/Anti-attribution/domain.list 和 ip.list)
                   else:
                       files = glob.glob(f"{policy_path}/*.list") + glob.glob(f"{policy_path}/*.txt")
                       
@@ -223,12 +175,14 @@ jobs:
                       ip_files = [f for f in files if "ip" in os.path.basename(f).lower()]
                       other_files = [f for f in files if f not in domain_files and f not in ip_files]
 
-                      if domain_files or remote_domains:
-                          domains = parse_domain_files(domain_files) | remote_domains
+                      # 处理包含 domain 字样的文件
+                      if domain_files:
+                          domains = parse_domain_files(domain_files)
                           if domains:
                               save_yaml(f"{policy}-domain", domains)
                               compile_mrs(f"{policy}-domain", domains, "domain")
 
+                      # 处理包含 ip 字样的文件
                       if ip_files:
                           ips = parse_ip_files(ip_files)
                           if ips:
@@ -236,6 +190,7 @@ jobs:
                               save_yaml(f"{policy}-ip", optimized_ips)
                               compile_mrs(f"{policy}-ip", optimized_ips, "ipcidr")
 
+                      #兜底：未带 domain/ip 标记的文件默认按域名处理
                       if other_files:
                           domains = parse_domain_files(other_files)
                           if domains:
