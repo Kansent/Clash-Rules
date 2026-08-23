@@ -6,6 +6,9 @@ on:
     paths:
       - 'rules/[rR][eE][jJ][eE][cC][tT]/**'
       - '.github/workflows/build-adguardhome.yml'
+  # 定时触发：每周一 UTC 00:00（北京时间 08:00）自动抓取上游更新并构建
+  schedule:
+    - cron: '0 0 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -25,13 +28,64 @@ jobs:
           python3 -c '
           import os
           import glob
+          import urllib.request
 
           RULES_DIR = "rules"
           OUTPUT_FILE = "agh_output/reject.txt"
+          
+          # 需要合并的上游列表 URL
+          UPSTREAM_URLS = [
+              "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/httpdns.list",
+              "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.list"
+          ]
+
           agh_domains = set()
 
+          def process_raw_line(line):
+              line = line.strip()
+              # 过滤空行、注释、keyword 指令以及纯 IP / ASN 标记
+              if not line or line.startswith("#") or line.startswith("keyword:"):
+                  return
+
+              # 跳过 AS 开头的 ASN 标记行
+              if line.upper().startswith("AS") and line[2:].isdigit():
+                  return
+
+              # 剥离常用的前缀 (如 +. 或 full:)
+              if line.startswith("+."):
+                  domain = line[2:]
+              elif line.startswith("full:"):
+                  domain = line[5:]
+              else:
+                  domain = line
+
+              domain = domain.strip()
+              
+              # 排除纯 IPv4 地址，防止非域名规则混入
+              parts = domain.split(".")
+              if len(parts) == 4 and all(p.isdigit() for p in parts):
+                  return
+
+              if domain:
+                  agh_domains.add(f"||{domain}^")
+
+          def fetch_and_process_url(url):
+              print(f"--> [Remote Upstream] Fetching from {url}...")
+              try:
+                  req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                  with urllib.request.urlopen(req, timeout=15) as resp:
+                      content = resp.read().decode("utf-8", errors="ignore")
+                      for line in content.splitlines():
+                          process_raw_line(line)
+              except Exception as e:
+                  print(f"--> [Remote Upstream] Error fetching {url}: {e}")
+
+          # 1. 解析上游指定的所有远程规则列表
+          for upstream in UPSTREAM_URLS:
+              fetch_and_process_url(upstream)
+
+          # 2. 本地 rules/REJECT 下的所有文件解析
           if os.path.exists(RULES_DIR):
-              # 自动匹配大小写的 reject 目录 (如 REJECT, reject, Reject)
               for d in os.listdir(RULES_DIR):
                   if d.lower() == "reject":
                       target_dir = os.path.join(RULES_DIR, d)
@@ -40,23 +94,9 @@ jobs:
                       for fpath in files:
                           with open(fpath, "r", encoding="utf-8") as f:
                               for line in f:
-                                  line = line.strip()
-                                  # 过滤空行、注释以及 keyword:
-                                  if not line or line.startswith("#") or line.startswith("keyword:"):
-                                      continue
-                                  
-                                  # 提取域名（剥离 +. 或 full: 前缀）
-                                  if line.startswith("+."):
-                                      domain = line[2:]
-                                  elif line.startswith("full:"):
-                                      domain = line[5:]
-                                  else:
-                                      domain = line
-                                  
-                                  domain = domain.strip()
-                                  if domain:
-                                      agh_domains.add(f"||{domain}^")
+                                  process_raw_line(line)
 
+          # 3. 输出为包含上游 + 本地合并后的 AdGuard Home 格式文件
           if agh_domains:
               with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
                   f.write("! Title: Reject Rules for AdGuard Home\n")
