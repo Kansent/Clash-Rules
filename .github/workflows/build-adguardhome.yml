@@ -40,44 +40,44 @@ jobs:
               "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.list"
           ]
 
-          agh_rules = set()
+          agh_domains = set()
+
+          def is_valid_ip(target):
+              """检查字符串是否为 IP 或 CIDR 网段"""
+              try:
+                  ipaddress.ip_network(target, strict=False)
+                  return True
+              except ValueError:
+                  return False
 
           def process_raw_line(line):
               line = line.strip()
-              # 过滤空行、注释以及 keyword 指令
+              # 1. 过滤空行、注释以及 keyword 指令
               if not line or line.startswith("#") or line.startswith("keyword:"):
                   return
 
-              # 跳过 AS 开头的 ASN 标记行（AGH 不支持 ASN 规则）
+              # 2. 跳过 ASN 标记（如 AS1234）
               if line.upper().startswith("AS") and line[2:].isdigit():
                   return
 
-              # 剥离常用的前缀 (如 +. 或 full:)
+              # 3. 剥离常用的前缀 (如 +. 或 full:)
               if line.startswith("+."):
-                  rule_target = line[2:]
+                  domain = line[2:]
               elif line.startswith("full:"):
-                  rule_target = line[5:]
+                  domain = line[5:]
               else:
-                  rule_target = line
+                  domain = line
 
-              rule_target = rule_target.strip()
-              if not rule_target:
+              domain = domain.strip()
+              if not domain:
                   return
 
-              # 判断是否为 IP 或 CIDR 网段
-              is_ip = False
-              try:
-                  ipaddress.ip_network(rule_target, strict=False)
-                  is_ip = True
-              except ValueError:
-                  is_ip = False
+              # 4. 彻底剔除纯 IP / CIDR 网段（AGH 无法进行 IP 拦截）
+              if is_valid_ip(domain):
+                  return
 
-              if is_ip:
-                  # AGH 拦截 IP/CIDR 时直接写地址，不加 || 和 ^
-                  agh_rules.add(rule_target)
-              else:
-                  # AGH 拦截域名时使用 standard 语法 ||domain^
-                  agh_rules.add(f"||{rule_target}^")
+              # 5. 仅保留域名，格式化为 AdGuard Home 的 ||domain^ 语法
+              agh_domains.add(f"||{domain}^")
 
           def fetch_and_process_url(url):
               print(f"--> [Remote Upstream] Fetching from {url}...")
@@ -106,17 +106,17 @@ jobs:
                               for line in f:
                                   process_raw_line(line)
 
-          # 3. 输出为包含上游 + 本地合并后的 AdGuard Home 格式文件
-          if agh_rules:
+          # 3. 输出为仅包含域名的 AdGuard Home 格式规则库
+          if agh_domains:
               with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-                  f.write("! Title: Reject Rules for AdGuard Home\n")
+                  f.write("! Title: Reject Domain Rules for AdGuard Home\n")
                   f.write("! Homepage: https://github.com/" + os.getenv("GITHUB_REPOSITORY", "") + "\n")
-                  f.write("! Total Count: " + str(len(agh_rules)) + "\n\n")
-                  f.write("\n".join(sorted(agh_rules)))
+                  f.write("! Total Count: " + str(len(agh_domains)) + "\n\n")
+                  f.write("\n".join(sorted(agh_domains)))
                   f.write("\n")
-              print(f"Successfully generated {len(agh_rules)} rules to {OUTPUT_FILE}")
+              print(f"Successfully generated {len(agh_domains)} domain rules to {OUTPUT_FILE}")
           else:
-              print("No valid reject rules found!")
+              print("No valid reject domain rules found!")
           '
 
       - name: Deploy to AdGuard Home Branch
