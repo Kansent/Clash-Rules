@@ -6,7 +6,6 @@ on:
     paths:
       - 'rules/[rR][eE][jJ][eE][cC][tT]/**'
       - '.github/workflows/build-adguardhome.yml'
-  # 定时触发：每周一 UTC 00:00（北京时间 08:00）自动抓取上游更新并构建
   schedule:
     - cron: '0 0 * * 1'
   workflow_dispatch:
@@ -34,7 +33,6 @@ jobs:
           RULES_DIR = "rules"
           OUTPUT_FILE = "agh_output/reject.txt"
           
-          # 需要合并的上游列表 URL
           UPSTREAM_URLS = [
               "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/httpdns.list",
               "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.list"
@@ -43,7 +41,6 @@ jobs:
           agh_domains = set()
 
           def is_valid_ip(target):
-              """检查字符串是否为 IP 或 CIDR 网段"""
               try:
                   ipaddress.ip_network(target, strict=False)
                   return True
@@ -52,15 +49,12 @@ jobs:
 
           def process_raw_line(line):
               line = line.strip()
-              # 1. 过滤空行、注释以及 keyword 指令
               if not line or line.startswith("#") or line.startswith("keyword:"):
                   return
 
-              # 2. 跳过 ASN 标记（如 AS1234）
               if line.upper().startswith("AS") and line[2:].isdigit():
                   return
 
-              # 3. 剥离常用的前缀 (如 +. 或 full:)
               if line.startswith("+."):
                   domain = line[2:]
               elif line.startswith("full:"):
@@ -72,11 +66,9 @@ jobs:
               if not domain:
                   return
 
-              # 4. 彻底剔除纯 IP / CIDR 网段（AGH 无法进行 IP 拦截）
               if is_valid_ip(domain):
                   return
 
-              # 5. 仅保留域名，格式化为 AdGuard Home 的 ||domain^ 语法
               agh_domains.add(f"||{domain}^")
 
           def fetch_and_process_url(url):
@@ -90,11 +82,9 @@ jobs:
               except Exception as e:
                   print(f"--> [Remote Upstream] Error fetching {url}: {e}")
 
-          # 1. 解析上游指定的所有远程规则列表
           for upstream in UPSTREAM_URLS:
               fetch_and_process_url(upstream)
 
-          # 2. 本地 rules/REJECT 下的所有文件解析
           if os.path.exists(RULES_DIR):
               for d in os.listdir(RULES_DIR):
                   if d.lower() == "reject":
@@ -106,7 +96,6 @@ jobs:
                               for line in f:
                                   process_raw_line(line)
 
-          # 3. 输出为仅包含域名的 AdGuard Home 格式规则库
           if agh_domains:
               with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
                   f.write("! Title: Reject Domain Rules for AdGuard Home\n")

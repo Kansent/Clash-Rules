@@ -25,11 +25,9 @@ jobs:
 
       - name: Download GeoIP-ASN Database & Mihomo CLI
         run: |
-          # 1. 下载最新 GeoLite2-ASN.mmdb
           echo "Downloading GeoLite2-ASN database..."
           curl -sSL "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb" -o GeoLite2-ASN.mmdb
 
-          # 2. 下载 Mihomo CLI
           MIHOMO_URL=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep "browser_download_url" | grep "linux-amd64" | grep -v "compatible" | head -n 1 | cut -d '"' -f 4)
           curl -sSL $MIHOMO_URL -o mihomo.gz
           gunzip mihomo.gz
@@ -52,7 +50,6 @@ jobs:
           MMDB_PATH = "GeoLite2-ASN.mmdb"
 
           def optimize_cidrs(cidr_list):
-              """对 IPv4 和 IPv6 网段分别做 CIDR 重叠与连续网段合并优化"""
               v4_nets = []
               v6_nets = []
               for item in cidr_list:
@@ -70,7 +67,6 @@ jobs:
               return merged_v4 + merged_v6
 
           def get_cidrs_from_asn_mmdb(asn_str):
-              """使用 maxminddb 官方库遍历提取极度精确的 CIDR 网段"""
               target_asn = int(asn_str.upper().replace("AS", "").strip())
               print(f"--> [GeoIP MMDB] Querying AS{target_asn} from GeoLite2-ASN.mmdb...")
               
@@ -150,7 +146,6 @@ jobs:
                   domain_dir = os.path.join(policy_path, "domain")
                   ip_dir = os.path.join(policy_path, "ip")
 
-                  # 模式 A：存在 domain 或 ip 文件夹 (如 rules/DIRECT/domain/ 和 rules/DIRECT/ip/)
                   if os.path.exists(domain_dir) or os.path.exists(ip_dir):
                       if os.path.exists(domain_dir):
                           files = glob.glob(f"{domain_dir}/**/*.list", recursive=True) + glob.glob(f"{domain_dir}/**/*.txt", recursive=True)
@@ -167,7 +162,6 @@ jobs:
                               save_yaml(f"{policy}-ip", optimized_policy_ips)
                               compile_mrs(f"{policy}-ip", optimized_policy_ips, "ipcidr")
 
-                  # 模式 B：策略根目录下直接放置 .list (如 rules/Anti-attribution/domain.list 和 ip.list)
                   else:
                       files = glob.glob(f"{policy_path}/*.list") + glob.glob(f"{policy_path}/*.txt")
                       
@@ -175,14 +169,12 @@ jobs:
                       ip_files = [f for f in files if "ip" in os.path.basename(f).lower()]
                       other_files = [f for f in files if f not in domain_files and f not in ip_files]
 
-                      # 处理包含 domain 字样的文件
                       if domain_files:
                           domains = parse_domain_files(domain_files)
                           if domains:
                               save_yaml(f"{policy}-domain", domains)
                               compile_mrs(f"{policy}-domain", domains, "domain")
 
-                      # 处理包含 ip 字样的文件
                       if ip_files:
                           ips = parse_ip_files(ip_files)
                           if ips:
@@ -190,7 +182,6 @@ jobs:
                               save_yaml(f"{policy}-ip", optimized_ips)
                               compile_mrs(f"{policy}-ip", optimized_ips, "ipcidr")
 
-                      #兜底：未带 domain/ip 标记的文件默认按域名处理
                       if other_files:
                           domains = parse_domain_files(other_files)
                           if domains:
