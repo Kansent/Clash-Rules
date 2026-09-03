@@ -23,5 +23,8 @@ mediaservices.cdn-apple.com
 sb.music.apple.com
 cma2.itunes.apple.com
 
+# Apple Weather
+weather-edge.apple.com
+
 # Unknown issue
 +.blobstore.apple.com
