@@ -26,6 +26,12 @@ lcdn-locator-usms11.apple.com.akadns.net
 serverstatus.apple.com
 serverstatus.apple.com.akadns.net
 
+# Encryption Support Services
++.ess.apple.com
+
+# Tether
+tether.edge.apple
+
 # Time
 time.apple.com
 time.asia.apple.com
