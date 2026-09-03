@@ -1,0 +1,601 @@
+sniffer:
+  enable: true
+  override-destination: true
+  sniff:
+    QUIC:
+      ports: [443]
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+  skip-domain:
+    #LAN
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - "*.direct"
+    - "cable.auth.com"
+    - "network-test.debian.org"
+    - "detectportal.firefox.com"
+    - "resolver1.opendns.com"
+    - "global.turn.twilio.com"
+    - "global.stun.twilio.com"
+    - "app.yinxiang.com"
+    - "injections.adguard.org"
+    - "localhost.*.weixin.qq.com"
+    - "*.blzstatic.cn"
+    - "*.cmpassport.com"
+    - "id6.me"
+    - "open.e.189.cn"
+    - "opencloud.wostore.cn"
+    - "id.mail.wo.cn"
+    - "mdn.open.wo.cn"
+    - "hmrz.wo.cn"
+    - "nishub1.10010.com"
+    - "enrichgw.10010.com"
+    - "*.wosms.cn"
+    - "*.jegotrip.com.cn"
+    - "*.icitymobile.mobi"
+    - "*.pingan.com.cn"
+    - "*.cmbchina.com"
+    - "*.10099.com.cn"
+    - "*.microdone.cn"
+    - "PDC._msDCS.*.*"
+    - "DC._msDCS.*.*"
+    - "GC._msDCS.*.*"
+
+    #NTP服务
+    - "time.*.com"
+    - "time.*.gov"
+    - "time.*.edu.cn"
+    - "time.*.apple.com"
+    - "time-ios.apple.com"
+    - "time1.*.com"
+    - "time2.*.com"
+    - "time3.*.com"
+    - "time4.*.com"
+    - "time5.*.com"
+    - "time6.*.com"
+    - "time7.*.com"
+    - "ntp.*.com"
+    - "ntp1.*.com"
+    - "ntp2.*.com"
+    - "ntp3.*.com"
+    - "ntp4.*.com"
+    - "ntp5.*.com"
+    - "ntp6.*.com"
+    - "ntp7.*.com"
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - "+.pool.ntp.org"
+    - "time1.cloud.tencent.com"
+
+    #网易云音乐
+    - "music.163.com"
+    - "*.music.163.com"
+    - "*.126.net"
+
+    #百度音乐
+    - "musicapi.taihe.com"
+    - "music.taihe.com"
+
+    #酷狗音乐
+    - "songsearch.kugou.com"
+    - "trackercdn.kugou.com"
+
+    #酷我音乐
+    - "*.kuwo.cn"
+
+    #JOOX音乐
+    - "api-jooxtt.sanook.com"
+    - "api.joox.com"
+    - "joox.com"
+
+    #QQ音乐
+    - "y.qq.com"
+    - "*.y.qq.com"
+    - "streamoc.music.tc.qq.com"
+    - "mobileoc.music.tc.qq.com"
+    - "isure.stream.qqmusic.qq.com"
+    - "dl.stream.qqmusic.qq.com"
+    - "aqqmusic.tc.qq.com"
+    - "amobile.music.tc.qq.com"
+
+    #虾米音乐
+    - "*.xiami.com"
+
+    #咪咕音乐
+    - "*.music.migu.cn"
+    - "music.migu.cn"
+
+    #win10本地连接检测
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+
+    #QQ登录
+    - "localhost.ptlogin2.qq.com"
+    - "localhost.sec.qq.com"
+    - "+.qq.com"
+    - "+.tencent.com"
+
+    #Game
+    #Nintendo Switch
+    - "+.srv.nintendo.net"
+    - "*.n.n.srv.nintendo.net"
+    - "+.cdn.nintendo.net"
+
+    #Sony PlayStation
+    - "+.stun.playstation.net"
+
+    #Microsoft Xbox
+    - "xbox.*.*.microsoft.com"
+    - "*.*.xboxlive.com"
+    - "xbox.*.microsoft.com"
+    - "xnotify.xboxlive.com"
+
+    #Wotgame
+    - "+.battle.net"
+    - "+.battlenet.com.cn"
+    - "+.wotgame.cn"
+    - "+.wggames.cn"
+    - "+.wowsgame.cn"
+    - "+.wargaming.net"
+
+    #Golang
+    - "proxy.golang.org"
+
+    #STUN
+    - "stun.*.*"
+    - "stun.*.*.*"
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+    - "+.stun.*.*.*.*.*"
+
+    #Linksys Router
+    - "heartbeat.belkin.com"
+    - "*.linksys.com"
+    - "*.linksyssmartwifi.com"
+
+    #ASUS Router
+    - "*.router.asus.com"
+
+    #Apple Software Update Service
+    - "mesu.apple.com"
+    - "swscan.apple.com"
+    - "swquery.apple.com"
+    - "swdownload.apple.com"
+    - "swcdn.apple.com"
+    - "swdist.apple.com"
+
+    #Google
+    - "lens.l.google.com"
+    - "stun.l.google.com"
+    - "na.b.g-tun.com"
+
+    #Netflix
+    - "+.nflxvideo.net"
+
+    #FinalFantasy XIV Worldwide Server & CN Server
+    - "*.square-enix.com"
+    - "*.finalfantasyxiv.com"
+    - "*.ffxiv.com"
+    - "*.ff14.sdo.com"
+    - "ff.dorado.sdo.com"
+
+    #Bilibili
+    - "*.mcdn.bilivideo.cn"
+
+    #Disney Plus
+    - "+.media.dssott.com"
+
+    #shark007 Codecs
+    - "shark007.net"
+
+    #Mijia
+    - "Mijia Cloud"
+
+    #招商银行
+    - "+.cmbchina.com"
+    - "+.cmbimg.com"
+
+    #AdGuard
+    - "local.adguard.org"
+
+    #迅雷
+    - "+.sandai.net"
+    - "+.n0808.com"
+
+    #UU Plugin
+    - "+.uu.163.com"
+    - "ps.res.netease.com"
+
+    #Wifi Calling
+    - "+.pub.3gppnetwork.org"
+
+dns:
+  enable: true
+  use-hosts: true
+  listen: 0.0.0.0:53
+  ipv6: true
+  enhanced-mode: fake-ip
+  default-nameserver:
+    - 114.114.114.114
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-range6: fdfe:dcba:9876::1/64
+  fake-ip-filter:
+    - RULE-SET,proxy,fake-ip
+    - RULE-SET,meta_geosite-private,real-ip
+    - RULE-SET,meta_geosite-cn,real-ip
+    - RULE-SET,meta_geosite-category-companies@cn,real-ip
+    - RULE-SET,meta_geosite-geolocation-cn,real-ip
+    - RULE-SET,meta_geosite-category-cdn-!cn@cn,real-ip
+    - RULE-SET,meta_geosite-category-games-!cn@cn,real-ip
+    - RULE-SET,meta_geosite-category-game-platforms-download,real-ip
+    - RULE-SET,meta_geosite-category-finance,real-ip
+    - RULE-SET,meta_geosite-category-public-tracker,real-ip
+    - RULE-SET,meta_geosite-category-pt,real-ip
+    - RULE-SET,meta_geosite-tracker,real-ip
+    - RULE-SET,direct,real-ip
+    - DOMAIN-SUFFIX,apple-dns.net,real-ip
+    - DOMAIN-SUFFIX,local,real-ip
+    - DOMAIN-SUFFIX,cn,real-ip
+    - MATCH,fake-ip
+  fake-ip-filter-mode: rule
+  fake-ip-ttl: 1
+  respect-rules: true
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  nameserver-policy:
+    "rule-set:meta_geosite-category-ads-all": rcode://success
+    "rule-set:meta_geosite-category-httpdns-cn": rcode://success
+    "rule-set:meta_geosite-private":
+      - system
+      - dhcp://en0
+    "autopatchhk.yuanshen.com": https://doh.pub/dns-query
+    "+.yuanshen.com,+.hoyoverse.com":
+      - tcp://168.126.63.1
+      - tcp://168.126.63.2
+  proxy-server-nameserver:
+    - 'https://1.1.1.1/dns-query'
+proxies:
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - DIRECT
+  - name: anit-select
+    type: select
+    proxies:
+      - DIRECT
+      - Proxy
+rule-providers:
+  # --- meta-rules-dat ---
+  meta_geosite-category-ads-all:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-ads-all.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs"
+
+  meta_geosite-cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
+
+  meta_geosite-geolocation-cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/geolocation-cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-cn.mrs"
+
+  meta_geosite-geolocation-!cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/geolocation-!cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"
+
+  meta_geosite-category-companies@cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-companies@cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-companies@cn.mrs"
+
+  meta_geosite-apple-intelligence:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/apple-intelligence.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-intelligence.mrs"
+
+  meta_geosite-category-httpdns-cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-httpdns-cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-httpdns-cn.mrs"
+
+  meta_geosite-category-cdn-!cn@cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-cdn-!cn@cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-cdn-!cn@cn.mrs"
+
+  meta_geosite-category-games-!cn@cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-games-!cn@cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games-!cn@cn.mrs"
+
+  meta_geosite-category-game-platforms-download:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-game-platforms-download.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-game-platforms-download.mrs"
+
+  meta_geosite-category-games-!cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-games-!cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games-!cn.mrs"
+
+  meta_geosite-category-finance:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-finance.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-finance.mrs"
+
+  meta_geosite-category-public-tracker:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-public-tracker.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-public-tracker.mrs"
+
+  meta_geosite-category-pt:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-pt.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-pt.mrs"
+
+  meta_geosite-category-pt@!cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-pt@!cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-pt@!cn.mrs"
+
+  meta_geosite-tracker:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/tracker.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tracker.mrs"
+
+  meta_geosite-private:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/private.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
+
+  meta_geoip-telegram:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/telegram.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"
+
+  meta_geoip-twitter:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/twitter.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs"
+
+  meta_geoip-netflix:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/netflix.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"
+
+  meta_geoip-facebook:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/facebook.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/facebook.mrs"
+
+  meta_geoip-cloudflare:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/cloudflare.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudflare.mrs"
+
+  meta_geoip-fastly:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/fastly.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/fastly.mrs"
+
+  meta_geoip-cloudfront:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/cloudfront.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cloudfront.mrs"
+
+  meta_geoip-private:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/private.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"
+
+  meta_geoip-cn:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geoip/cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
+
+  # --- Kansent ---
+  Anti-attribution-domain:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    url: 'https://raw.githubusercontent.com/Kansent/Clash-Rules/meta/Anti-attribution-domain.mrs'
+    path: ./rule_provider/Kansent_ruleset/Anti-attribution/domain.mrs
+
+  Anti-attribution-ip:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/Kansent/Clash-Rules/meta/Anti-attribution-ip.mrs'
+    path: ./rule_provider/Kansent_ruleset/Anti-attribution/ip.mrs
+
+  direct:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/Kansent/Clash-Rules/meta/DIRECT-domain.mrs"
+    path: ./rule_provider/Kansent_ruleset/domain/direct.mrs
+
+  direct_ip:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    url: 'https://raw.githubusercontent.com/Kansent/Clash-Rules/meta/DIRECT-ip.mrs'
+    path: ./rule_provider/Kansent_ruleset/ip/direct.mrs
+
+  proxy:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/Kansent/Clash-Rules/meta/PROXY-domain.mrs"
+    path: ./rule_provider/Kansent_ruleset/domain/proxy.mrs
+
+  proxy_ip:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/Kansent/Clash-Rules/meta/PROXY-ip.mrs"
+    path: ./rule_provider/Kansent_ruleset/ip/proxy.mrs
+
+  reject:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    url: "https://raw.githubusercontent.com/Kansent/Clash-Rules/meta/REJECT-domain.mrs"
+    path: ./rule_provider/Kansent_ruleset/domain/reject.mrs
+
+  reject_ip:
+    type: http
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
+    url: "https://raw.githubusercontent.com/Kansent/Clash-Rules/meta/REJECT-ip.mrs"
+    path: ./rule_provider/Kansent_ruleset/ip/reject.mrs
+
+rules:
+  - PROCESS-NAME,OrbStack Helper,DIRECT
+  - PROCESS-NAME,AssetCache,DIRECT
+
+  - RULE-SET,meta_geosite-private,DIRECT
+  - RULE-SET,meta_geoip-private,DIRECT,no-resolve
+
+  - RULE-SET,reject,REJECT
+
+  - RULE-SET,Anti-attribution-domain,anit-select
+
+  - RULE-SET,direct,DIRECT
+
+  - RULE-SET,proxy,Proxy
+  - RULE-SET,meta_geosite-apple-intelligence,Proxy
+
+  - RULE-SET,meta_geosite-category-companies@cn,DIRECT
+  - RULE-SET,meta_geosite-geolocation-cn,DIRECT
+  - RULE-SET,meta_geosite-category-cdn-!cn@cn,DIRECT
+  - RULE-SET,meta_geosite-category-games-!cn@cn,DIRECT
+  - RULE-SET,meta_geosite-category-game-platforms-download,DIRECT
+  - RULE-SET,meta_geosite-category-finance,DIRECT
+  - RULE-SET,meta_geosite-category-public-tracker,DIRECT
+  - RULE-SET,meta_geosite-category-pt,DIRECT
+  - RULE-SET,meta_geosite-tracker,DIRECT
+
+  - RULE-SET,meta_geosite-category-games-!cn,Proxy
+  - RULE-SET,meta_geosite-category-pt@!cn,Proxy
+  - RULE-SET,meta_geosite-geolocation-!cn,Proxy
+
+  - RULE-SET,meta_geosite-cn,DIRECT
+  - DOMAIN-SUFFIX,cn,DIRECT
+
+  - RULE-SET,reject_ip,REJECT,no-resolve
+
+  - RULE-SET,proxy_ip,Proxy,no-resolve
+  - RULE-SET,Anti-attribution-ip,anit-select,no-resolve
+  - RULE-SET,meta_geoip-telegram,Proxy,no-resolve
+  - RULE-SET,meta_geoip-twitter,Proxy,no-resolve
+  - RULE-SET,meta_geoip-netflix,Proxy,no-resolve
+  - RULE-SET,meta_geoip-facebook,Proxy,no-resolve
+
+  - RULE-SET,meta_geoip-fastly,DIRECT,no-resolve
+  - RULE-SET,meta_geoip-cloudflare,DIRECT,no-resolve
+  - RULE-SET,meta_geoip-cloudfront,DIRECT,no-resolve
+
+  - RULE-SET,direct_ip,DIRECT,no-resolve
+  - RULE-SET,meta_geoip-cn,DIRECT,no-resolve
+  - MATCH,Proxy
