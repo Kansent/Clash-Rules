@@ -23,7 +23,10 @@ mediaservices.cdn-apple.com
 sb.music.apple.com
 cma2.itunes.apple.com
 
-# Apple Weather
+# Time
+time.apple.com
+
+# Weather
 weather-edge.apple.com
 
 # Unknown issue
