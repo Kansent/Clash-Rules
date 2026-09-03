@@ -28,6 +28,10 @@ serverstatus.apple.com.akadns.net
 
 # Time
 time.apple.com
+time.asia.apple.com
+
+# Updater
+gdmf.apple.com
 
 # Weather
 weather-edge.apple.com
