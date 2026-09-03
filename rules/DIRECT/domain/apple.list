@@ -1,3 +1,4 @@
+# Content Caching
 lcdn-registration.apple.com
 lcdn-registration.apple.com.akadns.net
 ms11p01su-lcdnreg.isu.apple.com.akadns.net
@@ -12,6 +13,8 @@ lcdn-locator.apple.com.akadns.net
 lcdn-locator-usms11.apple.com.akadns.net
 serverstatus.apple.com
 serverstatus.apple.com.akadns.net
+
+# Apple Music
 genius-download-2.itunes.apple.com
 genius-upload-2.itunes.apple.com
 genius-3.itunes.apple.com
