@@ -21,3 +21,6 @@ genius-3.itunes.apple.com
 +.push.apple.com
 mediaservices.cdn-apple.com
 sb.music.apple.com
+
+# Unknown issue
++.blobstore.apple.com
