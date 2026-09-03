@@ -1,3 +1,15 @@
+# AKADNS
++.courier-push-apple.com.akadns.net
+
+# Apple Music
+genius-download-2.itunes.apple.com
+genius-upload-2.itunes.apple.com
+genius-3.itunes.apple.com
++.push.apple.com
+mediaservices.cdn-apple.com
+sb.music.apple.com
+cma2.itunes.apple.com
+
 # Content Caching
 lcdn-registration.apple.com
 lcdn-registration.apple.com.akadns.net
@@ -13,15 +25,6 @@ lcdn-locator.apple.com.akadns.net
 lcdn-locator-usms11.apple.com.akadns.net
 serverstatus.apple.com
 serverstatus.apple.com.akadns.net
-
-# Apple Music
-genius-download-2.itunes.apple.com
-genius-upload-2.itunes.apple.com
-genius-3.itunes.apple.com
-+.push.apple.com
-mediaservices.cdn-apple.com
-sb.music.apple.com
-cma2.itunes.apple.com
 
 # Time
 time.apple.com
