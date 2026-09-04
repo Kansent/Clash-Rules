@@ -29,6 +29,9 @@ serverstatus.apple.com.akadns.net
 # Encryption Support Services
 +.ess.apple.com
 
+# Stock
+stocks-data-service.apple.com
+
 # Tether
 tether.edge.apple
 
