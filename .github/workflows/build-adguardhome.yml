@@ -100,7 +100,11 @@ jobs:
               with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
                   f.write("! Title: Reject Domain Rules for AdGuard Home\n")
                   f.write("! Homepage: https://github.com/" + os.getenv("GITHUB_REPOSITORY", "") + "\n")
-                  f.write("! Total Count: " + str(len(agh_domains)) + "\n\n")
+                  f.write("! Total Count: " + str(len(agh_domains)) + "\n")
+                  f.write("! Upstream Sources:\n")
+                  for url in UPSTREAM_URLS:
+                      f.write(f"!   - {url}\n")
+                  f.write("\n")
                   f.write("\n".join(sorted(agh_domains)))
                   f.write("\n")
               print(f"Successfully generated {len(agh_domains)} domain rules to {OUTPUT_FILE}")
