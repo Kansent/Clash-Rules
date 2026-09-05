@@ -42,13 +42,6 @@ payload:
   - DOMAIN-SUFFIX,jiguang.aimaiot.cn
   - DOMAIN-SUFFIX,ax.admobile.top
 
-  # Spotify
-  - DOMAIN-SUFFIX,video-ak.cdn.spotify.com
-
-  # 私有DNS
-  - DOMAIN,dns.jd.com
-  - DOMAIN,httpdns.meituan.com
-
   # 银河奇异果
   - DOMAIN,pb.bi.gitv.tv
   - DOMAIN-SUFFIX,t7z.cupid.ptqy.gitv.tv
