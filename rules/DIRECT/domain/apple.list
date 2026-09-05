@@ -54,6 +54,9 @@ aidc.apple.com
 # Push Notification Service
 +.push.apple.com
 
+# Server-Sent Events
+sse-ws-p189.apple.com
+
 # Stock
 stocks-data-service.apple.com
 
@@ -69,6 +72,9 @@ gdmf.apple.com
 
 # Weather
 weather-edge.apple.com
+
+# Wi-Fi Positioning System
+wps.apple.com
 
 # Unknown issue
 +.blobstore.apple.com
