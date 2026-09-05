@@ -10,6 +10,9 @@ graph.microsoft.com
 # Login
 login.microsoftonline.com
 
+# Network Connectivity Status Indicator
+dns.msftncsi.com
+
 # Office
 +.office365.com
 +.office.com
