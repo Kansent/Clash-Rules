@@ -38,6 +38,7 @@ aidc.apple.com
 
 # iTunes
 +.itunes.apple.com
++.itunes-apple.com.akadns.net
 
 # Mail
 +.mail.me.com
@@ -45,6 +46,7 @@ aidc.apple.com
 
 # Map
 +.ls.apple.com
++.ls2-apple.com.akadns.net
 
 # Media Service
 mediaservices.cdn-apple.com
@@ -54,6 +56,7 @@ mediaservices.cdn-apple.com
 
 # Push Notification Service
 +.push.apple.com
++.push-apple.com.akadns.net
 
 # Server-Sent Events
 sse-ws-p189.apple.com
