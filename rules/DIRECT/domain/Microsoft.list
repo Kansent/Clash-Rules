@@ -23,6 +23,9 @@ dns.msftncsi.com
 # Onedrive
 +.blob.core.windows.net
 +.microsoftpersonalcontent.com
++.sfx.ms
+skyapi.live.net
+storage.live.com
 
 # Outlook
 +.outlook.com
