@@ -1,6 +1,9 @@
 # Cloud Infrastructure
 +.cloud.microsoft
 
+# Device Dynamic Services
++.dds.microsoft.com
+
 # Graph
 graph.microsoft.com
 
@@ -16,6 +19,10 @@ dns.msftncsi.com
 # Office
 +.office365.com
 +.office.com
+
+# Onedrive
++.blob.core.windows.net
++.microsoftpersonalcontent.com
 
 # Outlook
 +.outlook.com
