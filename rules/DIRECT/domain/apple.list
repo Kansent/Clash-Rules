@@ -33,6 +33,9 @@ serverstatus.apple.com.akadns.net
 # Encryption Support Services
 +.ess.apple.com
 
+# Map
++.ls.apple.com
+
 # Push Notification Service
 +.push.apple.com
 
