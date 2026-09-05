@@ -30,6 +30,9 @@ serverstatus.apple.com.akadns.net
 # Game Center
 +.gc.apple.com
 
+# Grand Central Services / Global Authentication
+gsa-gpk.apple.com
+
 # Identity and Developer Infrastructure
 aidc.apple.com
 
