@@ -5,10 +5,11 @@
 genius-download-2.itunes.apple.com
 genius-upload-2.itunes.apple.com
 genius-3.itunes.apple.com
-+.push.apple.com
 mediaservices.cdn-apple.com
 sb.music.apple.com
 cma2.itunes.apple.com
+radio.itunes.apple.com
+radio-activity.itunes.apple.com
 
 # Captive
 captive.apple.com
@@ -31,6 +32,9 @@ serverstatus.apple.com.akadns.net
 
 # Encryption Support Services
 +.ess.apple.com
+
+# Push Notification Service
++.push.apple.com
 
 # Stock
 stocks-data-service.apple.com
