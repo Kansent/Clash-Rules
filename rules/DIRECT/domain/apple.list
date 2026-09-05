@@ -10,6 +10,9 @@ mediaservices.cdn-apple.com
 sb.music.apple.com
 cma2.itunes.apple.com
 
+# Captive
+captive.apple.com
+
 # Content Caching
 lcdn-registration.apple.com
 lcdn-registration.apple.com.akadns.net
