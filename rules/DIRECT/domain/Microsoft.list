@@ -1,8 +1,16 @@
 # Hotmail
 +.hotmail.com
 
+# Office
++.office365.com
++.office.com
+
+# Outlook
++.outlook.com
+
 # Push Notification Service
 +.wns.windows.com
 
 # Visual Studio
 +.visualstudio.com
++.vscode-cdn.net
