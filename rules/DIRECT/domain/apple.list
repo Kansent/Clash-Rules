@@ -2,14 +2,8 @@
 +.courier-push-apple.com.akadns.net
 
 # Apple Music
-genius-download-2.itunes.apple.com
-genius-upload-2.itunes.apple.com
-genius-3.itunes.apple.com
 mediaservices.cdn-apple.com
 sb.music.apple.com
-cma2.itunes.apple.com
-radio.itunes.apple.com
-radio-activity.itunes.apple.com
 
 # Captive
 captive.apple.com
@@ -33,14 +27,14 @@ serverstatus.apple.com.akadns.net
 # Encryption Support Services
 +.ess.apple.com
 
-# Entitlement
-entitlements.itunes.apple.com
-
 # Game Center
 +.gc.apple.com
 
 # Identity and Developer Infrastructure
 aidc.apple.com
+
+# iTunes
++.itunes.apple.com
 
 # Mail
 +.mail.me.com
