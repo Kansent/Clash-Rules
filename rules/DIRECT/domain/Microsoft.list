@@ -4,6 +4,9 @@
 # Device Dynamic Services
 +.dds.microsoft.com
 
+# Edge
+edge.microsoft.com
+
 # Graph
 graph.microsoft.com
 
