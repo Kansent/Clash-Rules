@@ -3,7 +3,8 @@
 
 # Apple Music
 mediaservices.cdn-apple.com
-sb.music.apple.com
++.music.apple.com
++.mzstatic.com
 
 # Captive
 captive.apple.com
