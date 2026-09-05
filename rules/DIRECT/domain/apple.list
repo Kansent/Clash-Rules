@@ -33,8 +33,23 @@ serverstatus.apple.com.akadns.net
 # Encryption Support Services
 +.ess.apple.com
 
+# Entitlement
+entitlements.itunes.apple.com
+
+# Game Center
++.gc.apple.com
+
+# Identity and Developer Infrastructure
+aidc.apple.com
+
+# Mail
++.mail.me.com
+
 # Map
 +.ls.apple.com
+
+# Personalized Commerce & Media Services
++.pcms.apple.com
 
 # Push Notification Service
 +.push.apple.com
@@ -57,3 +72,4 @@ weather-edge.apple.com
 
 # Unknown issue
 +.blobstore.apple.com
+setup.icloud.com
