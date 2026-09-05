@@ -2,7 +2,6 @@
 +.courier-push-apple.com.akadns.net
 
 # Apple Music
-mediaservices.cdn-apple.com
 +.music.apple.com
 +.mzstatic.com
 
@@ -42,6 +41,9 @@ aidc.apple.com
 
 # Map
 +.ls.apple.com
+
+# Media Service
+mediaservices.cdn-apple.com
 
 # Personalized Commerce & Media Services
 +.pcms.apple.com
