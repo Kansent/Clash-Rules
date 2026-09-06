@@ -1,0 +1,116 @@
+name: Update Mihomo Version
+
+on:
+  schedule:
+    # Every Monday at 03:00 UTC
+    # = Monday 11:00 China/Singapore time
+    - cron: "0 3 * * 1"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-mihomo
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Get Latest Mihomo Version
+        id: latest
+        run: |
+          set -e
+
+          echo "Querying latest Mihomo release..."
+
+          RESPONSE=$(curl -fL \
+            --retry 5 \
+            --retry-delay 3 \
+            --retry-all-errors \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/MetaCubeX/mihomo/releases/latest")
+
+          LATEST_VERSION=$(printf '%s' "$RESPONSE" \
+            | python3 -c '
+          import sys
+          import json
+
+          data = json.load(sys.stdin)
+
+          tag = data.get("tag_name")
+
+          if not tag:
+              raise SystemExit("ERROR: tag_name not found")
+
+          print(tag)
+          ')
+
+          if [ -z "$LATEST_VERSION" ]; then
+            echo "ERROR: Failed to determine latest Mihomo version."
+            exit 1
+          fi
+
+          echo "Latest Mihomo version: ${LATEST_VERSION}"
+          echo "version=${LATEST_VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Compare Versions
+        id: compare
+        env:
+          LATEST_VERSION: ${{ steps.latest.outputs.version }}
+        run: |
+          set -e
+
+          if [ ! -f .mihomo-version ]; then
+            echo "ERROR: .mihomo-version not found!"
+            exit 1
+          fi
+
+          CURRENT_VERSION=$(tr -d '[:space:]' < .mihomo-version)
+
+          echo "Current Mihomo version: ${CURRENT_VERSION}"
+          echo "Latest Mihomo version:  ${LATEST_VERSION}"
+
+          if [ "$CURRENT_VERSION" = "$LATEST_VERSION" ]; then
+            echo "Mihomo is already up to date."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Mihomo update available!"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update .mihomo-version
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          LATEST_VERSION: ${{ steps.latest.outputs.version }}
+        run: |
+          set -e
+
+          printf '%s\n' "$LATEST_VERSION" > .mihomo-version
+
+          echo "Updated .mihomo-version:"
+          cat .mihomo-version
+
+      - name: Commit Version Update
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          LATEST_VERSION: ${{ steps.latest.outputs.version }}
+        run: |
+          set -e
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add .mihomo-version
+
+          git commit \
+            -m "chore: update Mihomo to ${LATEST_VERSION}"
+
+          git push
