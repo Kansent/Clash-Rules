@@ -11,6 +11,9 @@ wdcp.microsoft.com
 # Device Dynamic Services
 +.dds.microsoft.com
 
+# Delivery Optimization
++.do.dsp.mp.microsoft.com
+
 # Edge
 edge.microsoft.com
 
