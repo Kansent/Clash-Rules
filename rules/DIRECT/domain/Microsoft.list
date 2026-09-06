@@ -30,6 +30,7 @@ dns.msftncsi.com
 # Office
 +.office365.com
 +.office.com
++.officeapps.live.com
 
 # Onedrive
 +.blob.core.windows.net
