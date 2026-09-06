@@ -11,8 +11,8 @@ wdcp.microsoft.com
 # Device Dynamic Services
 +.dds.microsoft.com
 
-# Delivery Optimization
-+.do.dsp.mp.microsoft.com
+# Delivery Service Provider
++.dsp.mp.microsoft.com
 
 # Edge
 edge.microsoft.com
@@ -47,6 +47,13 @@ storage.live.com
 
 # Push Notification Service
 +.wns.windows.com
+
+# Settings Sync
++.data.microsoft.com 
+
+# Updater
++.delivery.mp.microsoft.com
++.update.microsoft.com
 
 # Visual Studio
 +.visualstudio.com
