@@ -82,8 +82,9 @@ jobs:
           gunzip -f mihomo.gz
           chmod +x mihomo
 
-          echo "Mihomo version:"
-          ./mihomo version
+          echo "Mihomo binary downloaded successfully."
+          file mihomo
+          ls -lh mihomo
 
       - name: Auto Process and Compile Rules
         run: |
