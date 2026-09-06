@@ -5,6 +5,9 @@
 # Cloud Infrastructure
 +.cloud.microsoft
 
+# Defender Cloud Protection
+wdcp.microsoft.com
+
 # Device Dynamic Services
 +.dds.microsoft.com
 
@@ -19,6 +22,7 @@ graph.microsoft.com
 
 # Login
 login.microsoftonline.com
+login.live.com
 
 # Network Connectivity Status Indicator
 dns.msftncsi.com
