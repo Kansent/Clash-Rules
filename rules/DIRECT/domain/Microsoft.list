@@ -33,6 +33,9 @@ login.live.com
 # Network Connectivity Status Indicator
 dns.msftncsi.com
 
+# Online Certificate Status Protocol
+oneocsp.microsoft.com
+
 # Office
 +.office365.com
 +.office.com
