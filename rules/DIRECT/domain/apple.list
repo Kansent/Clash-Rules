@@ -61,6 +61,7 @@ mediaservices.cdn-apple.com
 
 # Server-Sent Events
 sse-ws-p189.apple.com
+sse-ws.apple.com
 
 # Stock
 stocks-data-service.apple.com
@@ -79,6 +80,9 @@ time.g.aaplimg.com
 
 # Updater
 gdmf.apple.com
+
+# Wallet
+wallet.cdn-apple.com
 
 # Weather
 weather-edge.apple.com
