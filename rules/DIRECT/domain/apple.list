@@ -32,6 +32,9 @@ gsa-gpk.apple.com
 gsa.apple.com
 gsas.apple.com
 
+# iCloud
+p182-quota.icloud.com
+
 # Identity and Developer Infrastructure
 aidc.apple.com
 
@@ -95,3 +98,6 @@ wps.apple.com
 +.blobstore.apple.com
 setup.icloud.com
 +.map.apple-dns.net
+sklaxm.apple.com
+humb.apple.com
++.b.akamaiedge.net
