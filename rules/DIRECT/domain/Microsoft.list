@@ -57,6 +57,9 @@ storage.live.com
 # Settings Sync
 +.data.microsoft.com 
 
+# Store
++.store.microsoft.com
+
 # Updater
 +.delivery.mp.microsoft.com
 +.update.microsoft.com
