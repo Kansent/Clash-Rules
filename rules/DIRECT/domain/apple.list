@@ -39,7 +39,7 @@ gsas.apple.com
 p182-quota.icloud.com
 
 # Identity and Developer Infrastructure
-aidc.apple.com
++.aidc.apple.com
 
 # iTunes
 +.itunes.apple.com
@@ -54,10 +54,10 @@ aidc.apple.com
 +.ls2-apple.com.akadns.net
 
 # Marketing Tools
-toolbox.marketingtools.apple.com
++.marketingtools.apple.com
 
 # Media Service
-mediaservices.cdn-apple.com
++.mediaservices.cdn-apple.com
 
 # Personalized Commerce & Media Services
 +.pcms.apple.com
@@ -73,7 +73,7 @@ sse-ws-p189.apple.com
 sse-ws.apple.com
 
 # Stock
-stocks-data-service.apple.com
++.stocks-data-service.apple.com
 
 # Support
 supportmetrics.apple.com
