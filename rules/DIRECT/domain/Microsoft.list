@@ -60,6 +60,9 @@ storage.live.com
 # Store
 +.store.microsoft.com
 
+# Time
+time.windows.com
+
 # Updater
 +.delivery.mp.microsoft.com
 +.update.microsoft.com
