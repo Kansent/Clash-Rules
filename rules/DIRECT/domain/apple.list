@@ -21,6 +21,9 @@ lcdn-locator-usms11.apple.com.akadns.net
 serverstatus.apple.com
 serverstatus.apple.com.akadns.net
 
+# CloudKit
+api.apple-cloudkit.com
+
 # Encryption Support Services
 +.ess.apple.com
 
