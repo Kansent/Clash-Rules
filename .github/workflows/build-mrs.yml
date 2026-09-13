@@ -522,3 +522,27 @@ jobs:
           git push -f \
             "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" \
             HEAD:meta
+            
+      - name: Send Bark Notification
+        if: success()
+        env:
+          BARK_HOST: ${{ secrets.BARK_HOST }}
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+        run: |
+          if [ -z "$BARK_HOST" ] || [ -z "$BARK_KEY" ]; then
+            echo "Bark Key or Host missing. Skipping notification."
+            exit 0
+          fi
+
+          BARK_HOST="${BARK_HOST%/}"
+
+          curl -f -s -X POST "${BARK_HOST}/${BARK_KEY}" \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d '{
+              "title": "Mihomo Ruleset Build Completed",
+              "body": "Repository: '${{ github.repository }}'\nStatus: '${{ job.status }}'",
+              "level": "passive",
+              "sound": "silence",
+              "isArchive": 0,
+              "group": "GitHub Actions"
+            }'
