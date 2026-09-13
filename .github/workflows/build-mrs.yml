@@ -538,11 +538,11 @@ jobs:
 
           curl -f -s -X POST "${BARK_HOST}/${BARK_KEY}" \
             -H 'Content-Type: application/json; charset=utf-8' \
-            -d '{
-              "title": "Mihomo Ruleset Build Completed",
-              "body": "Repository: '${{ github.repository }}'\nStatus: '${{ job.status }}'",
-              "level": "passive",
-              "sound": "silence",
-              "isArchive": 0,
-              "group": "GitHub Actions"
-            }'
+            -d "{
+              \"title\": \"Mihomo Ruleset Build Completed\",
+              \"body\": \"Repository: ${{ github.repository }}\nStatus: ${{ job.status }}\",
+              \"level\": \"passive\",
+              \"sound\": \"silence\",
+              \"isArchive\": 0,
+              \"group\": \"GitHub Actions\"
+            }"
