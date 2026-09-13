@@ -535,14 +535,10 @@ jobs:
           fi
 
           BARK_HOST="${BARK_HOST%/}"
+          TITLE="Mihomo Ruleset Build Completed"
+          BODY="Repository: ${{ github.repository }} | Status: ${{ job.status }}"
 
-          curl -f -s -X POST "${BARK_HOST}/${BARK_KEY}" \
-            -H 'Content-Type: application/json; charset=utf-8' \
-            -d "{
-              \"title\": \"Mihomo Ruleset Build Completed\",
-              \"body\": \"Repository: ${{ github.repository }}\nStatus: ${{ job.status }}\",
-              \"level\": \"passive\",
-              \"sound\": \"silence\",
-              \"isArchive\": 0,
-              \"group\": \"GitHub Actions\"
-            }"
+          TITLE_ENC=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$TITLE")
+          BODY_ENC=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$BODY")
+
+          curl -f -s "${BARK_HOST}/${BARK_KEY}/${TITLE_ENC}/${BODY_ENC}?level=passive&sound=silence&isArchive=0&group=GitHub%20Actions"
