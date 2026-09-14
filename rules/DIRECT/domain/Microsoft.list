@@ -33,6 +33,9 @@ graph.microsoft.com
 # Hotmail
 +.hotmail.com
 
+# Location Inference
+inference.location.live.net
+
 # Login
 login.live.com
 login.microsoftonline.com
@@ -87,9 +90,6 @@ time.windows.com
 
 # Web Consent Privacy
 +.wcpstatic.microsoft.com
-
-# Location Inference
-inference.location.live.net
 
 # Unknown
 g.live.com
