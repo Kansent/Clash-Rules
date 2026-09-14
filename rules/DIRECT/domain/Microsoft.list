@@ -5,6 +5,9 @@ arc.msn.com
 +.azurefd.net
 +.tm-azurefd.net
 
+# Content Security Policy
++.csp.microsoft.com
+
 # Cloud Infrastructure
 +.cloud.microsoft
 
@@ -52,6 +55,7 @@ storage.live.com
 +.sfx.ms
 skyapi.live.net
 +.blob.core.windows.net
+api.onedrive.com
 
 # Online Certificate Status Protocol
 oneocsp.microsoft.com
