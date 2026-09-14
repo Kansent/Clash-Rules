@@ -88,7 +88,7 @@ time.windows.com
 # Web Consent Privacy
 +.wcpstatic.microsoft.com
 
-#Location Inference
+# Location Inference
 inference.location.live.net
 
 # Unknown issue
