@@ -32,8 +32,8 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "style: auto-sort rule lists"
-          title: "style: auto-sort rule lists"
+          commit-message: "style: auto-sort rule lists [skip ci]"
+          title: "style: auto-sort rule lists [skip ci]"
           body: |
             Auto-sorted rule lists via GitHub Actions.
             Please review the diff before merging.
