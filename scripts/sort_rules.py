@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import glob
+import ipaddress
 import os
+import re
 import sys
 
 def domain_sort_key(domain: str):
@@ -13,6 +15,38 @@ def domain_sort_key(domain: str):
     parts = clean_domain.lower().split('.')
     return (parts[::-1], domain.lower())
 
+def is_ip_or_cidr(line: str) -> bool:
+    """Check if a line is an IPv4/IPv6 address or CIDR range."""
+    clean_line = line.strip()
+    try:
+        ipaddress.ip_network(clean_line, strict=False)
+        return True
+    except ValueError:
+        return False
+
+def ip_sort_key(line: str):
+    """Sort IP networks numerically."""
+    clean_line = line.strip()
+    try:
+        net = ipaddress.ip_network(clean_line, strict=False)
+        # Sort by IP version (v4 first), network address, then prefix length
+        return (net.version, net.network_address, net.prefixlen)
+    except ValueError:
+        return (99, 0, 0)
+
+def sort_lines(lines: list) -> list:
+    """Dynamically determine whether to sort as IPs or Domains."""
+    unique_lines = list(set(lines))
+    if not unique_lines:
+        return []
+    
+    # If the majority of lines are IPs, use IP sorting
+    ip_count = sum(1 for line in unique_lines if is_ip_or_cidr(line))
+    if ip_count / len(unique_lines) > 0.5:
+        return sorted(unique_lines, key=ip_sort_key)
+    else:
+        return sorted(unique_lines, key=domain_sort_key)
+
 def sort_list_file_content(content: str, bottom_category_name: str = "Unknown issue") -> str:
     lines = [line.strip() for line in content.strip().splitlines() if line.strip()]
     if not lines:
@@ -21,7 +55,7 @@ def sort_list_file_content(content: str, bottom_category_name: str = "Unknown is
     has_categories = any(line.startswith('#') for line in lines)
 
     if not has_categories:
-        unique_sorted_lines = sorted(list(set(lines)), key=domain_sort_key)
+        unique_sorted_lines = sort_lines(lines)
         return "\n".join(unique_sorted_lines) + "\n"
 
     categories = {}
@@ -46,30 +80,30 @@ def sort_list_file_content(content: str, bottom_category_name: str = "Unknown is
     normal_categories = []
     bottom_category = None
 
-    for cat_header, domains in categories.items():
-        unique_sorted_domains = sorted(list(set(domains)), key=domain_sort_key)
+    for cat_header, item_lines in categories.items():
+        unique_sorted_items = sort_lines(item_lines)
         if cat_header == bottom_cat_key:
-            bottom_category = (cat_header, unique_sorted_domains)
+            bottom_category = (cat_header, unique_sorted_items)
         else:
-            normal_categories.append((cat_header, unique_sorted_domains))
+            normal_categories.append((cat_header, unique_sorted_items))
 
     normal_categories.sort(key=lambda x: x[0].lower())
 
     output_lines = []
 
     if uncategorized:
-        output_lines.extend(sorted(list(set(uncategorized)), key=domain_sort_key))
+        output_lines.extend(sort_lines(uncategorized))
         output_lines.append("")
 
-    for cat_header, domains in normal_categories:
+    for cat_header, item_lines in normal_categories:
         output_lines.append(cat_header)
-        output_lines.extend(domains)
+        output_lines.extend(item_lines)
         output_lines.append("")
 
     if bottom_category:
-        cat_header, domains = bottom_category
+        cat_header, item_lines = bottom_category
         output_lines.append(cat_header)
-        output_lines.extend(domains)
+        output_lines.extend(item_lines)
 
     return "\n".join(output_lines).strip() + "\n"
 
@@ -90,6 +124,13 @@ def process_all_lists(target_dir: str):
             continue
 
         sorted_content = sort_list_file_content(raw_content, bottom_category_name="Unknown issue")
+
+        # 安全阀：防止脚本故障导致整文件清空/大量丢失
+        raw_lines_count = len(raw_content.strip().splitlines())
+        sorted_lines_count = len(sorted_content.strip().splitlines())
+        if raw_lines_count > 5 and sorted_lines_count < raw_lines_count * 0.7:
+            print(f" Warning: Skipping {file_path} due to unexpected line count drop.")
+            continue
 
         if raw_content.strip() != sorted_content.strip():
             with open(file_path, "w", encoding="utf-8", newline="\n") as f:
