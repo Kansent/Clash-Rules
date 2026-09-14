@@ -42,6 +42,8 @@ oneocsp.microsoft.com
 +.office.com
 +.officeapps.live.com
 officeclient.microsoft.com
++.microsofttaik.azure.net
++.outlook.com
 
 # Onedrive
 +.blob.core.windows.net
@@ -49,9 +51,6 @@ officeclient.microsoft.com
 +.sfx.ms
 skyapi.live.net
 storage.live.com
-
-# Outlook
-+.outlook.com
 
 # Push Notification Service
 +.wns.windows.com
