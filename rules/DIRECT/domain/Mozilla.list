@@ -1,7 +1,7 @@
-+.services.mozilla.com
-+.cdn.mozilla.net
 firefox-portal-detection.com
++.services.mozilla.com
 mozilla.map.fastly.net
++.cdn.mozilla.net
 
 # Application Update Service
 aus5.mozilla.org

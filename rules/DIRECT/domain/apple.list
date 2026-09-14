@@ -3,37 +3,37 @@
 +.mzstatic.com
 
 # Apple Pay
-applepay-tns.cbp.gemalto.com
 +.apay.apple.com
+applepay-tns.cbp.gemalto.com
 
 # Captive
 captive.apple.com
 
+# CloudKit
+api.apple-cloudkit.com
+
 # Content Caching
-lcdn-registration.apple.com
-lcdn-registration.apple.com.akadns.net
-ms11p01su-lcdnreg.isu.apple.com.akadns.net
-suconfig.apple.com
-suconfig.apple.com.edgesuite.net
-a803.g4.akamai.net
-xp-cdn.apple.com
 cdn-xp-ingest.edge.apple
 cdn-xp-ingest-ab.v.aaplimg.com
 lcdn-locator.apple.com
+lcdn-registration.apple.com
+serverstatus.apple.com
+suconfig.apple.com
+xp-cdn.apple.com
+ms11p01su-lcdnreg.isu.apple.com.akadns.net
 lcdn-locator.apple.com.akadns.net
 lcdn-locator-usms11.apple.com.akadns.net
-serverstatus.apple.com
+lcdn-registration.apple.com.akadns.net
 serverstatus.apple.com.akadns.net
-
-# CloudKit
-api.apple-cloudkit.com
+a803.g4.akamai.net
+suconfig.apple.com.edgesuite.net
 
 # Encryption Support Services
 +.ess.apple.com
 
 # Find my
-p182-fmip.icloud.com
 p182-fmf.icloud.com
+p182-fmip.icloud.com
 
 # Game Center
 +.gc.apple.com
@@ -45,15 +45,15 @@ gateway.icloud.com
 +.gcsis-apple.com.akadns.net
 
 # Global Service Authentication
-gsa-gpk.apple.com
 gsa.apple.com
+gsa-gpk.apple.com
 gsas.apple.com
 
 # iCloud
-p182-quota.icloud.com
 caldav.icloud.com
 p182-caldav.icloud.com
 p182-contacts.icloud.com
+p182-quota.icloud.com
 
 # Identity and Developer Infrastructure
 +.aidc.apple.com
@@ -80,32 +80,32 @@ idv.cdn-apple.com
 +.pcms.apple.com
 
 # Push Notification Service
+nc-pod11-smp-device.apple.com
+nc-pod11-smp-device-asset-ccs.apple.com
 +.push.apple.com
-+.push-apple.com.akadns.net
 +.courier-push-apple.com.akadns.net
 +.courier2-push-apple.com.akadns.net
-nc-pod11-smp-device.apple.com
 sh-pod2-smp-device.gcsis-apple.com.akadns.net
-nc-pod11-smp-device-asset-ccs.apple.com
++.push-apple.com.akadns.net
 
 # Server-Sent Events
-sse-ws-p189.apple.com
 sse-ws.apple.com
+sse-ws-p189.apple.com
 
 # Stock
 +.stocks-data-service.apple.com
 
 # Support
-supportmetrics.apple.com
 idiagnostics.apple.com
+supportmetrics.apple.com
 
 # Tether
 tether.edge.apple
 
 # Time
-time.apple.com
-time.asia.apple.com
 time.g.aaplimg.com
+time.asia.apple.com
+time.apple.com
 
 # Updater
 gdmf.apple.com
@@ -126,9 +126,9 @@ wps.apple.com
 
 # Unknown issue
 +.blobstore.apple.com
-setup.icloud.com
-+.map.apple-dns.net
-sklaxm.apple.com
 humb.apple.com
-+.b.akamaiedge.net
+sklaxm.apple.com
 p182-acsegateway.icloud.com
+setup.icloud.com
++.b.akamaiedge.net
++.map.apple-dns.net
