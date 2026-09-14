@@ -30,6 +30,9 @@ api.apple-cloudkit.com
 # Game Center
 +.gc.apple.com
 
+# Global Cloud Infrastructure Services
++.gcsis-apple.com.akadns.net
+
 # Global Service Authentication
 gsa-gpk.apple.com
 gsa.apple.com
@@ -68,6 +71,7 @@ idv.cdn-apple.com
 +.courier-push-apple.com.akadns.net
 +.courier2-push-apple.com.akadns.net
 nc-pod11-smp-device.apple.com
+sh-pod2-smp-device.gcsis-apple.com.akadns.net
 
 # Server-Sent Events
 sse-ws-p189.apple.com
@@ -93,6 +97,9 @@ gdmf.apple.com
 
 # Wallet
 wallet.cdn-apple.com
+
+# Warranty & Diagnostic Services
+ifs-wpc-device.apple.com
 
 # Weather
 weather-edge.apple.com
