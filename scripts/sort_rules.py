@@ -4,6 +4,15 @@ import glob
 import os
 import sys
 
+def domain_sort_key(domain: str):
+    """
+    Sort domains from right to left based on root domain hierarchy.
+    Strips leading modifiers like '+.', '.', '*.' before splitting.
+    """
+    clean_domain = domain.lstrip("+.*")
+    parts = clean_domain.lower().split('.')
+    return (parts[::-1], domain.lower())
+
 def sort_list_file_content(content: str, bottom_category_name: str = "Unknown issue") -> str:
     lines = [line.strip() for line in content.strip().splitlines() if line.strip()]
     if not lines:
@@ -12,7 +21,7 @@ def sort_list_file_content(content: str, bottom_category_name: str = "Unknown is
     has_categories = any(line.startswith('#') for line in lines)
 
     if not has_categories:
-        unique_sorted_lines = sorted(list(set(lines)))
+        unique_sorted_lines = sorted(list(set(lines)), key=domain_sort_key)
         return "\n".join(unique_sorted_lines) + "\n"
 
     categories = {}
@@ -38,7 +47,7 @@ def sort_list_file_content(content: str, bottom_category_name: str = "Unknown is
     bottom_category = None
 
     for cat_header, domains in categories.items():
-        unique_sorted_domains = sorted(list(set(domains)))
+        unique_sorted_domains = sorted(list(set(domains)), key=domain_sort_key)
         if cat_header == bottom_cat_key:
             bottom_category = (cat_header, unique_sorted_domains)
         else:
@@ -49,7 +58,7 @@ def sort_list_file_content(content: str, bottom_category_name: str = "Unknown is
     output_lines = []
 
     if uncategorized:
-        output_lines.extend(sorted(list(set(uncategorized))))
+        output_lines.extend(sorted(list(set(uncategorized)), key=domain_sort_key))
         output_lines.append("")
 
     for cat_header, domains in normal_categories:
