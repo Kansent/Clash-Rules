@@ -41,6 +41,9 @@ p182-quota.icloud.com
 # Identity and Developer Infrastructure
 +.aidc.apple.com
 
+# Identity Verification
+idv.cdn-apple.com
+
 # iTunes
 +.itunes.apple.com
 +.itunes-apple.com.akadns.net
