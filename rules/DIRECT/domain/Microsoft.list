@@ -5,11 +5,14 @@ arc.msn.com
 +.azurefd.net
 +.tm-azurefd.net
 
-# Content Security Policy
-+.csp.microsoft.com
-
 # Cloud Infrastructure
 +.cloud.microsoft
+
+# Connected Devices Platform
++.api.cdp.microsoft.com
+
+# Content Security Policy
++.csp.microsoft.com
 
 # Defender Cloud Protection
 checkappexec.microsoft.com
@@ -41,23 +44,23 @@ dns.msftncsi.com
 
 # Office
 +.officeapps.live.com
++.teams.live.com
 officeclient.microsoft.com
 +.office.com
 +.office365.com
 +.outlook.com
-+.microsofttaik.azure.net
-+.skype.com
 +.sharepoint.com
-+.teams.live.com
++.skype.com
 +.static.microsoft
++.microsofttaik.azure.net
 
 # Onedrive
 storage.live.com
 +.microsoftpersonalcontent.com
+api.onedrive.com
 +.sfx.ms
 skyapi.live.net
 +.blob.core.windows.net
-api.onedrive.com
 
 # Online Certificate Status Protocol
 oneocsp.microsoft.com
@@ -84,9 +87,6 @@ g.live.com
 # Visual Studio
 +.visualstudio.com
 +.vscode-cdn.net
-
-# Connected Devices Platform
-+.api.cdp.microsoft.com
 
 # Web Consent Privacy
 +.wcpstatic.microsoft.com
