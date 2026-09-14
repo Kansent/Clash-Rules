@@ -37,6 +37,9 @@ graph.microsoft.com
 login.live.com
 login.microsoftonline.com
 
+# Microsoft App
++.microsoftapp.net
+
 # Network Connectivity Status Indicator
 +.msftconnecttest.com
 +.msftncsi.com
@@ -74,11 +77,6 @@ oneocsp.microsoft.com
 # Time
 time.windows.com
 
-# Unknown issue
-g.live.com
-+.static.microsoft
-+.microsofttaik.azure.net
-
 # Updater
 +.delivery.mp.microsoft.com
 +.update.microsoft.com
@@ -90,8 +88,10 @@ g.live.com
 # Web Consent Privacy
 +.wcpstatic.microsoft.com
 
-# Microsoft App
-+.microsoftapp.net
-
 #Location Inference
 inference.location.live.net
+
+# Unknown issue
+g.live.com
++.static.microsoft
++.microsofttaik.azure.net
