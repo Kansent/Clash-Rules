@@ -5,6 +5,12 @@ import ipaddress
 import os
 import sys
 
+def normalize_header(line: str) -> str:
+    if line.startswith('#'):
+        header_text = line.lstrip('#').strip()
+        return f"# {header_text}" if header_text else "#"
+    return line
+
 def domain_sort_key(domain: str):
     clean_domain = domain.lstrip("+.*")
     parts = clean_domain.lower().split('.')
@@ -37,8 +43,8 @@ def sort_lines(lines: list) -> list:
     else:
         return sorted(unique_lines, key=domain_sort_key)
 
-def sort_list_file_content(content: str, bottom_category_name: str = "Unknown issue") -> str:
-    lines = [line.strip() for line in content.strip().splitlines() if line.strip()]
+def sort_list_file_content(content: str, bottom_category_name: str = "Unknown") -> str:
+    lines = [normalize_header(line.strip()) for line in content.strip().splitlines() if line.strip()]
     if not lines:
         return ""
 
@@ -115,7 +121,7 @@ def process_all_lists(target_dir: str):
 
         has_crlf = "\r\n" in raw_content
 
-        sorted_content = sort_list_file_content(raw_content, bottom_category_name="Unknown issue")
+        sorted_content = sort_list_file_content(raw_content, bottom_category_name="Unknown")
 
         raw_lines_count = len(raw_content.strip().splitlines())
         sorted_lines_count = len(sorted_content.strip().splitlines())
