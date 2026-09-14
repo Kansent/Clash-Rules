@@ -5,26 +5,34 @@ import os
 import sys
 
 def sort_list_file_content(content: str, bottom_category_name: str = "Unknown issue") -> str:
+    lines = [line.strip() for line in content.strip().splitlines() if line.strip()]
+    if not lines:
+        return ""
+
+    has_categories = any(line.startswith('#') for line in lines)
+
+    if not has_categories:
+        unique_sorted_lines = sorted(list(set(lines)))
+        return "\n".join(unique_sorted_lines) + "\n"
+
     categories = {}
     current_cat = None
     bottom_cat_header = f"# {bottom_category_name}".lower()
     bottom_cat_key = None
+    uncategorized = []
 
-    lines = content.strip().splitlines()
     for line in lines:
-        stripped = line.strip()
-        if not stripped:
-            continue
-        
-        if stripped.startswith('#'):
-            current_cat = stripped
+        if line.startswith('#'):
+            current_cat = line
             if current_cat not in categories:
                 categories[current_cat] = []
-            if stripped.lower() == bottom_cat_header:
+            if line.lower() == bottom_cat_header:
                 bottom_cat_key = current_cat
         else:
             if current_cat is not None:
-                categories[current_cat].append(stripped)
+                categories[current_cat].append(line)
+            else:
+                uncategorized.append(line)
 
     normal_categories = []
     bottom_category = None
@@ -39,6 +47,11 @@ def sort_list_file_content(content: str, bottom_category_name: str = "Unknown is
     normal_categories.sort(key=lambda x: x[0].lower())
 
     output_lines = []
+
+    if uncategorized:
+        output_lines.extend(sorted(list(set(uncategorized))))
+        output_lines.append("")
+
     for cat_header, domains in normal_categories:
         output_lines.append(cat_header)
         output_lines.extend(domains)
