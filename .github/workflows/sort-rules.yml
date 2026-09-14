@@ -9,13 +9,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  sort-and-commit:
+  sort-and-pr:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -26,15 +28,14 @@ jobs:
         run: |
           python scripts/sort_rules.py .
 
-      - name: Commit and Push Changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          git add .
-          if git diff --staged --quiet; then
-            echo "No changes detected."
-          else
-            git commit -m "style: auto-sort rule lists"
-            git push
-          fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "style: auto-sort rule lists"
+          title: "style: auto-sort rule lists"
+          body: |
+            Auto-sorted rule lists via GitHub Actions.
+            Please review the diff before merging.
+          branch: auto-sort-rules-patch
+          delete-branch: true
