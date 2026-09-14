@@ -40,7 +40,6 @@ login.microsoftonline.com
 # Network Connectivity Status Indicator
 +.msftconnecttest.com
 +.msftncsi.com
-dns.msftncsi.com
 
 # Office
 +.officeapps.live.com
@@ -51,8 +50,6 @@ officeclient.microsoft.com
 +.outlook.com
 +.sharepoint.com
 +.skype.com
-+.static.microsoft
-+.microsofttaik.azure.net
 
 # Onedrive
 storage.live.com
@@ -77,8 +74,10 @@ oneocsp.microsoft.com
 # Time
 time.windows.com
 
-# Unknown
+# Unknown issue
 g.live.com
++.static.microsoft
++.microsofttaik.azure.net
 
 # Updater
 +.delivery.mp.microsoft.com
@@ -93,3 +92,6 @@ g.live.com
 
 # Microsoft App
 +.microsoftapp.net
+
+#Location Inference
+inference.location.live.net
