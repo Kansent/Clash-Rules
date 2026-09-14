@@ -3,20 +3,14 @@
 import glob
 import ipaddress
 import os
-import re
 import sys
 
 def domain_sort_key(domain: str):
-    """
-    Sort domains from right to left based on root domain hierarchy.
-    Strips leading modifiers like '+.', '.', '*.' before splitting.
-    """
     clean_domain = domain.lstrip("+.*")
     parts = clean_domain.lower().split('.')
     return (parts[::-1], domain.lower())
 
 def is_ip_or_cidr(line: str) -> bool:
-    """Check if a line is an IPv4/IPv6 address or CIDR range."""
     clean_line = line.strip()
     try:
         ipaddress.ip_network(clean_line, strict=False)
@@ -25,22 +19,18 @@ def is_ip_or_cidr(line: str) -> bool:
         return False
 
 def ip_sort_key(line: str):
-    """Sort IP networks numerically."""
     clean_line = line.strip()
     try:
         net = ipaddress.ip_network(clean_line, strict=False)
-        # Sort by IP version (v4 first), network address, then prefix length
         return (net.version, net.network_address, net.prefixlen)
     except ValueError:
         return (99, 0, 0)
 
 def sort_lines(lines: list) -> list:
-    """Dynamically determine whether to sort as IPs or Domains."""
     unique_lines = list(set(lines))
     if not unique_lines:
         return []
     
-    # If the majority of lines are IPs, use IP sorting
     ip_count = sum(1 for line in unique_lines if is_ip_or_cidr(line))
     if ip_count / len(unique_lines) > 0.5:
         return sorted(unique_lines, key=ip_sort_key)
@@ -117,22 +107,22 @@ def process_all_lists(target_dir: str):
         if "scripts/" in file_path.replace("\\", "/"):
             continue
             
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, "r", encoding="utf-8", newline="") as f:
             raw_content = f.read()
 
         if not raw_content.strip():
             continue
 
+        has_crlf = "\r\n" in raw_content
+
         sorted_content = sort_list_file_content(raw_content, bottom_category_name="Unknown issue")
 
-        # 安全阀：防止脚本故障导致整文件清空/大量丢失
         raw_lines_count = len(raw_content.strip().splitlines())
         sorted_lines_count = len(sorted_content.strip().splitlines())
         if raw_lines_count > 5 and sorted_lines_count < raw_lines_count * 0.7:
-            print(f" Warning: Skipping {file_path} due to unexpected line count drop.")
             continue
 
-        if raw_content.strip() != sorted_content.strip():
+        if has_crlf or raw_content.strip() != sorted_content.strip():
             with open(file_path, "w", encoding="utf-8", newline="\n") as f:
                 f.write(sorted_content)
 
