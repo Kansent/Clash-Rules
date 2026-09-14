@@ -72,6 +72,7 @@ idv.cdn-apple.com
 +.courier2-push-apple.com.akadns.net
 nc-pod11-smp-device.apple.com
 sh-pod2-smp-device.gcsis-apple.com.akadns.net
+nc-pod11-smp-device-asset-ccs.apple.com
 
 # Server-Sent Events
 sse-ws-p189.apple.com
