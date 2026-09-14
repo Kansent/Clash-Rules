@@ -2,11 +2,7 @@ name: Update Mihomo Version
 
 on:
   schedule:
-    # Every Monday at 03:00 UTC
-    # = Monday 11:00 China/Singapore time
     - cron: "0 3 * * 1"
-
-  workflow_dispatch:
 
 permissions:
   contents: write
