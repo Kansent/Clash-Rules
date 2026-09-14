@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - '**/*.list'
-  workflow_dispatch:
 
 jobs:
   sort-and-pr:
