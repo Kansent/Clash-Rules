@@ -33,6 +33,9 @@ api.apple-cloudkit.com
 # Game Center
 +.gc.apple.com
 
+# Gateway
+gateway.icloud.com
+
 # Global Cloud Infrastructure Services
 +.gcsis-apple.com.akadns.net
 
