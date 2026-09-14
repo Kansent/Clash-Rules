@@ -9,14 +9,14 @@ arc.msn.com
 +.cloud.microsoft
 
 # Defender Cloud Protection
-wdcp.microsoft.com
 checkappexec.microsoft.com
-
-# Device Dynamic Services
-+.dds.microsoft.com
+wdcp.microsoft.com
 
 # Delivery Service Provider
 +.dsp.mp.microsoft.com
+
+# Device Dynamic Services
++.dds.microsoft.com
 
 # Edge
 edge.microsoft.com
@@ -28,18 +28,15 @@ graph.microsoft.com
 +.hotmail.com
 
 # Login
-login.microsoftonline.com
 login.live.com
+login.microsoftonline.com
 
 # Network Connectivity Status Indicator
 dns.msftncsi.com
 
-# Online Certificate Status Protocol
-oneocsp.microsoft.com
-
 # Office
-+.office365.com
 +.office.com
++.office365.com
 +.officeapps.live.com
 officeclient.microsoft.com
 
@@ -50,6 +47,9 @@ officeclient.microsoft.com
 skyapi.live.net
 storage.live.com
 
+# Online Certificate Status Protocol
+oneocsp.microsoft.com
+
 # Outlook
 +.outlook.com
 
@@ -57,13 +57,16 @@ storage.live.com
 +.wns.windows.com
 
 # Settings Sync
-+.data.microsoft.com 
++.data.microsoft.com
 
 # Store
 +.store.microsoft.com
 
 # Time
 time.windows.com
+
+# Unknown
+g.live.com
 
 # Updater
 +.delivery.mp.microsoft.com
@@ -72,6 +75,3 @@ time.windows.com
 # Visual Studio
 +.visualstudio.com
 +.vscode-cdn.net
-
-# Unknown
-g.live.com
