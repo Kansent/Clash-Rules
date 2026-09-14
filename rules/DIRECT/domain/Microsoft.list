@@ -90,3 +90,6 @@ g.live.com
 
 # Web Consent Privacy
 +.wcpstatic.microsoft.com
+
+# Microsoft App
++.microsoftapp.net
