@@ -2,6 +2,9 @@
 +.music.apple.com
 +.mzstatic.com
 
+# Apple Pay
+applepay-tns.cbp.gemalto.com
+
 # Captive
 captive.apple.com
 
