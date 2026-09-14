@@ -33,6 +33,7 @@ login.live.com
 
 # Network Connectivity Status Indicator
 dns.msftncsi.com
++.msftconnecttest.com
 
 # Online Certificate Status Protocol
 oneocsp.microsoft.com
