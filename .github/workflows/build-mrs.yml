@@ -7,7 +7,6 @@ on:
       - 'rules/**'
       - '.mihomo-version'
       - '.github/workflows/build-mrs.yml'
-  workflow_dispatch:
 
 permissions:
   contents: write
