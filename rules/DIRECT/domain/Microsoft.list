@@ -48,6 +48,8 @@ officeclient.microsoft.com
 +.microsofttaik.azure.net
 +.skype.com
 +.sharepoint.com
++.teams.live.com
++.static.microsoft
 
 # Onedrive
 storage.live.com
@@ -82,3 +84,9 @@ g.live.com
 # Visual Studio
 +.visualstudio.com
 +.vscode-cdn.net
+
+# Connected Devices Platform
++.api.cdp.microsoft.com
+
+# Web Consent Privacy
++.wcpstatic.microsoft.com
