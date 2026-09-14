@@ -82,8 +82,9 @@ def process_all_lists(target_dir: str):
 
         sorted_content = sort_list_file_content(raw_content, bottom_category_name="Unknown issue")
 
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(sorted_content)
+        if raw_content.strip() != sorted_content.strip():
+            with open(file_path, "w", encoding="utf-8", newline="\n") as f:
+                f.write(sorted_content)
 
 if __name__ == "__main__":
     target_directory = sys.argv[1] if len(sys.argv) > 1 else "."
