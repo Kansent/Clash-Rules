@@ -8,31 +8,31 @@ applepay-tns.cbp.gemalto.com
 # Captive
 captive.apple.com
 
+# CloudKit
+api.apple-cloudkit.com
+
 # Content Caching
+a803.g4.akamai.net
+cdn-xp-ingest-ab.v.aaplimg.com
+cdn-xp-ingest.edge.apple
+lcdn-locator-usms11.apple.com.akadns.net
+lcdn-locator.apple.com
+lcdn-locator.apple.com.akadns.net
 lcdn-registration.apple.com
 lcdn-registration.apple.com.akadns.net
 ms11p01su-lcdnreg.isu.apple.com.akadns.net
-suconfig.apple.com
-suconfig.apple.com.edgesuite.net
-a803.g4.akamai.net
-xp-cdn.apple.com
-cdn-xp-ingest.edge.apple
-cdn-xp-ingest-ab.v.aaplimg.com
-lcdn-locator.apple.com
-lcdn-locator.apple.com.akadns.net
-lcdn-locator-usms11.apple.com.akadns.net
 serverstatus.apple.com
 serverstatus.apple.com.akadns.net
-
-# CloudKit
-api.apple-cloudkit.com
+suconfig.apple.com
+suconfig.apple.com.edgesuite.net
+xp-cdn.apple.com
 
 # Encryption Support Services
 +.ess.apple.com
 
 # Find my
-p182-fmip.icloud.com
 p182-fmf.icloud.com
+p182-fmip.icloud.com
 
 # Game Center
 +.gc.apple.com
@@ -49,10 +49,10 @@ gsa.apple.com
 gsas.apple.com
 
 # iCloud
-p182-quota.icloud.com
 caldav.icloud.com
 p182-caldav.icloud.com
 p182-contacts.icloud.com
+p182-quota.icloud.com
 
 # Identity and Developer Infrastructure
 +.aidc.apple.com
@@ -61,8 +61,8 @@ p182-contacts.icloud.com
 idv.cdn-apple.com
 
 # iTunes
-+.itunes.apple.com
 +.itunes-apple.com.akadns.net
++.itunes.apple.com
 
 # Mail
 +.mail.me.com
@@ -79,13 +79,13 @@ idv.cdn-apple.com
 +.pcms.apple.com
 
 # Push Notification Service
-+.push.apple.com
-+.push-apple.com.akadns.net
 +.courier-push-apple.com.akadns.net
 +.courier2-push-apple.com.akadns.net
++.push-apple.com.akadns.net
++.push.apple.com
+nc-pod11-smp-device-asset-ccs.apple.com
 nc-pod11-smp-device.apple.com
 sh-pod2-smp-device.gcsis-apple.com.akadns.net
-nc-pod11-smp-device-asset-ccs.apple.com
 
 # Server-Sent Events
 sse-ws-p189.apple.com
@@ -95,8 +95,8 @@ sse-ws.apple.com
 +.stocks-data-service.apple.com
 
 # Support
-supportmetrics.apple.com
 idiagnostics.apple.com
+supportmetrics.apple.com
 
 # Tether
 tether.edge.apple
@@ -123,10 +123,10 @@ weatherkit.apple.com.akadns.net
 wps.apple.com
 
 # Unknown issue
-+.blobstore.apple.com
-setup.icloud.com
-+.map.apple-dns.net
-sklaxm.apple.com
-humb.apple.com
 +.b.akamaiedge.net
++.blobstore.apple.com
++.map.apple-dns.net
+humb.apple.com
 p182-acsegateway.icloud.com
+setup.icloud.com
+sklaxm.apple.com
