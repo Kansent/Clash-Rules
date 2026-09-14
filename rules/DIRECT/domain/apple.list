@@ -30,6 +30,10 @@ api.apple-cloudkit.com
 # Encryption Support Services
 +.ess.apple.com
 
+# Find my
+p182-fmip.icloud.com
+p182-fmf.icloud.com
+
 # Game Center
 +.gc.apple.com
 
@@ -46,6 +50,9 @@ gsas.apple.com
 
 # iCloud
 p182-quota.icloud.com
+caldav.icloud.com
+p182-caldav.icloud.com
+p182-contacts.icloud.com
 
 # Identity and Developer Infrastructure
 +.aidc.apple.com
@@ -122,3 +129,4 @@ setup.icloud.com
 sklaxm.apple.com
 humb.apple.com
 +.b.akamaiedge.net
+p182-acsegateway.icloud.com
