@@ -38,9 +38,6 @@ p182-fmip.icloud.com
 # Game Center
 +.gc.apple.com
 
-# Gateway
-gateway.icloud.com
-
 # Global Cloud Infrastructure Services
 +.gcsis-apple.com.akadns.net
 
@@ -109,6 +106,7 @@ time.apple.com
 
 # Updater
 gdmf.apple.com
+gdmf-ados.apple.com
 sequoia.cdn-apple.com
 
 # Wallet
@@ -128,7 +126,5 @@ wps.apple.com
 +.blobstore.apple.com
 humb.apple.com
 sklaxm.apple.com
-p182-acsegateway.icloud.com
-setup.icloud.com
 +.b.akamaiedge.net
 +.map.apple-dns.net
