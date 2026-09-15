@@ -1,3 +1,7 @@
+# +.ls.apple.com
+
+# +.ls2-apple.com.akadns.net
+
 # Apple Music
 +.music.apple.com
 +.mzstatic.com
@@ -67,8 +71,6 @@ idv.cdn-apple.com
 +.mail.me.com.akadns.net
 
 # Map
-#+.ls.apple.com
-#+.ls2-apple.com.akadns.net
 
 # Media Service
 +.mediaservices.cdn-apple.com
