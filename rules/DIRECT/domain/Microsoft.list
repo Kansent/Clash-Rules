@@ -39,6 +39,7 @@ inference.location.live.net
 # Login
 login.live.com
 login.microsoftonline.com
+login.microsoft.com
 
 # Microsoft App
 +.microsoftapp.net
@@ -47,7 +48,7 @@ login.microsoftonline.com
 +.msftconnecttest.com
 +.msftncsi.com
 
-# Office
+# Microsoft 365
 +.officeapps.live.com
 +.teams.live.com
 officeclient.microsoft.com
@@ -56,6 +57,9 @@ officeclient.microsoft.com
 +.outlook.com
 +.sharepoint.com
 +.skype.com
+admin.microsoft.com
+outlook.live.com
++.cdn.office.net
 
 # Onedrive
 storage.live.com
@@ -76,6 +80,7 @@ oneocsp.microsoft.com
 
 # Store
 +.store.microsoft.com
++.mos.microsoft.com
 
 # Time
 time.windows.com
@@ -95,3 +100,9 @@ time.windows.com
 g.live.com
 +.static.microsoft
 +.microsofttaik.azure.net
+cspv2.core.microsoft
+go.microsoft.com
+uhf.microsoft.com
+
+# CDN
+cdn-dynmedia-1.microsoft.com
