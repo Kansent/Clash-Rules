@@ -5,6 +5,9 @@ arc.msn.com
 +.azurefd.net
 +.tm-azurefd.net
 
+# CDN
+cdn-dynmedia-1.microsoft.com
+
 # Cloud Infrastructure
 +.cloud.microsoft
 
@@ -38,8 +41,21 @@ inference.location.live.net
 
 # Login
 login.live.com
-login.microsoftonline.com
 login.microsoft.com
+login.microsoftonline.com
+
+# Microsoft 365
++.officeapps.live.com
+outlook.live.com
++.teams.live.com
+admin.microsoft.com
+officeclient.microsoft.com
++.office.com
++.office365.com
++.outlook.com
++.sharepoint.com
++.skype.com
++.cdn.office.net
 
 # Microsoft App
 +.microsoftapp.net
@@ -47,19 +63,6 @@ login.microsoft.com
 # Network Connectivity Status Indicator
 +.msftconnecttest.com
 +.msftncsi.com
-
-# Microsoft 365
-+.officeapps.live.com
-+.teams.live.com
-officeclient.microsoft.com
-+.office.com
-+.office365.com
-+.outlook.com
-+.sharepoint.com
-+.skype.com
-admin.microsoft.com
-outlook.live.com
-+.cdn.office.net
 
 # Onedrive
 storage.live.com
@@ -79,8 +82,8 @@ oneocsp.microsoft.com
 +.data.microsoft.com
 
 # Store
-+.store.microsoft.com
 +.mos.microsoft.com
++.store.microsoft.com
 
 # Time
 time.windows.com
@@ -98,12 +101,9 @@ time.windows.com
 
 # Unknown
 g.live.com
-+.static.microsoft
-+.microsofttaik.azure.net
-cspv2.core.microsoft
++.cfp.microsoft.com
 go.microsoft.com
 uhf.microsoft.com
-+.cfp.microsoft.com
-
-# CDN
-cdn-dynmedia-1.microsoft.com
+cspv2.core.microsoft
++.static.microsoft
++.microsofttaik.azure.net
