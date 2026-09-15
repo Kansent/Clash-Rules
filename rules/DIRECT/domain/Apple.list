@@ -31,11 +31,11 @@ suconfig.apple.com.edgesuite.net
 # Encryption Support Services
 +.ess.apple.com
 
-# Gateway
-gateway.icloud.com
-
 # Game Center
 +.gc.apple.com
+
+# Gateway
+gateway.icloud.com
 
 # Global Cloud Infrastructure Services
 +.gcsis-apple.com.akadns.net
