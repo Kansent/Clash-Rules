@@ -19,7 +19,8 @@ cdn-dynmedia-1.microsoft.com
 
 # Defender Cloud Protection
 checkappexec.microsoft.com
-wdcp.microsoft.com
++.wdcp.microsoft.com
++.smartscreen.microsoft.com
 
 # Delivery Service Provider
 +.dsp.mp.microsoft.com
