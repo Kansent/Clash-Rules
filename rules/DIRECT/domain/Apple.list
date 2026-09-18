@@ -61,6 +61,9 @@ idv.cdn-apple.com
 +.itunes.apple.com
 +.itunes-apple.com.akadns.net
 
+# Maps
++.map.apple-dns.net
+
 # Mail
 +.mail.me.com
 +.mail.me.com.akadns.net
@@ -122,4 +125,3 @@ wps.apple.com
 humb.apple.com
 sklaxm.apple.com
 +.b.akamaiedge.net
-+.map.apple-dns.net
