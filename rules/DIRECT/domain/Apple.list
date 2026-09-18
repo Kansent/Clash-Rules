@@ -61,12 +61,12 @@ idv.cdn-apple.com
 +.itunes.apple.com
 +.itunes-apple.com.akadns.net
 
-# Maps
-+.map.apple-dns.net
-
 # Mail
 +.mail.me.com
 +.mail.me.com.akadns.net
+
+# Maps
++.map.apple-dns.net
 
 # Media Service
 +.mediaservices.cdn-apple.com
