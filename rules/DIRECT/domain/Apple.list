@@ -72,6 +72,9 @@ idv.cdn-apple.com
 # Media Service
 +.mediaservices.cdn-apple.com
 
+# ocsp
+ocsp2.g.aaplimg.com
+
 # Personalized Commerce & Media Services
 +.pcms.apple.com
 
@@ -122,11 +125,8 @@ weatherkit.apple.com.akadns.net
 wps.apple.com
 
 # Unknown
+xp.g.aaplimg.com
 +.blobstore.apple.com
 humb.apple.com
 sklaxm.apple.com
 +.b.akamaiedge.net
-xp.g.aaplimg.com
-
-# ocsp
-ocsp2.g.aaplimg.com
