@@ -1,12 +1,9 @@
 name: Auto Sort Rule Lists
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '**/*.list'
-
+  schedule:
+    - cron: '0 0 * * 1'
+    
 jobs:
   sort-and-pr:
     runs-on: ubuntu-latest
