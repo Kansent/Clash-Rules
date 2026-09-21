@@ -101,6 +101,7 @@ time.windows.com
 +.wcpstatic.microsoft.com
 
 # Unknown
+default.exp-tas.com
 g.live.com
 +.cfp.microsoft.com
 go.microsoft.com
@@ -108,4 +109,3 @@ uhf.microsoft.com
 cspv2.core.microsoft
 +.static.microsoft
 +.microsofttaik.azure.net
-default.exp-tas.com
