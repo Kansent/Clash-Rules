@@ -522,18 +522,3 @@ jobs:
             "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" \
             HEAD:meta
             
-      - name: Send Bark Notification
-        if: success()
-        env:
-          BARK_HOST: ${{ secrets.BARK_HOST }}
-          BARK_KEY: ${{ secrets.BARK_KEY }}
-        run: |
-          [ -z "$BARK_HOST" ] || [ -z "$BARK_KEY" ] && exit 0
-
-          BARK_HOST="${BARK_HOST%/}"
-          [[ ! "$BARK_HOST" =~ ^https?:// ]] && BARK_HOST="https://${BARK_HOST}"
-
-          TITLE=$(python3 -c "import urllib.parse; print(urllib.parse.quote('Mihomo Ruleset Build Completed'))")
-          BODY=$(python3 -c "import urllib.parse; print(urllib.parse.quote('Repository: ${{ github.repository }} | Status: ${{ job.status }}'))")
-
-          curl -s "${BARK_HOST}/${BARK_KEY}/${TITLE}/${BODY}?sound=silence&isArchive=0&group=GitHub%20Actions"
