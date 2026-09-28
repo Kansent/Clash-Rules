@@ -230,6 +230,10 @@ dns:
   fake-ip-range6: fdfe:dcba:9876::1/64
   fake-ip-filter:
     - RULE-SET,proxy,fake-ip
+    - DOMAIN-SUFFIX,seafree.wiki,real-ip
+    - RULE-SET,meta_geosite-apple-intelligence,fake-ip
+    - RULE-SET,meta_geosite-category-ai-!cn,fake-ip
+    - RULE-SET,meta_geosite-apple,real-ip
     - RULE-SET,meta_geosite-private,real-ip
     - RULE-SET,meta_geosite-cn,real-ip
     - RULE-SET,meta_geosite-category-companies@cn,real-ip
@@ -241,8 +245,9 @@ dns:
     - RULE-SET,meta_geosite-category-public-tracker,real-ip
     - RULE-SET,meta_geosite-category-pt,real-ip
     - RULE-SET,meta_geosite-tracker,real-ip
+    - RULE-SET,meta_geosite-category-automobile-cn,real-ip
+    - RULE-SET,meta_geosite-microsoft,real-ip
     - RULE-SET,direct,real-ip
-    - DOMAIN-SUFFIX,apple-dns.net,real-ip
     - DOMAIN-SUFFIX,local,real-ip
     - DOMAIN-SUFFIX,cn,real-ip
     - MATCH,fake-ip
@@ -258,10 +263,6 @@ dns:
     "rule-set:meta_geosite-private":
       - system
       - dhcp://en0
-    "autopatchhk.yuanshen.com": https://doh.pub/dns-query
-    "+.yuanshen.com,+.hoyoverse.com":
-      - tcp://168.126.63.1
-      - tcp://168.126.63.2
   proxy-server-nameserver:
     - 'https://1.1.1.1/dns-query'
 proxies:
@@ -324,6 +325,14 @@ rule-providers:
     format: mrs
     path: ./rule_provider/MetaCubeX/geosite/apple-intelligence.mrs
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-intelligence.mrs"
+
+  meta_geosite-apple:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/apple.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"
 
   meta_geosite-category-httpdns-cn:
     type: http
@@ -412,6 +421,30 @@ rule-providers:
     format: mrs
     path: ./rule_provider/MetaCubeX/geosite/private.mrs
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
+
+  meta_geosite-category-automobile-cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-automobile-cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-automobile-cn.mrs"
+
+  meta_geosite-category-ai-!cn:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/category-ai-!cn.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs"
+
+  meta_geosite-microsoft:
+    type: http
+    interval: 86400
+    behavior: domain
+    format: mrs
+    path: ./rule_provider/MetaCubeX/geosite/microsoft.mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"
 
   meta_geoip-telegram:
     type: http
@@ -551,9 +584,6 @@ rule-providers:
     path: ./rule_provider/Kansent_ruleset/ip/reject.mrs
 
 rules:
-  - PROCESS-NAME,OrbStack Helper,DIRECT
-  - PROCESS-NAME,AssetCache,DIRECT
-
   - RULE-SET,meta_geosite-private,DIRECT
   - RULE-SET,meta_geoip-private,DIRECT,no-resolve
 
@@ -564,16 +594,22 @@ rules:
   - RULE-SET,direct,DIRECT
 
   - RULE-SET,proxy,Proxy
-  - RULE-SET,meta_geosite-apple-intelligence,Proxy
 
-  - RULE-SET,meta_geosite-category-companies@cn,DIRECT
-  - RULE-SET,meta_geosite-geolocation-cn,DIRECT
+  ## MetaCubeX Domain Rules Start ##
+  - RULE-SET,meta_geosite-apple-intelligence,Proxy
+  - RULE-SET,meta_geosite-category-ai-!cn,Proxy
+
+  - RULE-SET,meta_geosite-apple,DIRECT
+  - RULE-SET,meta_geosite-category-automobile-cn,DIRECT
   - RULE-SET,meta_geosite-category-cdn-!cn@cn,DIRECT
-  - RULE-SET,meta_geosite-category-games-!cn@cn,DIRECT
-  - RULE-SET,meta_geosite-category-game-platforms-download,DIRECT
+  - RULE-SET,meta_geosite-category-companies@cn,DIRECT
   - RULE-SET,meta_geosite-category-finance,DIRECT
-  - RULE-SET,meta_geosite-category-public-tracker,DIRECT
+  - RULE-SET,meta_geosite-category-game-platforms-download,DIRECT
+  - RULE-SET,meta_geosite-category-games-!cn@cn,DIRECT
   - RULE-SET,meta_geosite-category-pt,DIRECT
+  - RULE-SET,meta_geosite-category-public-tracker,DIRECT
+  - RULE-SET,meta_geosite-geolocation-cn,DIRECT
+  - RULE-SET,meta_geosite-microsoft,DIRECT
   - RULE-SET,meta_geosite-tracker,DIRECT
 
   - RULE-SET,meta_geosite-category-games-!cn,Proxy
@@ -581,21 +617,27 @@ rules:
   - RULE-SET,meta_geosite-geolocation-!cn,Proxy
 
   - RULE-SET,meta_geosite-cn,DIRECT
+  ## MetaCubeX domain rules End ##
+
   - DOMAIN-SUFFIX,cn,DIRECT
 
+  ## IP Rules
   - RULE-SET,reject_ip,REJECT,no-resolve
 
   - RULE-SET,proxy_ip,Proxy,no-resolve
   - RULE-SET,Anti-attribution-ip,anit-select,no-resolve
+
+  ## MetaCubeX IP Rules Start ##
+  - RULE-SET,meta_geoip-facebook,Proxy,no-resolve
+  - RULE-SET,meta_geoip-netflix,Proxy,no-resolve
   - RULE-SET,meta_geoip-telegram,Proxy,no-resolve
   - RULE-SET,meta_geoip-twitter,Proxy,no-resolve
-  - RULE-SET,meta_geoip-netflix,Proxy,no-resolve
-  - RULE-SET,meta_geoip-facebook,Proxy,no-resolve
 
-  - RULE-SET,meta_geoip-fastly,DIRECT,no-resolve
   - RULE-SET,meta_geoip-cloudflare,DIRECT,no-resolve
   - RULE-SET,meta_geoip-cloudfront,DIRECT,no-resolve
+  - RULE-SET,meta_geoip-fastly,DIRECT,no-resolve
+  - RULE-SET,meta_geoip-cn,DIRECT,no-resolve
+  ## MetaCubeX IP Rules End ##
 
   - RULE-SET,direct_ip,DIRECT,no-resolve
-  - RULE-SET,meta_geoip-cn,DIRECT,no-resolve
   - MATCH,Proxy
