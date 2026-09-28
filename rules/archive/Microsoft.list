@@ -57,6 +57,7 @@ officeclient.microsoft.com
 +.sharepoint.com
 +.skype.com
 +.cdn.office.net
+apis.live.net
 
 # Microsoft App
 +.microsoftapp.net
@@ -109,4 +110,3 @@ uhf.microsoft.com
 cspv2.core.microsoft
 +.static.microsoft
 +.microsofttaik.azure.net
-apis.live.net
