@@ -1,0 +1,51 @@
+name: Update PCDN Domain List
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch and Process Rules
+        run: |
+          mkdir -p REJECT/domain/
+
+          curl -sSL https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt | awk -F',' '
+            /^#/ || /^$/ { next }
+            /7h15\.ru1353t\.1s\.m4d3\.by\.5ukk4w\.skk\.moe/ { next }
+            $1 == "DOMAIN" { print $2 }
+            $1 == "DOMAIN-SUFFIX" { print "+." $2 }
+          ' > REJECT/domain/PCDN.list
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update PCDN.list domain rules"
+          title: "chore: 自动更新 PCDN.list 域名规则"
+          body: |
+            自动化 Workflow 从 https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt 提取并转换了最新的 PCDN 域名列表。
+            
+            - 剔除了 `#` 开头的注释
+            - 剔除了测试校验域名 `7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe`
+            - 剔除了不兼容的 `DOMAIN-KEYWORD` 和 `DOMAIN-WILDCARD`
+            - 格式转化：`DOMAIN` -> `domain`，`DOMAIN-SUFFIX` -> `+.domain`
+          branch: update-pcdn-list
+          base: main
+          delete-branch: true
