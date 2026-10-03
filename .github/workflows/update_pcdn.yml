@@ -6,7 +6,6 @@ on:
       - main
   schedule:
     - cron: '0 0 * * 0'
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,7 +27,7 @@ jobs:
 
           curl -sSL https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt | awk -F',' '
             /^#/ || /^$/ { next }
-            /7h15\.ru1353t\.1s\.m4d3\.by\.5ukk4w\.skk\.moe/ { next }
+            /by\.5ukk4w\.skk\.moe/ { next }
             $1 == "DOMAIN" { print $2 }
             $1 == "DOMAIN-SUFFIX" { print "+." $2 }
           ' > rules/REJECT/domain/PCDN.list
