@@ -31,7 +31,7 @@ jobs:
             /7h15\.ru1353t\.1s\.m4d3\.by\.5ukk4w\.skk\.moe/ { next }
             $1 == "DOMAIN" { print $2 }
             $1 == "DOMAIN-SUFFIX" { print "+." $2 }
-          ' > REJECT/domain/PCDN.list
+          ' > rules/REJECT/domain/PCDN.list
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
