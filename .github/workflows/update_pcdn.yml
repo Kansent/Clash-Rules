@@ -39,7 +39,6 @@ jobs:
             自动化 Workflow 从 https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt 提取并转换了最新的 PCDN 域名列表。
             
             - 剔除了 `#` 开头的注释
-            - 剔除了测试校验域名 `7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe`
             - 剔除了不兼容的 `DOMAIN-KEYWORD` 和 `DOMAIN-WILDCARD`
             - 格式转化：`DOMAIN` -> `domain`，`DOMAIN-SUFFIX` -> `+.domain`
           branch: update-pcdn-list
