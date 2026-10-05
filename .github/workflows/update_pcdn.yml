@@ -1,9 +1,6 @@
 name: Update PCDN Domain List
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '0 0 * * 0'
 
@@ -30,7 +27,7 @@ jobs:
             /by\.5ukk4w\.skk\.moe/ { next }
             $1 == "DOMAIN" { print $2 }
             $1 == "DOMAIN-SUFFIX" { print "+." $2 }
-          ' > rules/REJECT/domain/PCDN.list
+          ' | sort -u > rules/REJECT/domain/PCDN.list
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
