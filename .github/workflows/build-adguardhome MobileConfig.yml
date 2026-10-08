@@ -122,13 +122,15 @@ jobs:
           if [ -f "output/reject.txt" ]; then
             mkdir -p deploy_agh
             cp output/reject.txt deploy_agh/
-            cd deploy_agh
-            git init
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add .
-            git commit -m "build: auto generate adguardhome reject rules"
-            git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:adguardhome
+            (
+              cd deploy_agh
+              git init
+              git config user.name "github-actions[bot]"
+              git config user.email "github-actions[bot]@users.noreply.github.com"
+              git add .
+              git commit -m "build: auto generate adguardhome reject rules"
+              git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:adguardhome
+            )
           else
             echo "No reject file found, skip AGH deployment."
           fi
@@ -184,13 +186,15 @@ jobs:
           if [ -f "output/reject.mobileconfig" ]; then
             mkdir -p deploy_ios
             cp output/reject.mobileconfig deploy_ios/
-            cd deploy_ios
-            git init
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add .
-            git commit -m "build: auto generate ios reject mobileconfig"
-            git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:ios-config
+            (
+              cd deploy_ios
+              git init
+              git config user.name "github-actions[bot]"
+              git config user.email "github-actions[bot]@users.noreply.github.com"
+              git add .
+              git commit -m "build: auto generate ios reject mobileconfig"
+              git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:ios-config
+            )
           else
             echo "No mobileconfig file found, skip iOS deployment."
           fi
