@@ -27,16 +27,38 @@ jobs:
         run: |
           python scripts/generate_mobileconfig.py rules/REJECT/domain reject.mobileconfig
 
-      - name: Deploy Only Artifact to ios-config Branch
+      - name: Deploy to gh-pages Branch
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
-          git checkout --orphan ios-config
-          
+          git checkout --orphan gh-pages
           git rm -rf .
-          
           git add reject.mobileconfig
           
-          git commit -m "build: update ios reject mobileconfig profile [skip ci]"
-          git push origin ios-config --force
+          cat << 'EOF' > index.html
+          <!DOCTYPE html>
+          <html lang="zh-CN">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>安装 Reject 描述文件</title>
+            <style>
+              body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f2f2f7; }
+              .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; max-width: 80%; }
+              a.btn { display: inline-block; margin-top: 20px; padding: 12px 24px; background: #007aff; color: white; text-decoration: none; border-radius: 12px; font-weight: bold; }
+            </style>
+          </head>
+          <body>
+            <div class="card">
+              <h2>iOS 规则描述文件</h2>
+              <p>点击下方按钮直接下载并安装配置文件：</p>
+              <a class="btn" href="reject.mobileconfig">点击安装描述文件</a>
+            </div>
+          </body>
+          </html>
+          EOF
+
+          git add index.html
+          git commit -m "build: update ios reject mobileconfig profile and page [skip ci]"
+          git push origin gh-pages --force
