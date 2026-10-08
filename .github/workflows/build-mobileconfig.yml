@@ -27,18 +27,16 @@ jobs:
         run: |
           python scripts/generate_mobileconfig.py rules/REJECT/domain reject.mobileconfig
 
-      - name: Commit and Push to ios-config Branch
+      - name: Deploy Only Artifact to ios-config Branch
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
-          git checkout -B ios-config
+          git checkout --orphan ios-config
+          
+          git rm -rf .
           
           git add reject.mobileconfig
           
-          if git diff --staged --quiet; then
-            echo "No changes in mobileconfig file."
-          else
-            git commit -m "build: update ios reject mobileconfig profile [skip ci]"
-            git push origin ios-config --force
-          fi
+          git commit -m "build: update ios reject mobileconfig profile [skip ci]"
+          git push origin ios-config --force
