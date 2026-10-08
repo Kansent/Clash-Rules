@@ -138,44 +138,46 @@ jobs:
       - name: Build MobileConfig (iOS Rules)
         run: |
           if [ -f "output/domains.tmp" ]; then
-            python3 -c 'import uuid
-import plistlib
+            cat << 'PYEOF' > generate_mobileconfig.py
+          import uuid
+          import plistlib
 
-domains = []
-with open("output/domains.tmp", "r", encoding="utf-8") as f:
-    for line in f:
-        d = line.strip()
-        if d:
-            domains.append(f".{d}" if not d.startswith(".") else d)
+          domains = []
+          with open("output/domains.tmp", "r", encoding="utf-8") as f:
+              for line in f:
+                  d = line.strip()
+                  if d:
+                      domains.append(f".{d}" if not d.startswith(".") else d)
 
-plist_data = {
-    "PayloadContent": [
-        {
-            "DNSSettings": {
-                "DNSProtocol": "Cleartext",
-                "ServerAddresses": ["223.5.5.5", "119.29.29.29"],
-                "SupplementalMatchDomains": domains
-            },
-            "PayloadIdentifier": "com.kansent.reject.dns",
-            "PayloadType": "com.apple.dnsSettings.managed",
-            "PayloadUUID": str(uuid.uuid4()).upper(),
-            "PayloadVersion": 1
-        }
-    ],
-    "PayloadDisplayName": "Kansent Reject Rules",
-    "PayloadIdentifier": "com.kansent.reject.profile",
-    "PayloadOrganization": "Kansent",
-    "PayloadRemovalDisallowed": False,
-    "PayloadType": "Configuration",
-    "PayloadUUID": str(uuid.uuid4()).upper(),
-    "PayloadVersion": 1
-}
+          plist_data = {
+              "PayloadContent": [
+                  {
+                      "DNSSettings": {
+                          "DNSProtocol": "Cleartext",
+                          "ServerAddresses": ["223.5.5.5", "119.29.29.29"],
+                          "SupplementalMatchDomains": domains
+                      },
+                      "PayloadIdentifier": "com.kansent.reject.dns",
+                      "PayloadType": "com.apple.dnsSettings.managed",
+                      "PayloadUUID": str(uuid.uuid4()).upper(),
+                      "PayloadVersion": 1
+                  }
+              ],
+              "PayloadDisplayName": "Kansent Reject Rules",
+              "PayloadIdentifier": "com.kansent.reject.profile",
+              "PayloadOrganization": "Kansent",
+              "PayloadRemovalDisallowed": False,
+              "PayloadType": "Configuration",
+              "PayloadUUID": str(uuid.uuid4()).upper(),
+              "PayloadVersion": 1
+          }
 
-with open("output/reject.mobileconfig", "wb") as f:
-    plistlib.dump(plist_data, f, fmt=plistlib.FMT_XML)
+          with open("output/reject.mobileconfig", "wb") as f:
+              plistlib.dump(plist_data, f, fmt=plistlib.FMT_XML)
 
-print(f"Successfully generated reject.mobileconfig with {len(domains)} match domains.")
-'
+          print(f"Successfully generated reject.mobileconfig with {len(domains)} match domains.")
+          PYEOF
+            python3 generate_mobileconfig.py
           else
             echo "No domain list found, skipping mobileconfig generation."
           fi
