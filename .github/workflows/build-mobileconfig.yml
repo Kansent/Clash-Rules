@@ -1,0 +1,44 @@
+name: Generate iOS Mobileconfig Profile
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'rules/REJECT/domain/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+
+      - name: Generate Mobileconfig
+        run: |
+          python scripts/generate_mobileconfig.py rules/REJECT/domain reject.mobileconfig
+
+      - name: Commit and Push to ios-config Branch
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          git checkout -B ios-config
+          
+          git add reject.mobileconfig
+          
+          if git diff --staged --quiet; then
+            echo "No changes in mobileconfig file."
+          else
+            git commit -m "build: update ios reject mobileconfig profile [skip ci]"
+            git push origin ios-config --force
+          fi
