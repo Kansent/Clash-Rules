@@ -1,4 +1,4 @@
-name: Build AdGuard Home Rules
+name: Build AdGuard Home Rules and MobileConfig (iOS Rules)
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
 
       - name: Convert Reject Domain Rules to AdGuard Home Format
         run: |
-          mkdir -p agh_output
+          mkdir -p output
           
           python3 -c '
           import os
@@ -30,14 +30,14 @@ jobs:
           import ipaddress
 
           RULES_DIR = "rules"
-          OUTPUT_FILE = "agh_output/reject.txt"
+          OUTPUT_FILE = "output/reject.txt"
           
           UPSTREAM_URLS = [
               "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/httpdns.list",
               "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.list"
           ]
 
-          agh_domains = set()
+          raw_domains = set()
 
           def is_valid_ip(target):
               try:
@@ -46,13 +46,13 @@ jobs:
               except ValueError:
                   return False
 
-          def process_raw_line(line):
+          def extract_domain(line):
               line = line.strip()
               if not line or line.startswith("#") or line.startswith("keyword:"):
-                  return
+                  return None
 
               if line.upper().startswith("AS") and line[2:].isdigit():
-                  return
+                  return None
 
               if line.startswith("+."):
                   domain = line[2:]
@@ -62,13 +62,15 @@ jobs:
                   domain = line
 
               domain = domain.strip()
-              if not domain:
-                  return
+              if not domain or is_valid_ip(domain):
+                  return None
 
-              if is_valid_ip(domain):
-                  return
+              return domain
 
-              agh_domains.add(f"||{domain}^")
+          def process_raw_line(line):
+              domain = extract_domain(line)
+              if domain:
+                  raw_domains.add(domain)
 
           def fetch_and_process_url(url):
               print(f"--> [Remote Upstream] Fetching from {url}...")
@@ -95,26 +97,32 @@ jobs:
                               for line in f:
                                   process_raw_line(line)
 
-          if agh_domains:
+          if raw_domains:
+              agh_rules = [f"||{d}^" for d in sorted(raw_domains)]
               with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
                   f.write("! Title: Reject Domain Rules for AdGuard Home\n")
                   f.write("! Homepage: https://github.com/" + os.getenv("GITHUB_REPOSITORY", "") + "\n")
-                  f.write("! Total Count: " + str(len(agh_domains)) + "\n")
+                  f.write("! Total Count: " + str(len(agh_rules)) + "\n")
                   f.write("! Upstream Sources:\n")
                   for url in UPSTREAM_URLS:
                       f.write(f"!   - {url}\n")
                   f.write("\n")
-                  f.write("\n".join(sorted(agh_domains)))
+                  f.write("\n".join(agh_rules))
                   f.write("\n")
-              print(f"Successfully generated {len(agh_domains)} domain rules to {OUTPUT_FILE}")
+              print(f"Successfully generated {len(agh_rules)} domain rules to {OUTPUT_FILE}")
+              
+              with open("output/domains.tmp", "w", encoding="utf-8") as f:
+                  f.write("\n".join(sorted(raw_domains)))
           else:
               print("No valid reject domain rules found!")
           '
 
       - name: Deploy to AdGuard Home Branch
         run: |
-          if [ -f "agh_output/reject.txt" ]; then
-            cd agh_output
+          if [ -f "output/reject.txt" ]; then
+            mkdir -p deploy_agh
+            cp output/reject.txt deploy_agh/
+            cd deploy_agh
             git init
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -122,5 +130,67 @@ jobs:
             git commit -m "build: auto generate adguardhome reject rules"
             git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:adguardhome
           else
-            echo "No reject file found, skip deployment."
+            echo "No reject file found, skip AGH deployment."
+          fi
+
+      - name: Build MobileConfig (iOS Rules)
+        run: |
+          if [ -f "output/domains.tmp" ]; then
+            python3 -c '
+            import uuid
+            import plistlib
+
+            domains = []
+            with open("output/domains.tmp", "r", encoding="utf-8") as f:
+                for line in f:
+                    d = line.strip()
+                    if d:
+                        domains.append(f".{d}" if not d.startswith(".") else d)
+
+            plist_data = {
+                "PayloadContent": [
+                    {
+                        "DNSSettings": {
+                            "DNSProtocol": "Cleartext",
+                            "ServerAddresses": ["223.5.5.5", "119.29.29.29"],
+                            "SupplementalMatchDomains": domains
+                        },
+                        "PayloadIdentifier": "com.kansent.reject.dns",
+                        "PayloadType": "com.apple.dnsSettings.managed",
+                        "PayloadUUID": str(uuid.uuid4()).upper(),
+                        "PayloadVersion": 1
+                    }
+                ],
+                "PayloadDisplayName": "Kansent Reject Rules",
+                "PayloadIdentifier": "com.kansent.reject.profile",
+                "PayloadOrganization": "Kansent",
+                "PayloadRemovalDisallowed": False,
+                "PayloadType": "Configuration",
+                "PayloadUUID": str(uuid.uuid4()).upper(),
+                "PayloadVersion": 1
+            }
+
+            with open("output/reject.mobileconfig", "wb") as f:
+                plistlib.dump(plist_data, f, fmt=plistlib.FMT_XML)
+
+            print(f"Successfully generated reject.mobileconfig with {len(domains)} match domains.")
+            '
+          else
+            echo "No domain list found, skipping mobileconfig generation."
+          fi
+
+      - name: Deploy to iOS Config Branch
+        run: |
+          if [ -f "output/reject.mobileconfig" ]; then
+            mkdir -p deploy_ios
+            cp output/reject.mobileconfig deploy_ios/
+            cd deploy_ios
+            git init
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "build: auto generate ios reject mobileconfig"
+            git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:ios-config
+          else
+            echo "No mobileconfig file found, skip iOS deployment."
           fi
