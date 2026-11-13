@@ -1,0 +1,12 @@
+gateway.icloud.com
+seed.siri.apple.com
+probe.icloud.com
+metrics.icloud.com
+guzzoni.apple.com
++.smoot.apple.com
+api-siri-prod.apple.com
+cp4.cloudflare.com
+mask-api.icloud.com
+mask-api.fe2.apple-dns.net
+apple-relay.akamaized.net
+apple-carry-relay.cloudflare.com
