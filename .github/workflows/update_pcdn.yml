@@ -2,7 +2,11 @@ name: Update PCDN Domain List
 
 on:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
+
+concurrency:
+  group: rule-lists-maintenance
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -22,12 +26,27 @@ jobs:
         run: |
           mkdir -p rules/REJECT/domain/
 
-          curl -sSL https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt | awk -F',' '
-            /^#/ || /^$/ { next }
+          curl -fsSL https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt | awk -F',' '
+            { gsub(/\r$/, "") }
+            /^#/ || /^[[:space:]]*$/ { next }
             /by\.5ukk4w\.skk\.moe/ { next }
-            $1 == "DOMAIN" { print $2 }
-            $1 == "DOMAIN-SUFFIX" { print "+." $2 }
-          ' | sort -u > rules/REJECT/domain/PCDN.list
+            {
+              gsub(/^[[:space:]]+|[[:space:]]+$/, "", $1)
+              gsub(/^[[:space:]]+|[[:space:]]+$/, "", $2)
+            }
+            $1 == "DOMAIN" && $2 != "" { print $2 }
+            $1 == "DOMAIN-SUFFIX" && $2 != "" { print "+." $2 }
+          ' > rules/REJECT/domain/PCDN.list
+
+          python3 -c '
+          from pathlib import Path
+          from scripts.sort_rules import sort_list_file_content
+
+          target = Path("rules/REJECT/domain/PCDN.list")
+          raw = target.read_text(encoding="utf-8")
+          sorted_text = sort_list_file_content(raw, bottom_category_name="Unknown")
+          target.write_text(sorted_text, encoding="utf-8", newline="\n")
+          '
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
@@ -36,11 +55,12 @@ jobs:
           commit-message: "chore: update PCDN.list domain rules"
           title: "chore: 自动更新 PCDN.list 域名规则"
           body: |
-            自动化 Workflow 从 https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt 提取并转换了最新的 PCDN 域名列表。
-            
-            - 剔除了 `#` 开头的注释
-            - 剔除了不兼容的 `DOMAIN-KEYWORD` 和 `DOMAIN-WILDCARD`
-            - 格式转化：`DOMAIN` -> `domain`，`DOMAIN-SUFFIX` -> `+.domain`
+            自动化 Workflow 从 https://ruleset.skk.moe/Clash/non_ip/reject-no-drop.txt 提取并转换了最新的 PCDN 域名列表，并按 `sort_rules.py` 规则完成排序。
+
+            - 剔除了 `#` 开头的注释与空行
+            - 过滤了 `by.5ukk4w.skk.moe`
+            - 转换 `DOMAIN` -> `domain`、`DOMAIN-SUFFIX` -> `+.domain`
+            - 按反转域名段升序统一排序
           branch: update-pcdn-list
           base: main
           delete-branch: true
